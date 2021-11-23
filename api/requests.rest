@@ -1,5 +1,6 @@
 GET http://localhost:3001/prueba HTTP/1.1
 ###
+
 POST http://localhost:3001/Profile 
 Content-Type: application/json
 
@@ -10,10 +11,10 @@ Content-Type: application/json
     "institution":"Henry"
 
 }
-# ###
-# POST http://localhost:3001/Institution 
-# Content-Type: application/json
+###
+POST http://localhost:3001/Institution 
+Content-Type: application/json
 
-# {
-#     "name": "Henry"
-# }
+{
+    "name": "Henry"
+}

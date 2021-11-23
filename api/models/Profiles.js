@@ -31,9 +31,10 @@ const ProfileSchema = new Schema({
         type: Boolean,
         required: true,
         default: false
-    }, 
-    // table: Number,
-    // group: Number,
+    },
+    img: String,
+    table: Number,
+    group: Number,
 
 
 }, {collection: "profiles"});
@@ -45,3 +46,5 @@ ProfileSchema.methods.scores = function (){
 const Profile = mongoose.model("Profile", ProfileSchema);
 
 module.exports = Profile;
+
+
