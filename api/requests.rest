@@ -1,8 +1,20 @@
 GET http://localhost:3001/prueba HTTP/1.1
 ###
-POST http://localhost:3001/usuario 
+
+POST http://localhost:3001/Profile 
 Content-Type: application/json
 
 {
-    "name": "franco"
+    "name": "Lautaro",
+    "country": "Argentina",
+    "email": "Lautaro@hotmail.com.ar",
+    "institution":"Henry"
+
+}
+###
+POST http://localhost:3001/Institution 
+Content-Type: application/json
+
+{
+    "name": "Henry"
 }

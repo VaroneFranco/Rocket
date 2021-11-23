@@ -7,6 +7,10 @@ const cookieparser = require('cookie-parser');
 const dotenv = require("dotenv")
 const axios = require("axios")
 const {DB_PASSWORD} = process.env
+const Profile = require("./models/Profiles.js")
+const Institution = require("./models/Institution.js")
+const routes = require('./routes/index')
+
 //RocketAppFranco
 //${DB_PASSWORD}
 
@@ -19,34 +23,14 @@ mongoose.connect(`mongodb+srv://apiAdmin:RocketAppFranco@rocketapp.rnqqh.mongodb
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 }).then(() => console.log("Connected to MongoDB")).catch(console.error);
-const Profile = require("./models/Profiles.js")
 
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieparser());
+app.use('/', routes)
 
 app.listen(3001, ()=>{
   console.log("Conected to 3001")
 })
 
-app.get('/risa', async (req, res)=>{
-
-  var usuario= await Profile.find()
-  res.send("Otro cambio de prueba de Lauuu ")
-})
-
-
-app.get('/prueba', async (req, res)=>{
-
-  var usuario= await Profile.find()
-  res.send(usuario)
-})
-
-app.post("/usuario", async(req ,res)=>{
-  var newProfile = await new Profile({
-      name: req.body.name
-  })
-  newProfile.save();
-  res.send(newProfile)
-})

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter, Route} from "react-router-dom";
 import './App.css';
 import {LandingPage, Register, NavBar} from "./components/index"
@@ -14,6 +15,7 @@ function App() {
       </div>
     </BrowserRouter>
   )}
+
 
 
 export default App
