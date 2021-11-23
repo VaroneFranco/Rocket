@@ -1,14 +1,21 @@
 import React from 'react';
-import {LandingPage} from "./components/index"
-import Register from './components/Register/Register';
+
+import { BrowserRouter, Route} from "react-router-dom";
 import './App.css';
+import {LandingPage, Register, NavBar} from "./components/index"
 
-const App =()=> {
+
+function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
+        <Route path="/" component={NavBar}/>
+        <Route path="/login" component={LandingPage}/>
+        <Route path="/signup" component={Register}/>
+      </div>
+    </BrowserRouter>
+  )}
 
-    </div>
-  );
-};
 
-export default App;
+
+export default App
