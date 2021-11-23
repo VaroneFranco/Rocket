@@ -1,3 +1,6 @@
+input:focus, textarea:focus{
+    outline: none;
+}
 .mainContainer{
     width: 100%;
     height: 89.5vh;
@@ -45,6 +48,7 @@
     position: left;
     padding-left: 32px;
 }
+
 .formContainer>form>button{
     width: 19%;
     height: 2.3rem;
@@ -83,4 +87,14 @@ form>.repeatPass{
 .imgContainer>p{
     position: absolute;
     bottom: 21%;
+}
+
+.formContainer>form>button:hover  {
+    cursor: pointer;
+    background: #7c40ca;
+}
+
+.formContainer>form>button:active, .formContainer>form>button:focus {
+    box-shadow: inset 0 0 6px 0 #222;
+    background: #7c40ca;
 }
