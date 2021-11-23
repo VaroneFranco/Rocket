@@ -7,6 +7,8 @@ const cookieparser = require('cookie-parser');
 const dotenv = require("dotenv")
 const axios = require("axios")
 const {DB_PASSWORD} = process.env
+const {Profile} = require("./models/Profiles.js")
+const {Institution} = require("./models/Institution.js")
 //RocketAppFranco
 //${DB_PASSWORD}
 
@@ -19,7 +21,6 @@ mongoose.connect(`mongodb+srv://apiAdmin:RocketAppFranco@rocketapp.rnqqh.mongodb
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 }).then(() => console.log("Connected to MongoDB")).catch(console.error);
-const Profile = require("./models/Profiles.js")
 
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
@@ -43,10 +44,22 @@ app.get('/prueba', async (req, res)=>{
   res.send(usuario)
 })
 
-app.post("/usuario", async(req ,res)=>{
+app.post("/Profile", async(req ,res)=>{
   var newProfile = await new Profile({
-      name: req.body.name
+      name: req.body.name,
+      email: req.body.email,
+      country: req.body.country,
+      institution: req.body.institution,
   })
   newProfile.save();
   res.send(newProfile)
+})
+
+
+app.post("/Institution", async(req ,res)=>{
+  var newInstitution = await new Institution({
+      name: req.body.name
+  })
+  // newInstitution.save();
+  res.send(newInstitution)
 })
