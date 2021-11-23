@@ -1,18 +1,24 @@
 import React from 'react';
+
+import './App.css';
+import {LandingPage} from "./components/index"
+import Register from './components/Register/Register';
+
+function App() {
+  return (
+    <div className="App">
+      
+    </div>
+=======
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import { LandingPage, NavBar } from "./components/index";
 import './App.css';
 
 function App() {
   return (
-    // <BrowserRouter>
-      <div className="App">
-        {/* <Switch>
-         <Route path = "/" component = { NavBar } />
-        </Switch> */}
-      </div>
-    // </BrowserRouter> 
+    <div>
+    </div>
   );
 };
-// antes de pushear, retornar SOLO el Div vacío, borrar rutas.
+
 export default App;
