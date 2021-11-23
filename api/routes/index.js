@@ -9,11 +9,21 @@ const axios = require('axios')
 
 const router = Router();
 
-router.get('/risa', async (req, res) => {
-
-    var usuario = await Profile.find()
-    res.send("Otro cambio de prueba de Lauuu ")
-})
+router.put('/user/changes', async(req, res)=>{
+    const{id, new_country, new_name, new_email, new_img}=req.body;
+    await Profile.findOneAndUpdate({"_id":id},
+   {
+     "$set":{
+       "country": new_country,"name": new_name, "email":new_email, "img":new_img
+     },
+     new:true
+   },
+   async (err, result)=>{
+     if (result) return res.send(await Profile.findOne({_id:id}))
+     if (err) return res.send(console.log(err));
+   })
+    
+  })
 
 
 router.get('/prueba', async (req, res) => {
