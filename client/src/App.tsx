@@ -7,9 +7,9 @@ import Register from './components/Register/Register';
 function App() {
   return (
     <div className="App">
-      
+
     </div>
-=======
+
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import { LandingPage, NavBar } from "./components/index";
 import './App.css';
