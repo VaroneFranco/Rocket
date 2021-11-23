@@ -1,0 +1,8 @@
+GET http://localhost:3001/prueba HTTP/1.1
+###
+POST http://localhost:3001/usuario 
+Content-Type: application/json
+
+{
+    "name": "franco"
+}
