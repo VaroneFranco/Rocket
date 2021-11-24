@@ -1,3 +1,5 @@
+@import '../../vars.css';
+
 .home__container {
     display: flex;
     margin-top: 2%;
@@ -9,9 +11,9 @@
     height: 80vh;
     background-image: radial-gradient(
       circle at 120.71% 50%,
-      #ffaa4c 0,
-      #ffaa4c 50%,
-      #ffaa4c 100%
+      var(--main-color) 0,
+      var(--main-color) 50%,
+      var(--main-color) 100%
     );
     box-shadow: 0 0 3px 0 #222;
     border-radius: 20px;
