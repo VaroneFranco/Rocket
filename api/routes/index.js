@@ -3,7 +3,7 @@ const Profile = require("../models/Profiles")
 const Institution = require("../models/Institution")
 
 //funciones de encriptado y desencriptado
-const {encrypt, decrypt} = require('./utils');
+const {encrypt} = require('./utils');
 
 
 
@@ -25,6 +25,7 @@ router.put('/user/changes', async (req, res) => {
     })
 
 })
+
 
 router.get('/prueba', async (req, res) => {
 
@@ -50,7 +51,7 @@ router.post("/profile", async (req, res) => {
 })
 
 
-router.post("/Institution", async (req, res) => {
+router.post("/institution", async (req, res) => {
   var newInstitution = await new Institution({
     name: req.body.name
   })
