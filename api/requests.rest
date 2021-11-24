@@ -16,5 +16,5 @@ POST http://localhost:3001/Institution
 Content-Type: application/json
 
 {
-    "name": "Henry"
+    "name": "Henryyyyy"
 }
