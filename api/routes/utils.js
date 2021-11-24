@@ -4,16 +4,14 @@ const Institution = require("../models/Institution");
 // enviroment key
 const { KEY_HASH } = process.env;
 
-const encryptation = {
+
   //usarlo en el create del usuario, pasarle su pass de body
   //y en el log in para chequear el mismo con lo que ya estará en db del user
-  encrypt: function (pass) {
+const encrypt = (pass) => {
     var crypted = CryptoJS.SHA3(pass, KEY_HASH);
     crypted = crypted.toString();
     return crypted;
-  },
-};
-
+}
 //Post nueva institucion
 async function postInstitution({ name }) {
   try {
@@ -29,6 +27,6 @@ async function postInstitution({ name }) {
 }
 
 module.exports = {
-  encryptation,
+  encrypt,
   postInstitution,
 };
