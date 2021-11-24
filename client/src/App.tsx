@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Route} from "react-router-dom";
 import './App.css';
-import {LandingPage, Register, NavBar} from "./components/index"
+import {LandingPage, Register, NavBar, Profile} from "./components/index"
 
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         <Route path="/" component={NavBar}/>
         <Route path="/login" component={LandingPage}/>
         <Route path="/signup" component={Register}/>
+        <Route path="/profile" component={Profile}/>
       </div>
     </BrowserRouter>
   )}
