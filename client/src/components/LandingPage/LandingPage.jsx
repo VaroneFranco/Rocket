@@ -44,14 +44,14 @@ function LandingPage() {
               <img
                 src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2021/08/pngwing.com_.png"
                 alt="Google"
-                width="80px"
-                height="80px"
+                width="50px"
+                height="50px"
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                 alt="Github"
-                width="80px"
-                height="80px"
+                width="50px"
+                height="50px"
               />
             </div>
         </div>

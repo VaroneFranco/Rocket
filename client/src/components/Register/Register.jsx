@@ -6,7 +6,6 @@ function Register() {
             <div className={s.container}>
                 <div className={s.formContainer}>
                     
-                    
                     <form action="">
                         <h2>Sign up</h2>
                         <input className={s.fullname} type="text" placeholder='Full Name'/>
@@ -20,9 +19,9 @@ function Register() {
 
                 <div className={s.imgContainer}>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/768px-Creative-Tail-rocket.svg.png" alt="rocket" width="90%"/>
-                    <p>
-                        The sky is not the limit <br/>
-                        is just the beginning
+                    <p className={s.parrafo}>
+                        <strong>The sky is not the limit <br/>
+                        is just the beginning...</strong>
                     </p>
                 </div>
             </div>

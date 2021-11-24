@@ -86,7 +86,7 @@ form>.repeatPass{
 }
 .imgContainer>p{
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
 }
 
 .formContainer>form>button:hover  {
@@ -97,4 +97,8 @@ form>.repeatPass{
 .formContainer>form>button:active, .formContainer>form>button:focus {
     box-shadow: inset 0 0 6px 0 #222;
     background: #7c40ca;
+}
+
+.parrafo {
+    font-style: italic;
 }

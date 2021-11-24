@@ -6,7 +6,7 @@
     width: 100%;
     background: #ffab4c;
     top: 0;
-    box-shadow: 0 0 18px 0 #3338;
+    box-shadow: 0 0 10px 0 #222;
 }
 
 .navbar__logo {
@@ -34,7 +34,7 @@
 }
 
 .navbar__boton_violeta  {
-    margin-left: 2px;
+    margin-left: 5.2px;
     height: 32px;
     width: 80px;
     border: none;

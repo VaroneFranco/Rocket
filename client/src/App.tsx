@@ -1,11 +1,9 @@
 import React from 'react';
-
 import { BrowserRouter, Route} from "react-router-dom";
+import {LandingPage, Register, NavBar} from "./components/index";
 import './App.css';
-import {LandingPage, Register, NavBar} from "./components/index"
 
-
-function App() {
+const App =()=> {
   return (
     <BrowserRouter>
       <div className="App">
@@ -14,8 +12,7 @@ function App() {
         <Route path="/signup" component={Register}/>
       </div>
     </BrowserRouter>
-  )}
+  );
+};
 
-
-
-export default App
+export default App;
