@@ -3,8 +3,7 @@ input:focus, textarea:focus{
 }
 .mainContainer{
     width: 100%;
-    height: 89.5vh;
-    background-color:#F6F6F6 ;
+    height: 88vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,16 +76,20 @@ form>.repeatPass{
 }
 
 .imgContainer{
+    position: relative;
+    top: -35px;
     width: 35% ;
-    height: 100%;
+    height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 5%;
+    cursor: none;
+    user-select: none;
 }
 .imgContainer>p{
     position: absolute;
-    bottom: 10%;
+    bottom: 1%;
 }
 
 .formContainer>form>button:hover  {
