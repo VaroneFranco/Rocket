@@ -36,22 +36,49 @@ router.get('/prueba', async (req, res) => {
   res.send(usuario)
 })
 
-router.post('/profile', async (req, res) => {
-  const { password } = req.body.password
-  const crypted = await encrypt(password)
 
-  var newProfile = await new Profile({
-    name: req.body.name,
-    email: req.body.email,
-    country: req.body.country,
-    institution: req.body.institution,
-    password: crypted,
-  })
-  newProfile.save()
-  res.send(newProfile)
+//Ruta provisoria para que el front pruebe los sign up de usuarios
+router.post("/signup", async (req, res) => {
+  try {
+    const password = req.body.password;
+    // const crypted = await encrypt(password);
+    
+    const crypted = encrypt(password);
+    
+
+    var newProfile = await new Profile({
+      name: req.body.name,
+      email: req.body.email,
+      country: req.body.country,
+      institution: req.body.institution,
+      password: crypted,
+    });
+    newProfile.save();
+    res.send(newProfile);
+  } catch (err) {
+    console.log("Los campos requeridos son name, password, email, country, institución")
+  }
+});
+
+
+//Ruta provisoria para que validen sign in de usuarios
+
+router.get("/signin", async (req, res) => {
+  let { email, password } = req.body
+
+  let profile = await Profile.findOne({ email: email })
+
+  if (encrypt(password) == profile.password) {
+    res.send("Access granted")
+  }
+  else {
+    res.send("Access Denied")
+  }
+
 })
 
-router.post('/institution', async (req, res) => {
+router.post("/institution", async (req, res) => {
+
   if (!req.body.name) {
     res.status(404).send('The name of Institution is required')
   }

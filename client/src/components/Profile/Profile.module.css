@@ -1,0 +1,114 @@
+input:focus,
+textarea:focus {
+  outline: none;
+}
+.mainContainer {
+  width: 100%;
+  height: 88vh;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background-image: radial-gradient(
+    circle at 120.71% 50%,
+    #ffaa4c 0,
+    #ffaa4c 50%,
+    #ffaa4c 100%
+  );
+  border-radius: 20px;
+  width: 80%;
+  height: 80vh;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 70%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.formContainer > select {
+  width: 50%;
+  height: 6.5vh;
+  border-radius: 20px;
+  background-color: #fcfcfc;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.25);
+  border: #fcfcfc solid 2px;
+  border: none;
+  outline: none;
+}
+
+.formContainer > select > option {
+  width: 100%;
+  height: 6.5vh;
+  border-radius: 20px;
+  background-color: #fcfcfc;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.25);
+  border: #fcfcfc solid 2px;
+  border: none;
+  outline: none;
+}
+
+.dataContainer {
+  width: 50%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2%;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  flex-direction: column;
+  border-radius: 20px;
+  background: #f1f1f1;
+  overflow: auto;
+  flex-wrap: nowrap;
+}
+
+.dataContainer > p {
+  position: absolute;
+  bottom: 15%;
+}
+
+.dataContainer > input {
+  width: 50%;
+  height: 6.5vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 5px 4px 10px 1px rgba(0, 0, 0, 0.25);
+  border: #fcfcfc solid 2px;
+  border: none;
+  outline: none;
+  padding: 4px;
+  margin: 20px;
+}
+
+.dataContainer > input > #description {
+  width: 50%;
+  height: 78.5vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 5px 4px 10px 1px rgba(0, 0, 0, 0.25);
+  border: #fcfcfc solid 2px;
+  border: none;
+  outline: none;
+  padding: 4px;
+  margin: 20px;
+}
+
+.form_group {
+  display: flex;
+  align-content: center;
+  width: 38vh;
+  justify-content: center;
+  margin: 0px;
+  font-size: 1.5vh;
+}
