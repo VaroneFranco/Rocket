@@ -1,13 +1,10 @@
 const { Router, application } = require('express');
 const Profile = require("../models/Profiles")
 const Institution = require("../models/Institution")
-//librería de encriptación
-const CryptoJS = require("crypto-js");
-//key de encriptado y desencriptado
-const { KEY_HASH } = process.env;
+
 //funciones de encriptado y desencriptado
-const { encrypt, decrypt } = require('./utils.js')
-const axios = require('axios')
+const {encrypt, decrypt} = require('./utils');
+
 
 
 const router = Router();
@@ -38,8 +35,8 @@ router.get('/prueba', async (req, res) => {
 
 
 router.post("/profile", async (req, res) => {
-  const password = req.body.password
-  const crypted = encrypt(password)
+  const {password} = req.body.password
+  const crypted = await encrypt(password)
 
   var newProfile = await new Profile({
     name: req.body.name,

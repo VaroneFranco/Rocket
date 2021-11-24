@@ -1,16 +1,33 @@
+const { Router, application } = require('express');
+const Profile = require("../models/Profiles")
+const Institution = require("../models/Institution")
+
+//funciones de encriptado y desencriptado
+const {encrypt, decrypt} = require('./utils');
 
 
-//usarlo en el create del usuario, pasarle su pass de body
-export function encrypt(pass) {
-    var crypted = CryptoJS.AES.encrypt(pass, KEY_HASH);
-    crypted = crypted.toString();
-    return crypted;
-  }
-  
-  
-  //usarlo en el log in del usuario, pasarle el pass crypto de la base de datos de ese usuario
-  export function decrypt(crypted) {
-    var decrypted = CryptoJS.AES.decrypt(crypted, KEY_HASH);
-    decrypted = decrypted.toString(CryptoJS.enc.Utf8);
-    return decrypted
-  }
+
+const router = Router();
+
+//ruta para cambios de perfil de user, si algo no se cambia, permanece el anterior :)
+router.put('/user/changes', async (req, res) => {
+  const { id, new_country, new_name, new_email, new_img } = req.body;
+  await Profile.findOneAndUpdate({ "_id": id },
+    {
+      "$set": {
+        "country": new_country, "name": new_name, "email": new_email, "img": new_img
+      },
+      new: true
+    },
+    async (err, result) => {
+      if (result) return res.send(await Profile.findOne({ _id: id }))
+      if (err) return res.send("user id invalid :S");
+    })
+
+})
+
+router.get('/prueba', async (req, res) => {
+
+  var usuario = await Profile.find()
+  res.send(usuario)
+})
