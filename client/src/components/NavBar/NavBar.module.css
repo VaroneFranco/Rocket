@@ -1,17 +1,19 @@
+@import '../../vars.css';
+
 .navbar__nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 11vh;
     width: 100%;
-    background: #ffab4c;
+    background: var(--main-color);
     top: 0;
-    box-shadow: 0 0 18px 0 #3338;
+    box-shadow: 0 0 10px 0 #222;
 }
 
 .navbar__logo {
-    transform: scale(80%);
-    margin-left: 1rem;
+    margin-left: -8rem;
+    margin-top: 2.2rem;
     cursor: pointer;
     user-select: none;
 }
@@ -21,7 +23,7 @@
 }
 
 .navbar__link {
-    color: #333;
+    color: #111;
     margin-right: 2px;
     background: transparent;
     border: none;
@@ -29,12 +31,12 @@
 }
 
 .navbar__link:hover {
-    text-decoration: underline;
     cursor: pointer;
+    color: #333
 }
 
 .navbar__boton_violeta  {
-    margin-left: 2px;
+    margin-left: 5.2px;
     height: 32px;
     width: 80px;
     border: none;

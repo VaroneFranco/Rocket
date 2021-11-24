@@ -1,28 +1,32 @@
 //librería para encriptación
 const CryptoJS = require("crypto-js");
+const Institution = require("../models/Institution");
 // enviroment key
 const { KEY_HASH } = process.env;
 
 
-const encryptation = {
+  //usarlo en el create del usuario, pasarle su pass de body
+  //y en el log in para chequear el mismo con lo que ya estará en db del user
+const encrypt = (pass) => {
+    var crypted = CryptoJS.SHA3(pass, KEY_HASH);
+    crypted = crypted.toString();
+    return crypted;
+}
+//Post nueva institucion
+async function postInstitution({ name }) {
+  try {
+    let newInstitution = await new Institution({
+      name,
+    });
+    newInstitution.save();
 
-    //usarlo en el create del usuario, pasarle su pass de body
-    encrypt: function (pass) {
-        var crypted = CryptoJS.AES.encrypt(pass, KEY_HASH);
-        crypted = crypted.toString();
-        return crypted;
-    },
-
-
-    //usarlo en el log in del usuario, pasarle el pass crypto de la base de datos de ese usuario
-    decrypt: function (crypted) {
-        var decrypted = CryptoJS.AES.decrypt(crypted, KEY_HASH);
-        decrypted = decrypted.toString(CryptoJS.enc.Utf8);
-        return decrypted
-    }
-
-
-
+    return newInstitution;
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
-module.exports = encryptation
+module.exports = {
+  encrypt,
+  postInstitution,
+};
