@@ -1,56 +1,64 @@
 const { Router, application } = require('express');
 const Profile = require("../models/Profiles")
 const Institution = require("../models/Institution")
-
+//librería de encriptación
+const CryptoJS = require("crypto-js");
+//key de encriptado y desencriptado
+const { KEY_HASH } = process.env;
+//funciones de encriptado y desencriptado
+const { encrypt, decrypt } = require('./utils.js')
 const axios = require('axios')
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 
 
 const router = Router();
 
-router.put('/user/changes', async(req, res)=>{
-    const{id, new_country, new_name, new_email, new_img}=req.body;
-    await Profile.findOneAndUpdate({"_id":id},
-   {
-     "$set":{
-       "country": new_country,"name": new_name, "email":new_email, "img":new_img
-     },
-     new:true
-   },
-   async (err, result)=>{
-     if (result) return res.send(await Profile.findOne({_id:id}))
-     if (err) return res.send(console.log(err));
-   })
-    
-  })
+//ruta para cambios de perfil de user, si algo no se cambia, permanece el anterior :)
+router.put('/user/changes', async (req, res) => {
+  const { id, new_country, new_name, new_email, new_img } = req.body;
+  await Profile.findOneAndUpdate({ "_id": id },
+    {
+      "$set": {
+        "country": new_country, "name": new_name, "email": new_email, "img": new_img
+      },
+      new: true
+    },
+    async (err, result) => {
+      if (result) return res.send(await Profile.findOne({ _id: id }))
+      if (err) return res.send("user id invalid :S");
+    })
 
+})
 
 router.get('/prueba', async (req, res) => {
 
-    var usuario = await Profile.find()
-    res.send(usuario)
+  var usuario = await Profile.find()
+  res.send(usuario)
 })
 
-router.post("/Profile", async (req, res) => {
-     var newProfile = await new Profile({
-        name: req.body.name,
-        email: req.body.email,
-        country: req.body.country,
-        institution: req.body.institution,
 
-        
-    })
-    newProfile.save();
-    res.send(newProfile)
+
+router.post("/profile", async (req, res) => {
+  const password = req.body.password
+  const crypted = encrypt(password)
+
+  var newProfile = await new Profile({
+    name: req.body.name,
+    email: req.body.email,
+    country: req.body.country,
+    institution: req.body.institution,
+    password: crypted
+  })
+  newProfile.save();
+  res.send(newProfile)
 })
+
 
 router.post("/Institution", async (req, res) => {
-    var newInstitution = await new Institution({
-        name: req.body.name
-    })
-    newInstitution.save();
-    res.send(newInstitution)
+  var newInstitution = await new Institution({
+    name: req.body.name
+  })
+  newInstitution.save();
+  res.send(newInstitution)
 })
 
 
