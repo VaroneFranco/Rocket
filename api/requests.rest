@@ -1,7 +1,7 @@
 GET http://localhost:3001/prueba HTTP/1.1
 ###
 
-POST http://localhost:3001/Profile 
+POST http://localhost:3001/signup 
 Content-Type: application/json
 
 {
