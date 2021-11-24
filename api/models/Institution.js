@@ -8,7 +8,7 @@ const InstitutionSchema = new Schema({
         required: true
     },
     groups:{
-        type:[Number],
+        type:[String],
         default:[]
     },
     users:{

@@ -33,13 +33,13 @@ router.get('/prueba', async (req, res) => {
 })
 
 router.post("/Profile", async (req, res) => {
-    var newProfile = await new Profile({
+     var newProfile = await new Profile({
         name: req.body.name,
         email: req.body.email,
         country: req.body.country,
         institution: req.body.institution,
 
-
+        
     })
     newProfile.save();
     res.send(newProfile)
