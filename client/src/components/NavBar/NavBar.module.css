@@ -12,8 +12,8 @@
 }
 
 .navbar__logo {
-    transform: scale(80%);
-    margin-left: 1rem;
+    margin-left: -8rem;
+    margin-top: 2.2rem;
     cursor: pointer;
     user-select: none;
 }
