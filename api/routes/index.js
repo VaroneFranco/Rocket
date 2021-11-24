@@ -2,7 +2,7 @@ const { Router, application } = require('express');
 const Profile = require("../models/Profiles")
 const Institution = require("../models/Institution")
 
-//funciones de encriptado y desencriptado
+//funcion de encriptado
 const {encrypt} = require('./utils');
 
 
