@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 const ProfileSchema = new Schema(
   {
     name: {
@@ -37,9 +38,11 @@ const ProfileSchema = new Schema(
       default: false,
     },
     img: String,
+    meetLink: String,
     table: Number,
     group: Number,
   },
+
   { collection: "profiles" }
 );
 
