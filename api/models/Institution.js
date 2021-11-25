@@ -1,22 +1,31 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
-const InstitutionSchema = new Schema({
-    name:{
-        type:String,
-        required: true
+const InstitutionSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    groups:{
-        type:[String],
-        default:[]
+    email: {
+      type: String,
+      required: true,
     },
-    users:{
-        type:[String],
-        default:[]
+    password: {
+      type: String,
+      required: true,
     },
-}, {collection: "institution"});
-
+    groups: {
+      type: [String],
+      default: [],
+    },
+    users: {
+      type: [],
+      default: [],
+    },
+  },
+  { collection: "institution" }
+);
 
 const Institution = mongoose.model("Institution", InstitutionSchema);
 

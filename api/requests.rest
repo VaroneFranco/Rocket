@@ -1,4 +1,4 @@
-GET http://localhost:3001/prueba HTTP/1.1
+GET http://localhost:3001/getProfiles HTTP/1.1
 ###
 
 POST http://localhost:3001/signup 
@@ -8,7 +8,7 @@ Content-Type: application/json
     "name": "nacho Perez",
     "country": "Argentina",
     "email": "nacho@gmail.com",
-    "institution":"Henry",
+    "institution":"Nacho",
     "password": "nacho"
 
 }
