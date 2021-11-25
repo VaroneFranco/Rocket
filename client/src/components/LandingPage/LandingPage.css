@@ -8,6 +8,7 @@
   align-items: center;
   align-content: center;
   justify-items: center;
+  
 }
 
 .create-container {
@@ -19,7 +20,7 @@
     var(--main-color) 50%,
     var(--main-color) 100%
   );
-  box-shadow: 0 0 3px 0 #222;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 10px 0px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -29,7 +30,7 @@
 
 .create-container-child {
   width: 97%;
-  height: 90%;
+  height: 94%;
   display: flex;
   flex-direction: column;
   background: #fcfcfc;
@@ -37,7 +38,8 @@
 }
 
 .signIn {
-  font-size: 20px;
+  font-size: 16px;
+  color: rgb(59, 59, 59);
 }
 
 .form {
@@ -51,7 +53,7 @@
 
 .form-child {
   width: 60%;
-  height: 100%;
+  height: 100%; 
 }
 
 .landingPage__input {
@@ -64,6 +66,7 @@
   border: #fcfcfc solid 2px;
   border: none;
   outline: none;
+  font-family: 'Nunito';
 }
 
 .form-group {
@@ -74,7 +77,7 @@
   margin-top: 3vh;
   margin-bottom: 1vh;
   margin-left: 1vh;
-  font-size: 2.5vh;
+  font-size: 2.2vh;
 }
 
 .landingPage__button {
@@ -86,13 +89,14 @@
 }
 
 .landingPage__button_login {
-  height: 7vh;
-  width: 18vh;
+  height: 6vh;
+  width: 15vh;
   border: none;
-  border-radius: 50px;
+  border-radius: 22px;
   box-shadow: 0 0 2px 0 #222;
   background: #7333c5;
   color: #fff;
+  font-family: 'Nunito';
 }
 
 .landingPage__button_login:hover {
@@ -107,7 +111,7 @@
 
 .landingPage__button_text {
   color: #fcfcfc;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .landingPage__image {

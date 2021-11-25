@@ -33,9 +33,10 @@ input:focus, textarea:focus{
 }
 .formContainer>form>h2{
     align-self: flex-start;
-    color: rgb(49, 49, 49);
+    color: rgb(59, 59, 59);
     margin: 0;
     margin-bottom: 3%;
+    font-weight: 800;
 }
 .formContainer>form>input{
     height: 1.5rem;
@@ -46,6 +47,7 @@ input:focus, textarea:focus{
     background-repeat: no-repeat;
     position: left;
     padding-left: 32px;
+    font-family: 'Nunito';
 }
 
 .formContainer>form>button{
@@ -55,7 +57,8 @@ input:focus, textarea:focus{
     border: none;
     background-color: #7333C5;
     color: white;
-    border-radius: 0.3rem
+    border-radius: 0.3rem;
+    font-family: 'Nunito';
 }
 
 form>.fullname{
@@ -105,8 +108,4 @@ form>.country{
 .formContainer>form>button:active, .formContainer>form>button:focus {
     box-shadow: inset 0 0 6px 0 #222;
     background: #7c40ca;
-}
-
-.parrafo {
-    font-style: italic;
 }

@@ -51,8 +51,8 @@ function Register() {
                 <div className={s.imgContainer}>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative-Tail-rocket.svg/768px-Creative-Tail-rocket.svg.png" alt="rocket" width="90%"/>
                     <p className={s.parrafo}>
-                        <strong>The sky is not the limit <br/>
-                        is just the beginning...</strong>
+                        <p>The sky is not the limit <br/>
+                        is just the beginning...</p>
                     </p>
                 </div>
             </div>
