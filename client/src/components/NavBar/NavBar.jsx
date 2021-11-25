@@ -10,7 +10,7 @@ const NavBar =()=> {
 
     return (
         <nav className={style.navbar__nav}>
-            <NavLink to="/home"><img alt="logo" src={turbologo} width="50%" className={style.navbar__logo}/></NavLink>
+            <NavLink to="/home"><img alt="logo" src={turbologo} width="40%" className={style.navbar__logo}/></NavLink>
             <div className={style.navbar__div_buttons}>
                 <NavLink to="/login"><button className={style.navbar__link}>SIGN IN</button></NavLink>
                 <NavLink to="/signup"><button className={style.navbar__boton_violeta}>SIGN UP</button></NavLink>

@@ -52,7 +52,7 @@ function Profile() {
               <h4>Description</h4>
             </label>
           </div>
-          <input id="description" type="text"className={s.repeatPass} type="text" />
+          <input id="description" className={s.repeatPass} type="text" />
         </div>
       </div>
     </div>
