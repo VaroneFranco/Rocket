@@ -31,7 +31,7 @@ router.put('/user/changes', async (req, res) => {
   )
 })
 
-router.get('/prueba', async (req, res) => {
+router.get('/getProfiles', async (req, res) => {
   var usuario = await Profile.find()
   res.send(usuario)
 })
@@ -89,7 +89,7 @@ router.post("/signin", async (req, res) => {
 
 })
 
-router.post("/institution", async (req, res) => {
+router.post("/signInstitution", async (req, res) => {
 
   if (!req.body.name) {
     res.status(404).send('The name of Institution is required')
@@ -103,7 +103,7 @@ router.post("/institution", async (req, res) => {
   }
 })
 
-router.get('/getTable', async (req, res) => {
+router.get('/asignTable', async (req, res) => {
   var users = await Profile.find()
   shuffle(users)
   asignTable(users)
