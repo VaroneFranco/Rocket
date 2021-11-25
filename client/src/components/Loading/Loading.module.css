@@ -1,0 +1,25 @@
+@import '../../vars.css';
+
+.loading__spinner {
+    margin-bottom: 10px;
+    text-align: center;
+    border: 7px solid #9991;
+    border-top-color: var(--main-color);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    animation: girar 0.4s linear infinite;
+}
+
+.loading__spinner_h5 {
+    color: #111;
+}
+    
+@keyframes girar {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
