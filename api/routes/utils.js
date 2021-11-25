@@ -1,15 +1,14 @@
 //librería para encriptación
 const CryptoJS = require('crypto-js')
 const Institution = require('../models/Institution')
+const Profiles = require('../models/Profiles')
 
 //usarlo en el create del usuario, pasarle su pass de body
 //y en el log in para chequear el mismo con lo que ya estará en db del user
 const encrypt = (pass) => {
-
-    var crypted = CryptoJS.SHA3(pass,{outputLength: 224});
-    crypted = crypted.toString();
-    return crypted;
-
+  var crypted = CryptoJS.SHA3(pass, { outputLength: 224 })
+  crypted = crypted.toString()
+  return crypted
 }
 //Post nueva institucion
 async function postInstitution({ name }) {
@@ -34,16 +33,22 @@ function shuffle(array) {
   }
 }
 
-function asignTable(users) {
+//Asigna numero de mesa al usuario y lo actualiza en la db
+async function asignTable(users) {
   let contador = 0
   let numTable = 1
   for (let i = 0; i < users.length; i++) {
+    let filter = { name: users[i].name }
+    let update = {
+      table: numTable,
+      meetLink: `https://meet.jit.si/Rocket-Henry-WebFT-18-${numTable}`,
+    }
     if (contador < 5) {
-      users[i].table = numTable
+      await Profiles.findOneAndUpdate(filter, update)
       contador++
     } else {
       numTable++
-      users[i].table = numTable
+      await Profiles.findOneAndUpdate(filter, update)
       contador = 1
     }
   }

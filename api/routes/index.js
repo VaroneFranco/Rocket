@@ -4,7 +4,7 @@ const Profile = require('../models/Profiles')
 const { postInstitution } = require('../routes/utils')
 const { shuffle } = require('../routes/utils')
 const { asignTable } = require('../routes/utils')
-const jwt = require("jsonwebtoken")
+const jwt = require('jsonwebtoken')
 //funcion de encriptado
 const { encrypt } = require('./utils')
 
@@ -36,15 +36,13 @@ router.get('/getProfiles', async (req, res) => {
   res.send(usuario)
 })
 
-
 //Ruta provisoria para que el front pruebe los sign up de usuarios
-router.post("/signup", async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
-    const password = req.body.password;
+    const password = req.body.password
     // const crypted = await encrypt(password);
-    
-    const crypted = encrypt(password);
-    
+
+    const crypted = encrypt(password)
 
     var newProfile = await new Profile({
       name: req.body.name,
@@ -52,45 +50,45 @@ router.post("/signup", async (req, res) => {
       country: req.body.country,
       institution: req.body.institution,
       password: crypted,
-    });
-    newProfile.save();
-    res.send(newProfile);
+    })
+    newProfile.save()
+    res.send(newProfile)
   } catch (err) {
-    console.log("Los campos requeridos son name, password, email, country, institución")
+    console.log(
+      'Los campos requeridos son name, password, email, country, institución'
+    )
   }
-});
-
-
-//Ruta provisoria para que validen sign in de usuarios
-router.post('/isLog', async (req,res)=>{
-	const { token } = req.body
-	var user = jwt.verify(token, "secret")
-	if(user){
-		var userDb = await Profile.findById(user.id).lean();
-		return res.send(userDb)
-	 }
-	 else return res.send(false)
 })
 
-router.post("/signin", async (req, res) => {
+//Ruta provisoria para que validen sign in de usuarios
+router.post('/isLog', async (req, res) => {
+  const { token } = req.body
+  var user = jwt.verify(token, 'secret')
+  if (user) {
+    var userDb = await Profile.findById(user.id).lean()
+    return res.send(userDb)
+  } else return res.send(false)
+})
+
+router.post('/signin', async (req, res) => {
   let { email, password } = req.body
 
   let profile = await Profile.findOne({ email: email })
 
   if (encrypt(password) == profile.password) {
-    const token = jwt.sign({
-			id: profile._id
-		},"secret")
-		return res.json({token: token})
+    const token = jwt.sign(
+      {
+        id: profile._id,
+      },
+      'secret'
+    )
+    return res.json({ token: token })
+  } else {
+    res.send('Access Denied')
   }
-  else {
-    res.send("Access Denied")
-  }
-
 })
 
-router.post("/signInstitution", async (req, res) => {
-
+router.post('/signInstitution', async (req, res) => {
   if (!req.body.name) {
     res.status(404).send('The name of Institution is required')
   }
@@ -103,6 +101,7 @@ router.post("/signInstitution", async (req, res) => {
   }
 })
 
+const tables = []
 router.get('/asignTable', async (req, res) => {
   var users = await Profile.find()
   shuffle(users)
@@ -110,14 +109,16 @@ router.get('/asignTable', async (req, res) => {
   res.send(users)
 })
 
-router.get("/searchProfiles", async (req, res)=>{
+router.get('/searchProfiles', async (req, res) => {
   let name = req.body.name
-  let profiles = await Profile.find({name: {$regex: new RegExp( '.*' + name +'.*', "i") }})
+  let profiles = await Profile.find({
+    name: { $regex: new RegExp('.*' + name + '.*', 'i') },
+  })
   return res.send(profiles)
 })
 
-router.get("/searchProfileID", async (req, res)=>{
-  let {id} = req.body
+router.get('/searchProfileID', async (req, res) => {
+  let { id } = req.body
   let profile = await Profile.findById(id)
   return res.send(profile)
 })
