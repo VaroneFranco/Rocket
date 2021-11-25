@@ -2,18 +2,14 @@
 
 .loading__spinner {
     margin-bottom: 10px;
-    border: 7px solid #9991;
-    border-top-color: var(--main-color);
+    border: 7px solid transparent;
+    border-left-color: #ffff00;
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    animation: girar 0.4s linear infinite;
+    animation: girar 1s linear infinite;
 }
-
-.loading__spinner_h5 {
-    color: #111;
-}
-    
+ 
 @keyframes girar {
     0% { 
         transform: rotate(0deg); 
@@ -21,4 +17,14 @@
     100% { 
         transform: rotate(360deg); 
     }
+}
+
+.loading__spinner_h5 {
+    color: #111;
+}
+
+.loading__rocket {
+    position: relative;
+    bottom: 9px;
+    right: 14px;
 }
