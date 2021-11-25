@@ -18,8 +18,8 @@ Content-Type: application/json
 
 {
     
-    "email": "nacho@gmail.com",
-    "password": "nacho"
+    "email": "pepe@gmail.com",
+    "password": "pepe"
 
 }
 ###
