@@ -5,12 +5,29 @@ POST http://localhost:3001/signup
 Content-Type: application/json
 
 {
-    "name": "Lautaro",
+    "name": "nacho",
     "country": "Argentina",
-    "email": "Lautaro@hotmail.com.ar",
+    "email": "nacho@gmail.com",
     "institution":"Henry",
-    "password": "contraseña"
+    "password": "nacho"
 
+}
+###
+POST http://localhost:3001/signin 
+Content-Type: application/json
+
+{
+    
+    "email": "nacho@gmail.com",
+    "password": "nacho"
+
+}
+###
+POST http://localhost:3001/islog 
+Content-Type: application/json
+
+{ 
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOWVkZWU2M2E4MGYwMTNiMzg3NmRmNSIsImlhdCI6MTYzNzgwMjk3NX0.3WxjldnWv1VuNJSQaXzcyz5m4Mm30hhhAcQ1XGno5YU"
 }
 ###
 POST http://localhost:3001/Institution 
