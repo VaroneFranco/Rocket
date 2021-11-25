@@ -110,4 +110,10 @@ router.get('/getTable', async (req, res) => {
   res.send(users)
 })
 
+router.get("/searchProfiles", async (req, res)=>{
+  let name = req.body.name
+  let profiles = await Profile.find({name: {$regex: new RegExp( '.*' + name +'.*', "i") }})
+  return res.send(profiles)
+})
+
 module.exports = router
