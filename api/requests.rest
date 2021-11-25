@@ -5,7 +5,7 @@ POST http://localhost:3001/signup
 Content-Type: application/json
 
 {
-    "name": "nacho",
+    "name": "nacho Perez",
     "country": "Argentina",
     "email": "nacho@gmail.com",
     "institution":"Henry",
