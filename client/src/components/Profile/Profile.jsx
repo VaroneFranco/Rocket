@@ -1,35 +1,40 @@
 import React from "react";
 import s from "./Profile.module.css";
+import CardProfile from "./CardProfile/CardProfile";
 
-function Profile() {
+const obj = [
+  {
+    _id: { $oid: "619daaf17b34e02f529f7462" },
+    name: "Sabrina The Cat",
+    password: "U2FsdGVkX1+VOiDyfP83nDEMI9/CewBTEVFz8nA4S0k=",
+    moderator: false,
+    email: "sabrina_la_bicha@mongoose.com",
+    country: "Guantanamera",
+    institution: "Henry",
+    score: [],
+    active: false,
+    __v: 0,
+    img: "https://www.itsmiparis.com/wp-content/themes/nextline_v4/images/itsmi_student_life.jpg",
+    table: 4,
+    meetLink: "https://meet.jit.si/Rocket-Henry-WebFT-18-4",
+    about: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+];
+
+const Profile = () => {
   return (
     <div className={s.Profile}>
       <div className={s.mainContainer}>
-        <div className={s.container}>
-          <div className={s.conteinerInfo}>
-            INFO
-            <div className={s.containerFoto}>
-              <div className={s.foto}>
-                <img
-                  src="https://concepto.de/wp-content/uploads/2018/08/persona-e1533759204552.jpg"
-                  alt="foto" 
-                />
-              </div>
-            </div>
-            <div className={s.containerUbicacion}>
-              <h2>MATIAS</h2>
-            </div>
-
-            <div className={s.containerAbout}>  </div>
-          </div>
-          <div className={s.conteinerEstadisticas}>
-            <div className={s.estadisticas}>ESTADISTICAS</div>
-            <div className={s.editInfo}>CAMBIOS DE INFO</div>
-          </div>
-        </div>
+        <CardProfile
+          name={obj[0].name}
+          img={obj[0].img}
+          country={obj[0].country}
+          institution={obj[0].institution}
+          about={obj[0].about}
+        />
       </div>
     </div>
   );
-}
+};
 
 export default Profile;
