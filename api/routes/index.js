@@ -4,7 +4,7 @@ const Profile = require('../models/Profiles')
 const { postInstitution } = require('../routes/utils')
 const { shuffle } = require('../routes/utils')
 const { asignTable } = require('../routes/utils')
-
+const jwt = require("jsonwebtoken")
 //funcion de encriptado
 const { encrypt } = require('./utils')
 
@@ -62,14 +62,26 @@ router.post("/signup", async (req, res) => {
 
 
 //Ruta provisoria para que validen sign in de usuarios
+router.post('/isLog', async (req,res)=>{
+	const { token } = req.body
+	var user = jwt.verify(token, "secret")
+	if(user){
+		var userDb = await Profile.findById(user.id).lean();
+		return res.send(userDb)
+	 }
+	 else return res.send(false)
+})
 
-router.get("/signin", async (req, res) => {
+router.post("/signin", async (req, res) => {
   let { email, password } = req.body
 
   let profile = await Profile.findOne({ email: email })
 
   if (encrypt(password) == profile.password) {
-    res.send("Access granted")
+    const token = jwt.sign({
+			id: profile._id
+		},"secret")
+		return res.json({token: token})
   }
   else {
     res.send("Access Denied")
