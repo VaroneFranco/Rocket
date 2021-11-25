@@ -88,19 +88,19 @@ function LandingPage() {
             </form>
           </div>
             <div className="landingPage__login_image"></div>
-            <h5>Or Login With </h5>
+            <h5>or login with</h5>
             <div className="landingPage__image">
               <img
                 src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2021/08/pngwing.com_.png"
                 alt="Google"
-                width="50px"
-                height="50px"
+                width="40px"
+                height="40px"
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                 alt="Github"
-                width="50px"
-                height="50px"
+                width="40px"
+                height="40px"
               />
             </div>
         </div>
