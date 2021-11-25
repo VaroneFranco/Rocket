@@ -25,7 +25,7 @@ const ProfileSchema = new Schema({
     },
     institution: {
         type: String,
-        required: true
+       /*  required: true */
     },
     score: {
         type: [Number],

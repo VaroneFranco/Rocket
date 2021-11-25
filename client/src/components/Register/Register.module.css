@@ -73,6 +73,11 @@ form>.password{
 form>.repeatPass{
     background-image: url(https://cdn-icons-png.flaticon.com/512/1339/1339822.png);
     background-size: 23px;
+    background-position-y: -1px;
+}
+form>.country{
+    background-image: url(https://cdn-icons.flaticon.com/png/512/685/premium/685142.png?token=exp=1637855647~hmac=4411fc019d4dd3d67f4792d793b23c99);
+    background-size: 22px;
 }
 
 .imgContainer{
