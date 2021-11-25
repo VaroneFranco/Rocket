@@ -1,0 +1,29 @@
+@import "../../vars.css";
+
+.silla__container {
+    height: 55%;
+    width: 17%;
+    border-bottom-left-radius: 27%;
+    background: linear-gradient(to top, #9993, transparent);
+}
+
+.silla__img {
+    position: relative;
+    bottom: 35px;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: -20px;
+}
+
+.silla__select {
+    margin-top: 20px;
+    width: 75%;
+    border: none;
+    outline: none;
+    border-top: 1.8px solid #fff;
+    padding: 6px;
+    background-color: transparent;
+}
+
+

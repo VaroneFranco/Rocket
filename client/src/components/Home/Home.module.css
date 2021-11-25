@@ -7,13 +7,13 @@
 }
 
 .home__mesa {
-    width: 70vw;
+    width: 80vw;
     height: 80vh;
     background-image: radial-gradient(
       circle at 120.71% 50%,
-      var(--main-color) 0,
-      var(--main-color) 50%,
-      var(--main-color) 100%
+      #fff 0,
+      #fff 50%,
+      #fff 100%
     );
     box-shadow: 0 0 3px 0 #222;
     border-radius: 20px;
@@ -27,17 +27,16 @@
     width: 97%;
     height: 90%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
     background: #fcfcfc;
     border-radius: 20px;
 }
-  
-.home__myteam {
-    font-size: 20px;
-}
-  
+
 .home__chat {
-    border: 1px solid black;
+    border: 1px solid #999;
     width: 28vw;
     margin: 2%;
 }
