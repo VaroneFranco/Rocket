@@ -116,4 +116,10 @@ router.get("/searchProfiles", async (req, res)=>{
   return res.send(profiles)
 })
 
+router.get("/searchProfileID", async (req, res)=>{
+  let {id} = req.body
+  let profile = await Profile.findById(id)
+  return res.send(profile)
+})
+
 module.exports = router
