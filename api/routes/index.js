@@ -1,6 +1,6 @@
 const { Router, application } = require("express");
 const Profile = require("../models/Profiles");
-const Institution = require("../models/Institution")
+const Institution = require("../models/Institution");
 const { postInstitution } = require("../routes/utils");
 const { shuffle } = require("../routes/utils");
 const { asignTable } = require("../routes/utils");
@@ -11,16 +11,13 @@ const { encrypt } = require("./utils");
 
 const router = Router();
 
-
 //Usuarios -->Inscribirse
 router.post("/signup", async (req, res) => {
-
   try {
-    const password = req.body.password
+    const password = req.body.password;
     // const crypted = await encrypt(password);
 
     const crypted = encrypt(password);
-
 
     var newProfile = await new Profile({
       name: req.body.name,
@@ -28,13 +25,11 @@ router.post("/signup", async (req, res) => {
       country: req.body.country,
       institution: req.body.institution,
       password: crypted,
-    })
-    newProfile.save()
-    res.send(newProfile)
+    });
+    newProfile.save();
+    res.send(newProfile);
   } catch (err) {
     console.log(
-
-      .
       "Los campos requeridos son name, password, email, country, institución"
     );
   }
@@ -53,7 +48,6 @@ router.post("/isLog", async (req, res) => {
 //Usuarios --> Ingresar
 router.post("/signin", async (req, res) => {
   let { email, password } = req.body;
-
 
   let profile = await Profile.findOne({ email: email });
 
@@ -102,7 +96,6 @@ router.put("/user/changes", async (req, res) => {
 router.post("/signUpInstitution", async (req, res) => {
   if (!req.body.email || !req.body.name || !req.body.password) {
     res.status(404).send("Name, email and Password are required");
-
   }
 
   try {
@@ -111,7 +104,6 @@ router.post("/signUpInstitution", async (req, res) => {
   } catch (error) {
     throw new Error(error);
   }
-
 });
 
 //Institution --> Ingresar
@@ -157,4 +149,3 @@ router.get("/searchProfileID", async (req, res) => {
 });
 
 module.exports = router;
-
