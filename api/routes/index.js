@@ -74,6 +74,8 @@ router.get("/getProfiles", async (req, res) => {
 //Usuarios --> Actualiza el perfil del usuario
 router.put("/user/changes", async (req, res) => {
   const { id, new_country, new_email, new_img, new_about, } = req.body;
+  console.log("llegamos")
+  console.log(req.body)
   await Profile.findOneAndUpdate(
     { _id: id },
     {
@@ -142,9 +144,10 @@ router.get("/searchProfiles", async (req, res) => {
 });
 
 //Busqueda Profile By ID
-router.get("/searchProfileID", async (req, res) => {
-  let { id } = req.body;
+router.get("/searchProfileID/:id", async (req, res) => {
+  let id = req.params.id;
   let profile = await Profile.findById(id);
+  console.log(id)
   return res.send(profile);
 });
 
