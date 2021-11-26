@@ -3,6 +3,14 @@ import { useHistory } from 'react-router-dom'
 import './LandingPage.css'
 import axios from 'axios'
 
+import {
+  facebookProvider,
+  githubProvider,
+  googleProvider,
+} from "../../config/authMethods";
+
+import socialMediaAuth from "../../service/Auth";
+
 function LandingPage() {
   let history = useHistory()
   var [log, setLog] = useState({
@@ -42,6 +50,11 @@ function LandingPage() {
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
       .then(() => history.push('/home'))
   }
+
+  const handleOnClick = async (provider) => {
+    const res = await socialMediaAuth(provider);
+    console.log(res);
+  };
 
   return (
     <div className='container'>
@@ -91,19 +104,30 @@ function LandingPage() {
           </div>
           <div className='landingPage__login_image'></div>
           <h5>or login with</h5>
-          <div className='landingPage__image'>
-            <img
-              src='https://www.lasbrisashotels.com.mx/wp-content/uploads/2021/08/pngwing.com_.png'
-              alt='Google'
-              width='40px'
-              height='40px'
-            />
-            <img
-              src='https://cdn-icons-png.flaticon.com/512/25/25231.png'
-              alt='Github'
-              width='40px'
-              height='40px'
-            />
+
+          <div className="landingPage__image">
+            <button onClick={() => handleOnClick(facebookProvider)}>
+              {" "}
+              Facebook{" "}
+            </button>
+            <button onClick={() => handleOnClick(githubProvider)}>
+              {" "}
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                alt="Github"
+                width="40px"
+                height="40px"
+              />{" "}
+            </button>
+            <button onClick={() => handleOnClick(googleProvider)}>
+              <img
+                src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2021/08/pngwing.com_.png"
+                alt="Google"
+                width="40px"
+                height="40px"
+              />
+            </button>
+
           </div>
         </div>
       </div>

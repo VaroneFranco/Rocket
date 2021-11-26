@@ -24,7 +24,7 @@ textarea:focus {
   width: 80%;
   height: 80%;
   box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  display: grid;
+  align-items: end;
+  justify-items: center;
 }

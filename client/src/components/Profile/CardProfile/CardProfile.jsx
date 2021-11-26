@@ -17,7 +17,7 @@ function CardProfile({ img, name, about, country, institution }) {
             <h3> 📍 {country}</h3>
             <h3>{institution}</h3>
           </div>
-          <div className={s.containerAbout}><h3>{about}</h3></div>
+          <div className={s.containerAbout}><span> <p>{about}</p></span></div>
         </div>
         <div className={s.conteinerEstadisticas}>
           <div className={s.estadisticas}>ESTADISTICAS</div>
