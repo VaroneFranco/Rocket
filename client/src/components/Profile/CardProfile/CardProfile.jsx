@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import s from "./CardProfile.module.css";
 
 function CardProfile({
@@ -10,7 +11,37 @@ function CardProfile({
   score,
   absence,
   reports,
+  _id,
 }) {
+
+  const [field, setField] = useState({
+    about: "",
+    country: "",
+  });
+  
+  
+  function handleChange(e) {
+    setField({
+      ...field,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const newChanges = {
+      new_country: field.country,
+      new_about: field.about,
+      id: _id,
+    };
+ 
+    axios("localhost:3001/user/changes", { data: { newChanges } });
+    setField({
+      about: "",
+      country: "",
+    });
+  }
+
   return (
     <>
       <div className={s.container}>
@@ -47,10 +78,27 @@ function CardProfile({
           <div className={s.containerEditInfo}>
             CAMBIOS DE INFO
             <div className={s.EditInfo}>
+              <form onSubmit={(e) => handleSubmit(e)}>
+                <label> Change About </label>
+                <input
+                  type="text"
+                  name="about"
+                  value={field.about}
+                  onChange={(e) => handleChange(e)}
+                />
 
+                <label> Change Country </label>
+                <input
+                  type="text"
+                  name="country"
+                  value={field.country}
+                  onChange={(e) => handleChange(e)}
+                />
 
+                <button type="submit"> Apply Changes</button>
+              </form>
             </div>
-            </div>
+          </div>
         </div>
       </div>
     </>

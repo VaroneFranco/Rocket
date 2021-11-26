@@ -4,7 +4,6 @@ import CardProfile from "./CardProfile/CardProfile";
 
 const obj = [
   {
-    _id: { $oid: "619daaf17b34e02f529f7462" },
     name: "Sabrina The Cat",
     password: "U2FsdGVkX1+VOiDyfP83nDEMI9/CewBTEVFz8nA4S0k=",
     moderator: false,
@@ -19,9 +18,11 @@ const obj = [
     img: "https://www.itsmiparis.com/wp-content/themes/nextline_v4/images/itsmi_student_life.jpg",
     table: 4,
     meetLink: "https://meet.jit.si/Rocket-Henry-WebFT-18-4",
-    about: "aabbbbbbbbbaaaassssssaaa",
+    about: "aabbbbbbbbaaa dasdasdasd asdasdasd asdasdasd",
+    _id: "619daa90147c43cb6d0aa480",
   },
 ];
+  
 
 const Profile = () => {
   return (
@@ -36,6 +37,7 @@ const Profile = () => {
           score={obj[0].score}
           absence={obj[0].absence}
           reports={obj[0].reports}
+          _id={obj[0]._id}
         />
       </div>
     </div>
