@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const ProfileSchema = new Schema(
   {
     name: {
@@ -41,6 +40,18 @@ const ProfileSchema = new Schema(
     meetLink: String,
     table: Number,
     group: Number,
+    about: {
+      type: String,
+      default: "",
+    },
+    presences: {
+      type: Number,
+      default: 0,
+    },
+    reports: {
+      type: Number,
+      default: 0,
+    },
   },
 
   { collection: "profiles" }

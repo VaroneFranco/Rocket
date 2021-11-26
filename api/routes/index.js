@@ -73,15 +73,15 @@ router.get("/getProfiles", async (req, res) => {
 
 //Usuarios --> Actualiza el perfil del usuario
 router.put("/user/changes", async (req, res) => {
-  const { id, new_country, new_name, new_email, new_img } = req.body;
+  const { id, new_country, new_email, new_img, new_about, } = req.body;
   await Profile.findOneAndUpdate(
     { _id: id },
     {
       $set: {
         country: new_country,
-        name: new_name,
         email: new_email,
         img: new_img,
+        about: new_about
       },
       new: true,
     },
@@ -148,11 +148,25 @@ router.get("/searchProfileID", async (req, res) => {
   return res.send(profile);
 });
 
-router.put('/increaseLike', async (req, res) => {
-  let id = req.body.id;
+router.put('/increaseLike/:id', async (req, res) => {
+  console.log("Entro")
+  let id = req.params.id;
   let profile = await Profile.findById(id);
   let points = profile.score + 1
   res.send(await Profile.findByIdAndUpdate(id, {score: points}))
 })
+router.put('/increaseReports', async (req, res) => {
+  let id = req.params.id;
+  let profile = await Profile.findById(id);
+  let reports = profile.reports +1;
+  res.send(await Profile.findByIdAndUpdate(id, {reports : reports}))
+})
+// router.put('/increaseLike', async (req, res) => {
+//   let id = req.body.id;
+//   let profile = await Profile.findById(id);
+//   let points = profile.score + 1
+//   res.send(await Profile.findByIdAndUpdate(id, {score: points}))
+// })
+
 
 module.exports = router;

@@ -8,6 +8,7 @@ const arr = [
     name: 'José',
     surname: 'Perez',
     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
+    _id: "619daa90147c43cb6d0aa480"
   },
   {
     name: 'Alberto',
@@ -40,7 +41,7 @@ const Home = () => {
         <div className={style.home__mesa__child}>
           {arr.length ? (
             arr.map((user) => (
-              <Silla name={user.name} surname={user.surname} img={user.img} />
+              <Silla name={user.name} surname={user.surname} img={user.img} _id={user._id} />
             ))
           ) : (
             <Loading />
