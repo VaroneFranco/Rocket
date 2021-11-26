@@ -29,8 +29,8 @@ const ProfileSchema = new Schema(
       /*  required: true */
     },
     score: {
-      type: [Number],
-      default: [],
+      type: Number,
+      default: 0,
     },
     active: {
       type: Boolean,
@@ -46,9 +46,9 @@ const ProfileSchema = new Schema(
   { collection: "profiles" }
 );
 
-ProfileSchema.methods.scores = function () {
-  let puntajes = mongoose.model;
-};
+// ProfileSchema.methods.increaseScore = function () {
+//   let puntajes = mongoose.model;
+// };
 
 const Profile = mongoose.model("Profile", ProfileSchema);
 

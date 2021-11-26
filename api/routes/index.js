@@ -148,4 +148,11 @@ router.get("/searchProfileID", async (req, res) => {
   return res.send(profile);
 });
 
+router.put('/increaseLike', async (req, res) => {
+  let id = req.body.id;
+  let profile = await Profile.findById(id);
+  let points = profile.score + 1
+  res.send(await Profile.findByIdAndUpdate(id, {score: points}))
+})
+
 module.exports = router;
