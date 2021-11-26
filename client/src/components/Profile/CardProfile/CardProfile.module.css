@@ -14,7 +14,10 @@ textarea:focus {
   display: grid;
   flex-direction: row;
   align-items: center;
-  grid-template-columns: 30% auto;
+  grid-template-columns: 30% 70%;
+   white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: Ellipsis;
 
 }
 
@@ -30,7 +33,7 @@ textarea:focus {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 0% 40% 20%;
+  grid-template-rows: 0% 0% 0%;
   align-items: stretch;
   
 }
