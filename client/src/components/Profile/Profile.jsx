@@ -17,7 +17,7 @@ const obj = [
     img: "https://www.itsmiparis.com/wp-content/themes/nextline_v4/images/itsmi_student_life.jpg",
     table: 4,
     meetLink: "https://meet.jit.si/Rocket-Henry-WebFT-18-4",
-    about: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    about: "aaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaa"
   },
 ];
 
