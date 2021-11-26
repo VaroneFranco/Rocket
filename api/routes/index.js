@@ -5,11 +5,16 @@ const { postInstitution } = require("../routes/utils");
 const { shuffle } = require("../routes/utils");
 const { asignTable } = require("../routes/utils");
 const jwt = require("jsonwebtoken");
-
-//funcion de encriptado
+const { generateProfile } = require("./loaded");
 const { encrypt } = require("./utils");
 
 const router = Router();
+
+//Usuarios--> GENERADOR DE USUARIOS EN BASE DE DATOS
+router.get("/generateProfile", async (req, res) => {
+  var profiles = await generateProfile(8);
+  res.send("CARGADO");
+});
 
 //Usuarios -->Inscribirse
 router.post("/signup", async (req, res) => {
