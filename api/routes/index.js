@@ -149,11 +149,13 @@ router.get("/searchProfileID", async (req, res) => {
 });
 
 router.put('/increaseLike/:id', async (req, res) => {
-  console.log("Entro")
+ try{ console.log("Entro")
   let id = req.params.id;
   let profile = await Profile.findById(id);
   let points = profile.score + 1
-  res.send(await Profile.findByIdAndUpdate(id, {score: points}))
+  res.send(await Profile.findByIdAndUpdate(id, {score: points}))}catch(err){
+    console.log(err)
+  }
 })
 router.put('/increaseReports', async (req, res) => {
   let id = req.params.id;
