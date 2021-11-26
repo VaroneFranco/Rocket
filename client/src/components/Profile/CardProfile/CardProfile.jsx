@@ -1,11 +1,20 @@
 import React from "react";
 import s from "./CardProfile.module.css";
 
-function CardProfile({ img, name, about, country, institution }) {
+function CardProfile({
+  img,
+  name,
+  about,
+  country,
+  institution,
+  score,
+  absence,
+  reports,
+}) {
   return (
     <>
       <div className={s.container}>
-        <div className={s.conteinerInfo}>
+        <div className={s.containerInfo}>
           INFO
           <div className={s.containerFoto}>
             <div className={s.foto}>
@@ -17,11 +26,31 @@ function CardProfile({ img, name, about, country, institution }) {
             <h3> 📍 {country}</h3>
             <h3>{institution}</h3>
           </div>
-          <div className={s.containerAbout}><span> <p>{about}</p></span></div>
+          <div className={s.containerAbout}>
+            <span>
+              {" "}
+              <p>{about}</p>
+            </span>
+          </div>
         </div>
-        <div className={s.conteinerEstadisticas}>
-          <div className={s.estadisticas}>ESTADISTICAS</div>
-          <div className={s.editInfo}>CAMBIOS DE INFO</div>
+        <div className={s.containerEstadisticas}>
+          <div className={s.estadisticas}>
+            STATS
+            <div className={s.scores}>
+              Rockets: {score}
+              <br />
+              Absence: {absence}
+              <br />
+              Reports: {reports}
+            </div>
+          </div>
+          <div className={s.containerEditInfo}>
+            CAMBIOS DE INFO
+            <div className={s.EditInfo}>
+
+
+            </div>
+            </div>
         </div>
       </div>
     </>
