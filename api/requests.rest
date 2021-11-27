@@ -36,3 +36,9 @@ Content-Type: application/json
 {
     "name": "Henryyyyy"
 }
+###
+POST http://localhost:3001/filterUserByTable
+Content-Type: application/json
+{
+table: 1
+}
