@@ -141,23 +141,22 @@ function CardProfile({
           <form onSubmit={(e) => handleSubmit(e)}>
             <h4>Edit Info</h4>
             <div>
-              <label>Edit my image</label>
+              <label>Edit my Image</label>
               <button className={s.profile__btn1}>select</button>
             </div>
 
-            <label>Edit my username</label>
-            <input
+            <label>Edit my About</label>
+            <textarea
               name="country"
               value={field.country}
               onChange={(e) => handleChange(e)}
             />
 
-            <div>
-              <button type="submit" className={s.profile__btn2}>
-                {" "}
-                Apply Changes
-              </button>
-            </div>
+            <button type="submit" className={s.profile__btn2}>
+              {" "}
+              Apply Changes
+            </button>
+          
           </form>
         </div>
       </div>

@@ -4,6 +4,11 @@ input:focus,
 textarea:focus {
   outline: none;
 }
+textarea {
+  resize: none;
+  width: 40%;
+  height: 80px;
+}
 
 /* .container {
   background-color: #fff;
