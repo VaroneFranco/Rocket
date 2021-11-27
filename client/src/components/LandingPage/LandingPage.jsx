@@ -1,41 +1,72 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import "./LandingPage.css";
-import axios from "axios";
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import './LandingPage.css'
+import axios from 'axios'
+
+import {
+  facebookProvider,
+  githubProvider,
+  googleProvider,
+} from "../../config/authMethods";
+
+import socialMediaAuth from "../../service/Auth";
 
 function LandingPage() {
-  let history = useHistory();
+  let history = useHistory()
   var [log, setLog] = useState({
-    email: "",
-    password: "",
-  });
+    email: '',
+    password: '',
+  })
   function handleChange(e) {
-    const value = e.target.value;
+    const value = e.target.value
     setLog({
       ...log,
       [e.target.name]: value,
-    });
+    })
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    axios("http://localhost:3001/signin", {
-      method: "post",
+  async function handleSubmit(e) {
+    e.preventDefault()
+    await axios('http://localhost:3001/signin', {
+      method: 'post',
       data: log,
     }).then((r) => {
       if (r.data.token) {
-        console.log("login token: ", r.data.token);
-        localStorage.setItem("token", r.data.token);
-        return history.push("/");
+        console.log('login token: ', r.data.token)
+        localStorage.setItem('token', r.data.token)
+        return history.push('/')
       } else {
         setLog({
-          username: "",
-          password: "",
-        });
-        alert("User or Password incorrect");
+          username: '',
+          password: '',
+        })
+        alert('User or Password incorrect')
       }
-    });
+    })
+    await axios('http://localhost:3001/isLog', {
+      method: 'post',
+      data: { token: localStorage.getItem('token') },
+    })
+      .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
+      .then(() => history.push('/home'))
   }
+
+  const handleOnClick = async (provider) => {
+    const user = await socialMediaAuth(provider);
+    
+    await axios('http://localhost:3001/logMedia', {
+      method:'post',
+      data: {
+        name:user._delegate.displayName, 
+        email:user._delegate.email, 
+        img:user._delegate.photoURL}
+    })
+    .then(res => {
+      console.log(res, "desde segundo axios")
+      localStorage.setItem('token', res.data.token)
+    })
+    .then(()=>history.push('/home'))
+  };
 
   return (
     <div className="container">
@@ -85,19 +116,29 @@ function LandingPage() {
           </div>
           <div className="landingPage__login_image"></div>
           <h5>or login with</h5>
+
           <div className="landingPage__image">
-            <img
-              src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2021/08/pngwing.com_.png"
-              alt="Google"
-              width="40px"
-              height="40px"
-            />
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-              alt="Github"
-              width="40px"
-              height="40px"
-            />
+            <button onClick={() => handleOnClick(facebookProvider)}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                alt="Facebook"
+                
+              />
+            </button>
+            <button onClick={() => handleOnClick(githubProvider)}>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                alt="Github"
+                
+              />
+            </button>
+            <button onClick={() => handleOnClick(googleProvider)}>
+              <img
+                src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2021/08/pngwing.com_.png"
+                alt="Google"
+             
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -105,4 +146,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default LandingPage

@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from "./NavBar.module.css";
-// import rocketlogo from "../../rocketLogo.png";
-import turbologo from "../../turbologo.png";
+import logo from "../../logo.png";
 
 const NavBar =()=> {
 
@@ -10,7 +9,7 @@ const NavBar =()=> {
 
     return (
         <nav className={style.navbar__nav}>
-            <NavLink to="/home"><img alt="logo" src={turbologo} width="40%" className={style.navbar__logo}/></NavLink>
+            <NavLink to="/home"><img alt="logo" src={logo} width="60%" className={style.navbar__logo}/></NavLink>
             <div className={style.navbar__div_buttons}>
                 <NavLink to="/login"><button className={style.navbar__link}>SIGN IN</button></NavLink>
                 <NavLink to="/signup"><button className={style.navbar__boton_violeta}>SIGN UP</button></NavLink>

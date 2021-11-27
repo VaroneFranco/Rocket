@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 const ProfileSchema = new Schema(
@@ -9,8 +10,8 @@ const ProfileSchema = new Schema(
       required: true,
     },
     password: {
-      type: String,
-      required: true,
+      type: String
+      // required: false,
     },
     moderator: {
       type: Boolean,
@@ -29,8 +30,8 @@ const ProfileSchema = new Schema(
       /*  required: true */
     },
     score: {
-      type: [Number],
-      default: [],
+      type: Number,
+      default: 0,
     },
     active: {
       type: Boolean,
@@ -39,17 +40,33 @@ const ProfileSchema = new Schema(
     },
     img: String,
     meetLink: String,
-    table: Number,
+    table: {
+      type: Number,
+      default: 0,
+    },
     group: Number,
+    about: {
+      type: String,
+      default: "",
+    },
+    presences: {
+      type: Number,
+      default: 0,
+    },
+    reports: {
+      type: Number,
+      default: 0,
+    },
   },
 
-  { collection: "profiles" }
-);
+  { collection: 'profiles' }
+)
 
 ProfileSchema.methods.scores = function () {
-  let puntajes = mongoose.model;
-};
+  let puntajes = mongoose.model
+}
 
-const Profile = mongoose.model("Profile", ProfileSchema);
 
-module.exports = Profile;
+const Profile = mongoose.model('Profile', ProfileSchema)
+
+module.exports = Profile
