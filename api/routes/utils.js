@@ -1,24 +1,21 @@
 //librería para encriptación
 
-const CryptoJS = require("crypto-js");
-const Institution = require("../models/Institution");
-const Profile = require("../models/Profiles");
-
+const CryptoJS = require('crypto-js')
+const Institution = require('../models/Institution')
+const Profile = require('../models/Profiles')
 
 //usarlo en el create del usuario, pasarle su pass de body
 //y en el log in para chequear el mismo con lo que ya estará en db del user
 const encrypt = (pass) => {
-
-  var crypted = CryptoJS.SHA3(pass, { outputLength: 224 });
-  crypted = crypted.toString();
-  return crypted;
-};
+  var crypted = CryptoJS.SHA3(pass, { outputLength: 224 })
+  crypted = crypted.toString()
+  return crypted
+}
 
 // Nueva institucion
 async function postInstitution({ name, email, password }) {
-
   try {
-    const crypted = encrypt(password);
+    const crypted = encrypt(password)
     console.log(name)
     // let userOfInstitution = await Profile.find({ institution: name });
 
@@ -27,43 +24,44 @@ async function postInstitution({ name, email, password }) {
       email,
       password: crypted,
       // users: userOfInstitution,
-    });
-    newInstitution.save();
+    })
+    newInstitution.save()
 
-    return newInstitution;
+    return newInstitution
   } catch (error) {
-    throw new Error(error);
+    throw new Error(error)
   }
 }
-
 
 //Mesas y asignacion de usuarios
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
   }
 }
 
+// Asigna numero de mesa al usuario y lo actualiza en la db
 
-//Asigna numero de mesa al usuario y lo actualiza en la db
 async function asignTable(users) {
-  let contador = 0
+  var contador = 0
   let numTable = 1
   for (let i = 0; i < users.length; i++) {
-    let filter = { name: users[i].name }
-    let update = {
-      table: numTable,
-      meetLink: `https://meet.jit.si/Rocket-Henry-WebFT-18-${numTable}`,
-    }
-    if (contador < 5) {
-
-      await Profiles.findOneAndUpdate(filter, update)
-      contador++
-    } else {
+    await Profile.findOneAndUpdate(
+      { _id: users[i]._id },
+      {
+        $set: {
+          table: numTable,
+        },
+        new: true,
+      }
+    )
+    contador++
+    let mostrar = await Profile.findById(users[i]._id) //No estamos seguros si hace algo pero por las dudas
+    if (contador == 4) {
+      contador = 0
       numTable++
-      await Profiles.findOneAndUpdate(filter, update)
-      contador = 1
+      let mostrar = await Profile.findById(users[i]._id) //No estamos seguros si hace algo pero por las dudas
     }
   }
 }
@@ -73,4 +71,4 @@ module.exports = {
   postInstitution,
   shuffle,
   asignTable,
-};
+}
