@@ -18,7 +18,7 @@ function Silla({ img, name, surname, _id }) {
         axios(`localhost:3001/increaseReports/${_id}`)
         setlikeOrReport({...likeOrReport, report:true})
     }
-  };
+  };  
 
 
 
@@ -31,7 +31,9 @@ function Silla({ img, name, surname, _id }) {
       <h4 className={style.silla__surname}>{surname}</h4>
 
       <select className={style.silla__select} onChange={(e) => onChange(e)}>
+        
         <option disabled selected value="">Like / Report</option>
+        
         {likeOrReport.like===false ? 
         <option value="like" name="">
           Like 👍
@@ -40,13 +42,12 @@ function Silla({ img, name, surname, _id }) {
          Like 👍
        </option>
         }
+
         {likeOrReport.report===false ? 
         <option value="reports">Report 🚫</option> :
         <option disabled value="reports">Report 🚫</option>
-        }
-        
-        
-      </select>
+        } 
+      </select>      
     </div>
   );
 }

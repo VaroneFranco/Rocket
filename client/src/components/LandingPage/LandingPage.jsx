@@ -53,7 +53,12 @@ function LandingPage() {
 
   const handleOnClick = async (provider) => {
     const res = await socialMediaAuth(provider);
-    console.log(res);
+    await axios('http://localhost:3001/logMedia', {
+      method:'post',
+      data: {'name':res._delegate.displayName, 'email':res._delegate.email, 'img':res._delegate.photoURL}
+    })
+    .then(res=>localStorage.setItem('token', res.data.token))
+    .then(()=>history.push('/home'))
   };
 
   return (

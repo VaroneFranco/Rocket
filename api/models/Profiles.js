@@ -10,8 +10,8 @@ const ProfileSchema = new Schema(
       required: true,
     },
     password: {
-      type: String,
-      required: true,
+      type: String
+      // required: false,
     },
     moderator: {
       type: Boolean,
