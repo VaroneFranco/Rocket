@@ -8,15 +8,15 @@ import CardQueryUser from "./CardQueryUser/CardQueryUser";
 function QueryUser() {
 
   const { _id } = useParams();
-  console.log(_id);
+
   var [user, setUser] = useState({});
 
   useEffect (  () => {
         axios(`http://localhost:3001/searchProfileID/${_id}`).then(res => setUser(res.data));
-
-    console.log(user);
-  }, [] );
-
+        
+      }, [] );
+      
+      console.log(user);
   return (
 
     <div className={s.QueryUser}>
