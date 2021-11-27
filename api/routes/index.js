@@ -195,6 +195,45 @@ router.post('/filterUserByTable', async (req, res) => {
   res.send(filteredUsers)
 })
 
+router.post('/logMedia', async (req, res)=>{
+  const {name, email, img}=req.body;
+  let exist=await Profile.findOne({email:email})
+  if(exist) {
+    const token = jwt.sign(
+      {
+        id: exist._id
+      },
+      //poner alguna key desde env en vez de secret
+      'secret'
+    )
+    return res.json({ token: token })
+  }
+  else if (!exist){
+    try {
+      var newProfile = await new Profile({
+        name: name,
+        email: email,
+        img: imag,
+        country: "Rocket Country"
+      })
+      newProfile.save()
+      const token = jwt.sign(
+        {
+          id: newProfile._id
+        },
+        //poner alguna key desde env en vez de secret
+        'secret'
+      )
+      return res.json({ token: token })
+    } catch (err) {
+      console.log(
+        'Los campos requeridos son name, password, email, country, institución'
+      )
+    }
+  }
+
+})
+
 
 
 module.exports = router;
