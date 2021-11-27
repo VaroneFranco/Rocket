@@ -5,7 +5,7 @@ textarea:focus {
   outline: none;
 }
 
-.container {
+/* .container {
   background-color: #fff;
   border-radius: 20px;
   width: 98%;
@@ -100,4 +100,93 @@ textarea:focus {
     align-items: center;
     flex-wrap: wrap;
 
+} */
+
+.profile__parent {
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 3px;
+  grid-row-gap: 3px;
+    
+  border-radius: 20px;
+  width: 98%;
+  height: 95%; 
+  }
+  
+.profile__div1 { 
+  grid-area: 1 / 1 / 2 / 2; 
+  border-radius: 20px;
+}
+  
+.profile__div2 { 
+  grid-area: 2 / 1 / 3 / 2; 
+  border-radius: 20px;
+}
+  
+.profile__div3 { 
+  grid-area: 1 / 2 / 2 / 3; 
+  border-radius: 20px;
+  padding: 20px;
+}
+  
+.profile__div4 { 
+  grid-area: 2 / 2 / 3 / 3; 
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.profile__containerFoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__foto {
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.profile__containerAbout {
+  margin: 5px;
+}
+
+.profile__containerUbicacion {
+  margin: 8px;
+}
+  
+.profile__btn1  {
+  margin: 5px;
+  margin-left: 5.2px;
+  height: 25px;
+  width: 70px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 2px 0 #222;
+  background: #7333C5;
+  color: #fff;
+  font-family: 'Nunito';
+}
+
+.profile__btn2  {
+  margin: 5px;
+  margin-left: 5.2px;
+  height: 35px;
+  width: 80px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 2px 0 #222;
+  background: #7333C5;
+  color: #fff;
+  font-family: 'Nunito';
+}
+
+.profile__btn1:hover, .profile__btn2:hover  {
+  cursor: pointer;
+  background: #7c40ca;
+}
+
+.profile__btn1:active, .profile__btn1:focus, .profile__btn2:active, .profile__btn2:focus {
+  box-shadow: inset 0 0 6px 0 #222;
+  background: #7c40ca;
 }
