@@ -11,7 +11,7 @@ function CardProfile({
   score,
   absence,
   reports,
-  _id,
+  _id, 
 }) {
 
   const [field, setField] = useState({
@@ -44,7 +44,7 @@ function CardProfile({
 
   return (
     <>
-      <div className={s.container}>
+      {/* <div className={s.container}>
         <div className={s.containerInfo}>
           INFO
           <div className={s.containerFoto}>
@@ -99,6 +99,65 @@ function CardProfile({
               </form>
             </div>
           </div>
+        </div>
+      </div> */}
+
+      <div className={s.profile__parent}>
+        <div className={s.profile__div1}>
+          <div className={s.containerFoto}>
+            <img
+              src={img}
+              className={s.foto}
+              alt="foto de perfil"
+              width="80%"
+              height="80%"
+            />
+          </div>
+        </div>
+        <div className={s.profile__div2}>
+          <div className={s.containerAbout}>
+            <span>
+              <h4>About {name} :</h4> <p>{about}.</p>
+              <div className={s.containerUbicacion}>
+                📍<h5>{country}.</h5>
+                <h5>Institution: {institution ? institution : "none"}.</h5>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div className={s.profile__div3}>
+          <div className={s.profile__estadisticas}> 
+            <h4>STATS</h4>
+            <div className={s.profile__scores}>
+              Rockets: {score}
+              <br />
+              Absence: {absence}
+              <br />
+              Reports: {reports}
+            </div>
+          </div>
+        </div>
+        <div className={s.profile__div4}>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <h4>Edit Info</h4>
+            <div>
+              <label>Edit my Image</label>
+              <button className={s.profile__btn1}>select</button>
+            </div>
+
+            <label>Edit my About</label>
+            <textarea
+              name="country"
+              value={field.country}
+              onChange={(e) => handleChange(e)}
+            />
+
+            <button type="submit" className={s.profile__btn2}>
+              {" "}
+              Apply Changes
+            </button>
+          
+          </form>
         </div>
       </div>
     </>
