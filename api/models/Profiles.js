@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const ProfileSchema = new Schema(
   {
@@ -39,17 +38,20 @@ const ProfileSchema = new Schema(
     },
     img: String,
     meetLink: String,
-    table: Number,
+    table: {
+      type: Number,
+      default: 0,
+    },
     group: Number,
   },
 
-  { collection: "profiles" }
-);
+  { collection: 'profiles' }
+)
 
 ProfileSchema.methods.scores = function () {
-  let puntajes = mongoose.model;
-};
+  let puntajes = mongoose.model
+}
 
-const Profile = mongoose.model("Profile", ProfileSchema);
+const Profile = mongoose.model('Profile', ProfileSchema)
 
-module.exports = Profile;
+module.exports = Profile
