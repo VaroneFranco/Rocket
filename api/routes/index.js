@@ -155,11 +155,9 @@ router.get('/searchProfiles', async (req, res) => {
 })
 
 //Busqueda Profile By ID
-
 router.get("/searchProfileID/:id", async (req, res) => {
-  let id = req.params.id;
+  let { id } = req.params;
   let profile = await Profile.findById(id);
-  console.log(id)
   return res.send(profile);
 });
 

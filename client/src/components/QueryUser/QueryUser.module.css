@@ -1,0 +1,30 @@
+@import "../../vars.css";
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+.QueryUser {
+  width: 100%;
+  height: 88vh;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContainer {
+  background-image: radial-gradient(
+    circle at 120.71% 50%,
+    var(--main-color) 0,
+    var(--main-color) 50%,
+    var(--main-color) 100%
+  );
+  border-radius: 20px;
+  width: 80%;
+  height: 80%;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+}

@@ -2,8 +2,7 @@ import {useState} from "react";
 import style from "./Silla.module.css";
 import axios from "axios";
 
-function Silla({ img, name, surname, _id }) {
-  
+function Silla({ img, name, surname, _id }) { 
   //variables que sirven para deshabilitar botones like/report cuando se presionan
   const [likeOrReport, setlikeOrReport] = useState({like:false, report:false})
 
