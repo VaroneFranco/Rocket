@@ -1,3 +1,4 @@
+
 const { Router, application } = require('express')
 const Profile = require('../models/Profiles')
 const Institution = require('../models/Institution')
@@ -9,7 +10,14 @@ const jwt = require('jsonwebtoken')
 //funcion de encriptado
 const { encrypt } = require('./utils')
 
+
 const router = Router()
+
+//Usuarios--> GENERADOR DE USUARIOS EN BASE DE DATOS
+router.get("/generateProfile", async (req, res) => {
+  var profiles = await generateProfile(8);
+  res.send("CARGADO");
+});
 
 //Usuarios -->Inscribirse
 router.post('/signup', async (req, res) => {
@@ -72,16 +80,18 @@ router.get('/getProfiles', async (req, res) => {
 })
 
 //Usuarios --> Actualiza el perfil del usuario
+
 router.put('/user/changes', async (req, res) => {
   const { id, new_country, new_name, new_email, new_img } = req.body
+
   await Profile.findOneAndUpdate(
     { _id: id },
     {
       $set: {
         country: new_country,
-        name: new_name,
         email: new_email,
         img: new_img,
+        about: new_about
       },
       new: true,
     },
@@ -145,12 +155,35 @@ router.get('/searchProfiles', async (req, res) => {
 })
 
 //Busqueda Profile By ID
-router.get('/searchProfileID', async (req, res) => {
-  let { id } = req.body
-  let profile = await Profile.findById(id)
-  return res.send(profile)
-})
 
+router.get("/searchProfileID/:id", async (req, res) => {
+  let id = req.params.id;
+  let profile = await Profile.findById(id);
+  console.log(id)
+  return res.send(profile);
+});
+
+router.put('/increaseLike/:id', async (req, res) => {
+ try{ console.log("Entro")
+  let id = req.params.id;
+  let profile = await Profile.findById(id);
+  let points = profile.score + 1
+  res.send(await Profile.findByIdAndUpdate(id, {score: points}))}catch(err){
+    console.log(err)
+  }
+})
+router.put('/increaseReports', async (req, res) => {
+  let id = req.params.id;
+  let profile = await Profile.findById(id);
+  let reports = profile.reports +1;
+  res.send(await Profile.findByIdAndUpdate(id, {reports : reports}))
+})
+// router.put('/increaseLike', async (req, res) => {
+//   let id = req.body.id;
+//   let profile = await Profile.findById(id);
+//   let points = profile.score + 1
+//   res.send(await Profile.findByIdAndUpdate(id, {score: points}))
+// })
 //Filtrar usuarios por mesa
 router.post('/filterUserByTable', async (req, res) => {
   let { table } = req.body
@@ -162,4 +195,6 @@ router.post('/filterUserByTable', async (req, res) => {
   res.send(filteredUsers)
 })
 
-module.exports = router
+
+
+module.exports = router;

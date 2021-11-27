@@ -1,5 +1,7 @@
+
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+
 
 const ProfileSchema = new Schema(
   {
@@ -28,8 +30,8 @@ const ProfileSchema = new Schema(
       /*  required: true */
     },
     score: {
-      type: [Number],
-      default: [],
+      type: Number,
+      default: 0,
     },
     active: {
       type: Boolean,
@@ -43,6 +45,18 @@ const ProfileSchema = new Schema(
       default: 0,
     },
     group: Number,
+    about: {
+      type: String,
+      default: "",
+    },
+    presences: {
+      type: Number,
+      default: 0,
+    },
+    reports: {
+      type: Number,
+      default: 0,
+    },
   },
 
   { collection: 'profiles' }
@@ -51,6 +65,7 @@ const ProfileSchema = new Schema(
 ProfileSchema.methods.scores = function () {
   let puntajes = mongoose.model
 }
+
 
 const Profile = mongoose.model('Profile', ProfileSchema)
 
