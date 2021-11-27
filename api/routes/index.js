@@ -19,8 +19,16 @@ router.get("/generateProfile", async (req, res) => {
 //Usuarios -->Inscribirse
 router.post("/signup", async (req, res) => {
   try {
+    let user = await Profile.find({email: req.body.email});
+    console.log(user)
+    if(!req.body.password || !req.body.name || !req.body.email || !req.body.country){
+      throw new Error("Los inputs requeridos son name, email, country, password e institution")
+    }
+    else if(user[0]){
+      throw new Error("El mail ya está registrado");
+    }
+    else{
     const password = req.body.password;
-    // const crypted = await encrypt(password);
 
     const crypted = encrypt(password);
 
@@ -33,10 +41,10 @@ router.post("/signup", async (req, res) => {
     });
     newProfile.save();
     res.send(newProfile);
+  }
   } catch (err) {
-    console.log(
-      "Los campos requeridos son name, password, email, country, institución"
-    );
+    res.json(err)
+    console.log(err);
   }
 });
 
@@ -154,7 +162,7 @@ router.get("/searchProfileID", async (req, res) => {
 });
 
 router.put('/increaseLike/:id', async (req, res) => {
- try{ console.log("Entro")
+ try{
   let id = req.params.id;
   let profile = await Profile.findById(id);
   let points = profile.score + 1
