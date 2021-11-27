@@ -196,8 +196,9 @@ router.post('/filterUserByTable', async (req, res) => {
 })
 
 router.post('/logMedia', async (req, res)=>{
-  const {name, email, img}=req.body;
-  let exist=await Profile.findOne({email:email})
+  const {name, email, img} =req.body;
+  let exist = await Profile.findOne({email:email})
+  console.log(exist, "desde logmedia")
   if(exist) {
     const token = jwt.sign(
       {
@@ -213,7 +214,7 @@ router.post('/logMedia', async (req, res)=>{
       var newProfile = await new Profile({
         name: name,
         email: email,
-        img: imag,
+        img: img,
         country: "Rocket Country"
       })
       newProfile.save()
