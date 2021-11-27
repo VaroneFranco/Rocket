@@ -1,8 +1,9 @@
 import React from 'react'
 import s from "./CardQueryUser.module.css";
 import Loading from "../../Loading/Loading";
+import CardError from '../CardError/CardError';
 function CardQueryUser({user}) {
- if (user) {
+ if (user.name) {
     return (
       <>
         <div className={s.containerQuery}>
@@ -29,7 +30,7 @@ function CardQueryUser({user}) {
     );
  }
  return (
-  <Loading />
+  <CardError />
  )
 }
 
