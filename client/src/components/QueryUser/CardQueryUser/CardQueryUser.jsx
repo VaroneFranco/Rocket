@@ -21,7 +21,7 @@ function CardQueryUser(
               alt="foto de perfil"
             />
           </div>
-          <div className={s.foto_nombre}>MATI</div>
+          <div className={s.foto_nombre}>{name}</div>
           <div className={s.foto_about}>about</div>
         </div>
         <div className={s.containerInfo}>

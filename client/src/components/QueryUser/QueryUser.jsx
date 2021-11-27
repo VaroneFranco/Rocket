@@ -10,17 +10,16 @@ function QueryUser() {
 
   const { _id } = useParams();
 
-  useEffect(async () => {
-    let user = await axios(`http://localhost:3001/searchProfileID/${_id}`);
+  useEffect ( async () => {
+    const user = await axios(`http://localhost:3001/searchProfileID/${_id}`);
 
     console.log(user.data);
-  }, []);
+  }, [] );
 
   return (
     <div className={s.QueryUser}>
       <div className={s.mainContainer}>
         <CardQueryUser
-        
         />
       </div>
     </div>
@@ -28,3 +27,4 @@ function QueryUser() {
 }
 
 export default QueryUser;
+
