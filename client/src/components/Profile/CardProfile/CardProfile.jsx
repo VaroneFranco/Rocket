@@ -13,11 +13,14 @@ function CardProfile({
   absence,
   reports,
   _id,
+  status,
 }) {
 
   const [field, setField] = useState({
-    about: "",
-    img: "",
+    about: null,
+    img: null,
+    country: null,
+    status: null,
   });
 
 
@@ -34,6 +37,8 @@ function CardProfile({
     const newChanges = {
       new_img: field.img,
       new_about: field.about,
+      new_country: field.country,
+      new_status: field.status,
       id: _id,
     };
 
@@ -41,11 +46,21 @@ function CardProfile({
     axios.put("http://localhost:3001/user/changes",  newChanges );
 
     setField({
-      about: "",
-      img: "",
+      about: null,
+      img: null,
+      country: null,
+      status: null,
     });
   }
-
+  
+  //set de botón status
+  function setButtonStatus(status){
+    if (status==="Online" || status==="Available") return "🟢";
+    if (status==="Sleeping..." || status=== "Busy") return "🟡";
+    if (status==="Offline") return "⚫";
+  }
+  var buttonStatus=setButtonStatus(status)
+  
   return (
     <>
       {/* <div className={s.container}>
@@ -121,6 +136,8 @@ function CardProfile({
         <div className={s.profile__div2}>
           <div className={s.containerAbout}>
             <span>
+            <h4>Status:</h4> 
+              <p>{buttonStatus}{status}</p>        
               <h4>About {name} :</h4> <p>{about}.</p>
               <div className={s.containerUbicacion}>
                 📍<h5>{country}.</h5>
@@ -137,7 +154,7 @@ function CardProfile({
               <br />
               Absence: {absence}
               <br />
-              Reports: {reports}
+              Reports: {reports}  
             </div>
           </div>
         </div>
@@ -176,6 +193,23 @@ function CardProfile({
                 {country_list.map(country => {
                   return <option key={country}>{country}</option>
                 })}
+              </select>
+
+            </div>
+            <div>
+              <label> Change Status </label>
+              <select
+                type="text"
+                name="status"
+                value={field.status}
+                onChange={(e) => handleChange(e)} >
+                <option disabled selected>Select your Status...</option>
+                <option key={1}>Online</option>
+                <option key={2}>Available</option>
+                <option key={3}>Busy</option>
+                <option key={4}>Sleeping...</option>
+                <option key={5}>Offline</option>
+  
               </select>
 
             </div>

@@ -21,6 +21,7 @@ function CardQueryUser({user}) {
             <div className={s.info_nombre}>
               NAME: {user.name} SURNAME: {user.surname} LOCATION: {user.country}
               INSTITUTION: {user.institution}
+              STATUS: {user.status}
             </div>
             
             {user.enhableContact ? (
