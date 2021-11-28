@@ -97,7 +97,6 @@ router.put("/user/changes", async (req, res) => {
   const {
     id,
     new_country,
-    new_name,
     new_email,
     new_img,
     new_enhableContact,
@@ -105,16 +104,17 @@ router.put("/user/changes", async (req, res) => {
     new_status,
   } = req.body;
 
+  const profile = await Profile.findById(id)
   await Profile.findOneAndUpdate(
     { _id: id },
     {
       $set: {
-        country: new_country,
-        email: new_email,
-        img: new_img,
-        about: new_about,
-        enhableContact: new_enhableContact,
-        status:new_status
+        country: new_country? new_country : profile.country,
+        email: new_email? new_email : profile.email,
+        img: new_img? new_img : profile.img,
+        about: new_about? new_about : profile.about,
+        enhableContact: new_enhableContact? new_enhableContact : profile.enhableContact,
+        status:new_status? new_status : profile.status
       },
       new: true,
     },
