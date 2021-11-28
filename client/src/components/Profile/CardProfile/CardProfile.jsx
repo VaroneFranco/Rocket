@@ -13,6 +13,8 @@ function CardProfile({
   absence,
   reports,
   _id,
+  setObj,
+  obj
 }) {
 
   const [field, setField] = useState({
@@ -26,6 +28,10 @@ function CardProfile({
       ...field,
       [e.target.name]: e.target.value,
     });
+    setObj({
+      ...obj,
+      [e.target.name]: e.target.value
+    })
 
   }
 
