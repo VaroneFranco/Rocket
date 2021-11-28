@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import s from "./CardProfile.module.css";
+import {country_list} from '../../index'
 
 function CardProfile({
   img,
@@ -11,20 +12,21 @@ function CardProfile({
   score,
   absence,
   reports,
-  _id, 
+  _id,
 }) {
 
   const [field, setField] = useState({
     about: "",
     country: "",
   });
-  
-  
+
+
   function handleChange(e) {
     setField({
       ...field,
       [e.target.name]: e.target.value,
     });
+    console.log(field)
   }
 
   function handleSubmit(e) {
@@ -34,8 +36,8 @@ function CardProfile({
       new_about: field.about,
       id: _id,
     };
- 
-    axios.put("http://localhost:3001/user/changes",  newChanges );
+
+    axios.put("http://localhost:3001/user/changes", newChanges);
     setField({
       about: "",
       country: "",
@@ -126,7 +128,7 @@ function CardProfile({
           </div>
         </div>
         <div className={s.profile__div3}>
-          <div className={s.profile__estadisticas}> 
+          <div className={s.profile__estadisticas}>
             <h4>STATS</h4>
             <div className={s.profile__scores}>
               Rockets: {score}
@@ -147,16 +149,31 @@ function CardProfile({
 
             <label>Edit my About</label>
             <textarea
-              name="country"
-              value={field.country}
+              name="about"
+              value={field.about}
               onChange={(e) => handleChange(e)}
             />
+
+            <div>
+              <label> Change Country </label>
+              <select
+                type="text"
+                name="country"
+                value={field.country}
+                onChange={(e) => handleChange(e)} >
+                <option disabled selected>Select your Country...</option>
+                {country_list.map(country => {
+                  return <option key={country}>{country}</option>
+                })}
+              </select>
+
+            </div>
 
             <button type="submit" className={s.profile__btn2}>
               {" "}
               Apply Changes
             </button>
-          
+
           </form>
         </div>
       </div>
