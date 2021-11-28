@@ -57,6 +57,10 @@ const ProfileSchema = new Schema(
       type: Number,
       default: 0,
     },
+    enhableContact: {
+      type: Boolean,
+      default: true
+    }
   },
 
   { collection: 'profiles' }
