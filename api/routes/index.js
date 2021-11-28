@@ -50,6 +50,7 @@ router.post("/signup", async (req, res) => {
         email: req.body.email,
         country: req.body.country,
         institution: req.body.institution,
+        img: "https://s03.s3c.es/imag/_v0/770x420/a/d/c/Huevo-twitter-770.jpg",
         password: crypted,
       });
       newProfile.save();
@@ -103,12 +104,12 @@ router.put("/user/changes", async (req, res) => {
   const {
     id,
     new_country,
-    new_name,
     new_email,
     new_img,
     new_enhableContact,
     new_about,
   } = req.body;
+  console.log(req.body)
 
   await Profile.findOneAndUpdate(
     { _id: id },
