@@ -22,6 +22,7 @@ async function generateProfile(num) {
             country: country[rand_country],
             institution: institution,
             password: encrypt(name[rand_name]),
+            img: images[rand_image]
           });
           newProfile.save();
           console.log(newProfile);
