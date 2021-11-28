@@ -60,3 +60,23 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.info_nombreV1 {
+    height: 100%;
+    width: 50%;
+    margin-top: 3vh;
+}
+
+.info_nombreV1 > h4 {
+    margin-top: 3vh;
+}
+
+.info_nombreV2 > h4 {
+    margin-top: 3vh;
+}
+
+.info_nombreV2 {
+    height: 100%;
+    width: 50%;
+    margin-top: 3vh;
+}
