@@ -5,9 +5,13 @@ function MiniSilla({ img, name,  _id, institution }) {
     let history = useHistory()
     return (
         <div className={s.cardContainer} onClick={()=>history.push("/query/user/"+_id)}>
-            <img src={img} alt="" width="60px" height="60px"/>
+            
+            <div className={s.img}>
+                <img src={img} alt="" width="60px" height="60px"/>
+                <h6>{institution}</h6>
+            </div>
             <h5>{name}</h5>
-            <h6>{institution}</h6>
+            
         </div>
     )
 }
