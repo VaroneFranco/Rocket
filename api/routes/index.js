@@ -93,7 +93,15 @@ router.get('/getProfiles', async (req, res) => {
 //Usuarios --> Actualiza el perfil del usuario
 
 router.put('/user/changes', async (req, res) => {
-  const { id, new_country, new_name, new_email, new_img } = req.body
+  const {
+    id,
+    new_country,
+    new_name,
+    new_email,
+    new_img,
+    new_enhableContact,
+    new_about,
+  } = req.body;
 
   await Profile.findOneAndUpdate(
     { _id: id },
@@ -102,15 +110,16 @@ router.put('/user/changes', async (req, res) => {
         country: new_country,
         email: new_email,
         img: new_img,
-        about: new_about
+        about: new_about,
+        enhableContact: new_enhableContact,
       },
       new: true,
     },
     async (err, result) => {
-      if (result) return res.send(await Profile.findOne({ _id: id }))
-      if (err) return res.send('user id invalid :S')
+      if (result) return res.send(await Profile.findOne({ _id: id }));
+      if (err) return res.send("user id invalid :S");
     }
-  )
+  );
 })
 
 //Institution --> Inscribirse

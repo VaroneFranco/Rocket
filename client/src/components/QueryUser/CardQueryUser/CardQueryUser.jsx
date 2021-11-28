@@ -15,15 +15,18 @@ function CardQueryUser({user}) {
               />
             </div>
             <div className={s.foto_nombre}>{user.name}</div>
-            <div className={s.foto_about}>about</div>
+            <div className={s.foto_about}>{user.about}</div>
           </div>
           <div className={s.containerInfo}>
             <div className={s.info_nombre}>
-              NOMBRE APELLIDO UBICACION ADMIN/ESTUDENT
+              NAME: {user.name} SURNAME: {user.surname} LOCATION: {user.country}
+              INSTITUTION: {user.institution}
             </div>
-            <div className={s.info_nombre}>
-              NOMBRE APELLIDO UBICACION ADMIN/ESTUDENT
-            </div>
+            
+            {user.enhableContact ? (
+              <div className={s.info_nombre}>CONTACTS: {user.email}</div>
+            ) : null }
+            
           </div>
         </div>
       </>

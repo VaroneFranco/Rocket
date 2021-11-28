@@ -1,6 +1,7 @@
-import React from "react";
 import s from "./Profile.module.css";
 import CardProfile from "./CardProfile/CardProfile";
+import axios from "axios"
+import { useState } from "react";
 
 const obj = [
   {
@@ -20,11 +21,31 @@ const obj = [
     meetLink: "https://meet.jit.si/Rocket-Henry-WebFT-18-4",
     about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     _id: "619daa90147c43cb6d0aa480",
+    enableContact: true,
   },
 ];
   
 
 const Profile = () => {
+
+  var [checket, setChecket] = useState(obj[0].enableContact);
+  
+ async function showContact(){
+
+    if  (obj[0].enableContact === true){
+      setChecket(false);
+     await axios("http//:localhost:3001/user/changes", {
+       data: { new_enableContact: false, id: obj[0]._id },
+     });
+      
+    } else if (obj[0].enableContact === false) {
+      setChecket(true);
+      await axios("http//:localhost:3001/user/changes", {
+        data: { new_enableContact: true, id: obj[0]._id },
+      });
+    }
+  }
+
   return (
     <div className={s.Profile}>
       <div className={s.mainContainer}>
@@ -40,6 +61,12 @@ const Profile = () => {
           _id={obj[0]._id}
         />
       </div>
+      <label>Ocultar Contactos</label>
+      {checket ? (
+        <button onClick={() => showContact()}>Hide contact</button>
+      ) : (
+        <button onClick={() => showContact()}>Show contact</button>
+      )}
     </div>
   );
 };
