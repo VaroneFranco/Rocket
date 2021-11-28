@@ -1,35 +1,40 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './Home.module.css'
 import Silla from '../Silla/Silla.jsx'
 import Loading from '../Loading/Loading.jsx'
+import axios from 'axios'
 
-const arr = [
-  {
-    name: 'José',
-    surname: 'Perez',
-    img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-    _id: "619daa90147c43cb6d0aa480"
-  },
-  {
-    name: 'Alberto',
-    surname: 'Gonzalez',
-    img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-  },
-  {
-    name: 'Jorge',
-    surname: 'Martinez',
-    img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-  },
-  {
-    name: 'Carlos',
-    surname: 'Costa',
-    img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-  },
-]
+// const arr = [
+//   {
+//     name: 'José',
+//     surname: 'Perez',
+//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
+//     _id: "619daa90147c43cb6d0aa480"
+//   },
+//   {
+//     name: 'Alberto',
+//     surname: 'Gonzalez',
+//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
+//   },
+//   {
+//     name: 'Jorge',
+//     surname: 'Martinez',
+//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
+//   },
+//   {
+//     name: 'Carlos',
+//     surname: 'Costa',
+//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
+//   },
+// ]
 
 const Home = () => {
-  useEffect(() => {
+
+  const [arr, setProfiles]=useState([])
+  useEffect(async() => {
     console.log(JSON.parse(localStorage.getItem('user')))
+    let profiles = await axios('http://localhost:3001/getProfiles').then(r=> r.data).then(r=> r.slice(0,4))
+    setProfiles(profiles)
   }, [])
 
   return (

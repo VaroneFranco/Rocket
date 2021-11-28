@@ -28,14 +28,14 @@ function CardProfile({
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     const newChanges = {
       new_country: field.country,
       new_about: field.about,
       id: _id,
     };
  
-    axios("localhost:3001/user/changes", { data: { newChanges } });
+    axios.put("http://localhost:3001/user/changes",  newChanges );
     setField({
       about: "",
       country: "",
