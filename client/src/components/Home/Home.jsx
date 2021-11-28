@@ -29,11 +29,15 @@ import axios from 'axios'
 // ]
 
 const Home = () => {
-
-  const [arr, setProfiles]=useState([])
-  useEffect(async() => {
+  const [arr, setProfiles] = useState([])
+  useEffect(async () => {
     console.log(JSON.parse(localStorage.getItem('user')))
-    let profiles = await axios('http://localhost:3001/getProfiles').then(r=> r.data).then(r=> r.slice(0,4))
+    let userr = JSON.parse(localStorage.getItem('user'))
+    let profiles = await axios
+      .post('http://localhost:3001/filterUserByTable', {
+        table: userr.table,
+      })
+      .then((r) => r.data)
     setProfiles(profiles)
   }, [])
 
@@ -46,7 +50,12 @@ const Home = () => {
         <div className={style.home__mesa__child}>
           {arr.length ? (
             arr.map((user) => (
-              <Silla name={user.name} surname={user.surname} img={user.img} _id={user._id} />
+              <Silla
+                name={user.name}
+                surname={user.surname}
+                img={user.img}
+                _id={user._id}
+              />
             ))
           ) : (
             <Loading />
