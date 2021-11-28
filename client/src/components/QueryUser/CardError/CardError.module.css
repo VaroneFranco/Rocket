@@ -22,7 +22,7 @@
   height: 100%;
 }
 
-button {
+.buttonCard > button {
   outline: none;
   border: none;
   cursor: pointer;
