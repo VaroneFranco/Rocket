@@ -14,8 +14,8 @@ function CardProfile({
   reports,
   _id,
   setObj,
-  obj
-  status,
+  obj,
+  status
 
 }) {
 
