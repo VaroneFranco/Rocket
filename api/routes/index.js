@@ -20,7 +20,7 @@ router.get("/generateProfile", async (req, res) => {
 
 //Usuarios --> BORRAR TODA LA BASE DE DATOS PROFILES
 router.get("/deleteProfile", async (req, res) => {
-  await Profile.deleteMany({ institution: "Henry" });
+  await Profile.deleteMany();
   res.status(200).send("Profiles Deleted");
 });
 
@@ -29,15 +29,8 @@ router.post("/signup", async (req, res) => {
   try {
     let user = await Profile.find({ email: req.body.email });
     console.log(user);
-    if (
-      !req.body.password ||
-      !req.body.name ||
-      !req.body.email ||
-      !req.body.country
-    ) {
-      throw new Error(
-        "Los inputs requeridos son name, email, country, password e institution"
-      );
+    if (!req.body.password || !req.body.name || !req.body.email) {
+      throw new Error("Los inputs requeridos son name, email, password ");
     } else if (user[0]) {
       throw new Error("El mail ya está registrado");
     } else {
@@ -50,6 +43,7 @@ router.post("/signup", async (req, res) => {
         email: req.body.email,
         country: req.body.country,
         institution: req.body.institution,
+        img: "https://s03.s3c.es/imag/_v0/770x420/a/d/c/Huevo-twitter-770.jpg",
         password: crypted,
       });
       newProfile.save();
@@ -108,6 +102,7 @@ router.put("/user/changes", async (req, res) => {
     new_img,
     new_enhableContact,
     new_about,
+    new_status,
   } = req.body;
 
   await Profile.findOneAndUpdate(
@@ -119,6 +114,7 @@ router.put("/user/changes", async (req, res) => {
         img: new_img,
         about: new_about,
         enhableContact: new_enhableContact,
+        status:new_status
       },
       new: true,
     },
@@ -163,7 +159,7 @@ router.post("/signInInstitution", async (req, res) => {
 });
 
 //Ruta asignacion de Mesas
-router.put("/asignTable", async (req, res) => {
+router.post("/asignTable", async (req, res) => {
   var users = await Profile.find();
   shuffle(users);
   asignTable(users);
