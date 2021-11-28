@@ -63,7 +63,10 @@ const Profile = () => {
           absence={obj?.absence}
           reports={obj?.reports}
           _id={obj?._id}
+          setObj={setObj}
+          obj={obj}
           status={obj?.status}
+
         />
       </div>
       <label>Ocultar Contactos</label>
