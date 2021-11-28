@@ -50,6 +50,7 @@ router.post("/signup", async (req, res) => {
         email: req.body.email,
         country: req.body.country,
         institution: req.body.institution,
+        img: "https://s03.s3c.es/imag/_v0/770x420/a/d/c/Huevo-twitter-770.jpg",
         password: crypted,
       });
       newProfile.save();
