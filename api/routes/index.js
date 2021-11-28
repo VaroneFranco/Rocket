@@ -102,6 +102,7 @@ router.put("/user/changes", async (req, res) => {
     new_img,
     new_enhableContact,
     new_about,
+    new_status,
   } = req.body;
 
   await Profile.findOneAndUpdate(
@@ -113,6 +114,7 @@ router.put("/user/changes", async (req, res) => {
         img: new_img,
         about: new_about,
         enhableContact: new_enhableContact,
+        status:new_status
       },
       new: true,
     },
