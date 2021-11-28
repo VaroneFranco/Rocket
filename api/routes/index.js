@@ -219,6 +219,16 @@ router.post("/filterUserByTable", async (req, res) => {
   res.send(filteredUsers);
 });
 
+router.post("/getUsersByInstitution", async (req, res) => {
+  let { institution } = req.body;
+
+  let filteredUsers = await Profile.find({
+    insitution: institution,
+  });
+
+  res.send(filteredUsers);
+});
+
 router.post("/logMedia", async (req, res) => {
   const { name, email, img } = req.body;
   let exist = await Profile.findOne({ email: email });

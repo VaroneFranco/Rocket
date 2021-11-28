@@ -1,0 +1,13 @@
+.usersContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 230px);
+    gap: 40px;
+    margin-top: 20px;
+    padding: 40px;
+    justify-content: center;
+}
+.container{
+    width: 100%;
+    height: 89vh;
+    position: relative;
+}

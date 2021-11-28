@@ -48,7 +48,7 @@ function LandingPage() {
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
-      .then(() => history.push('/home'))
+      .then(() => history.push('/'))
   }
 
   const handleOnClick = async (provider) => {
@@ -65,7 +65,12 @@ function LandingPage() {
       console.log(res, "desde segundo axios")
       localStorage.setItem('token', res.data.token)
     })
-    .then(()=>history.push('/home'))
+    await axios('http://localhost:3001/isLog', {
+      method: 'post',
+      data: { token: localStorage.getItem('token') },
+    })
+      .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
+      .then(() => history.push('/'))
   };
 
   return (

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import style from "./Silla.module.css";
 import axios from "axios";
 
-function Silla({ img, name, surname, _id }) { 
+function Silla({ img, name,  _id }) { 
   //variables que sirven para deshabilitar botones like/report cuando se presionan
   const [likeOrReport, setlikeOrReport] = useState({like:false, report:false})
 
@@ -27,7 +27,6 @@ function Silla({ img, name, surname, _id }) {
       <img alt="silla" src={img} className={style.silla__img} />
 
       <h4 className={style.silla__name}>{name}</h4>
-      <h4 className={style.silla__surname}>{surname}</h4>
 
       <select className={style.silla__select} onChange={(e) => onChange(e)}>
         

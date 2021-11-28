@@ -1,0 +1,29 @@
+.container{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0%;
+}
+.botones>button{
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-color: transparent;
+}
+.botones{
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 8px;
+}
+.botones>.selected{
+    transform: scale(1.2);
+    transition: 0.3s all ease-out;
+    background-image: linear-gradient( 68.3deg,  rgb(245,177,97) 0.4%, rgb(255, 123, 0) 65.2% );
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+}
