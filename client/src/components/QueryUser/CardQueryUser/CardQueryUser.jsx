@@ -10,7 +10,7 @@ function CardQueryUser({user}) {
           <div className={s.containerFoto}>
             <div className={s.foto}>
               <img
-                src="https://concepto.de/wp-content/uploads/2018/08/persona-e1533759204552.jpg"
+                src={user.img}
                 alt="foto de perfil"
               />
             </div>

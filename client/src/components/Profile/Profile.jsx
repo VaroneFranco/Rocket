@@ -69,7 +69,7 @@ const Profile = () => {
 
         />
       </div>
-      <label>Ocultar Contactos</label>
+      <label>Share contacts</label>
       {obj.enhableContact ? (
         <button onClick={() => showContact()}>Hide contact</button>
       ) : (
