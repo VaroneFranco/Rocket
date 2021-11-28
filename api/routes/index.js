@@ -32,12 +32,13 @@ router.post('/signup', async (req, res) => {
     if (
       !req.body.password ||
       !req.body.name ||
-      !req.body.email ||
-      !req.body.country
+      !req.body.email 
+      
     ) {
       throw new Error(
-        'Los inputs requeridos son name, email, country, password e institution'
-      )
+        "Los inputs requeridos son name, email, password "
+      );
+
     } else if (user[0]) {
       throw new Error('El mail ya está registrado')
     } else {
