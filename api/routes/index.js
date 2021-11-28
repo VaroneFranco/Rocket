@@ -12,6 +12,12 @@ const { encrypt } = require("./utils");
 
 const router = Router();
 
+//Usuarios->get por email, para cambiar status en el login desde nuestra db
+router.get('/findByEmailForStatusPropouses', (req, res)=>{
+  var user=await Profile.findOne({ email: req.body.email });
+  res.send(user)
+})
+
 //Usuarios--> GENERADOR DE PROFILES EN BASE DE DATOS
 router.get("/generateProfile", async (req, res) => {
   var profiles = await generateProfile(30);
@@ -226,7 +232,7 @@ router.post("/getUsersByInstitution", async (req, res) => {
 });
 
 router.post("/logMedia", async (req, res) => {
-  const { name, email, img } = req.body;
+  const { name, email, img, status } = req.body;
   let exist = await Profile.findOne({ email: email });
   console.log(exist, "desde logmedia");
   if (exist) {
@@ -245,6 +251,7 @@ router.post("/logMedia", async (req, res) => {
         email: email,
         img: img,
         country: "Rocket Country",
+        status: status
       });
       newProfile.save();
       const token = jwt.sign(

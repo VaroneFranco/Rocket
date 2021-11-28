@@ -3,6 +3,15 @@ import s from "./CardQueryUser.module.css";
 import Loading from "../../Loading/Loading";
 import CardError from '../CardError/CardError';
 function CardQueryUser({user}) {
+
+    //set de botón status
+    function setButtonStatus(status){
+      if (status==="Online" || status==="Available") return "🟢";
+      if (status==="Sleeping..." || status=== "Busy") return "🟡";
+      if (status==="Offline") return "⚫";
+    }
+    var buttonStatus=setButtonStatus(user.status)
+
  if (user.name) {
     return (
       <>
@@ -21,7 +30,7 @@ function CardQueryUser({user}) {
             <div className={s.info_nombre}>
               NAME: {user.name} SURNAME: {user.surname} LOCATION: {user.country}
               INSTITUTION: {user.institution}
-              STATUS: {user.status}
+              STATUS: {buttonStatus}{user.status}
             </div>
             
             {user.enhableContact ? (

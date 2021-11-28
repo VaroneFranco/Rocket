@@ -30,10 +30,12 @@ function LandingPage() {
     await axios('http://localhost:3001/signin', {
       method: 'post',
       data: log,
-    }).then((r) => {
+    }).then(async(r) => {
       if (r.data.token) {
         console.log('login token: ', r.data.token)
         localStorage.setItem('token', r.data.token)
+        let user= await axios('http://localhost:3001/findByEmailForStatusPropouses')
+        await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:user._id})
         return history.push('/')
       } else {
         setLog({
@@ -60,6 +62,7 @@ function LandingPage() {
         name: user._delegate.displayName,
         email: user._delegate.email,
         img: user._delegate.photoURL,
+        status: "Online"
       },
     })
     await axios('http://localhost:3001/isLog', {
