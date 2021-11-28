@@ -80,3 +80,9 @@
     width: 50%;
     margin-top: 3vh;
 }
+
+.score > img {
+  width: 20%;
+  margin-top: 5vh;
+}
+
