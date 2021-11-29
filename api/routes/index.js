@@ -9,14 +9,8 @@ const { generateProfile } = require("./loaded");
 
 //funcion de encriptado
 const { encrypt } = require("./utils");
-
 const router = Router();
 
-//Usuarios->get por email, para cambiar status en el login desde nuestra db
-router.get('/findByEmailForStatusPropouses', async (req, res)=>{
-  var user=await Profile.findOne({ email: req.body.email });
-  res.send(user)
-})
 
 //Usuarios--> GENERADOR DE PROFILES EN BASE DE DATOS
 router.get("/generateProfile", async (req, res) => {
@@ -25,7 +19,7 @@ router.get("/generateProfile", async (req, res) => {
 });
 
 //Usuarios --> BORRAR TODA LA BASE DE DATOS PROFILES
-router.get("/deleteProfile", async (req, res) => {
+router.get("/deleteProfiles", async (req, res) => {
   await Profile.deleteMany();
   res.status(200).send("Profiles Deleted");
 });
@@ -48,7 +42,6 @@ router.post("/signup", async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         country: req.body.country,
-        institution: req.body.institution,
         img: "https://s03.s3c.es/imag/_v0/770x420/a/d/c/Huevo-twitter-770.jpg",
         password: crypted,
       });
