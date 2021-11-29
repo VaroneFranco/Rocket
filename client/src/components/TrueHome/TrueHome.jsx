@@ -13,6 +13,7 @@ function TrueHome() {
   var [users, setUsers] = useState([])
   var myUserVar = JSON.parse(localStorage.getItem('user'))
   useEffect(async () => {
+
     /* async function getUsers (){
         var myUser = JSON.parse(localStorage.getItem('user'))
         await axios('http://localhost:3001/getUsersByInstitution', {
