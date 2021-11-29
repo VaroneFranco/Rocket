@@ -11,12 +11,44 @@ function Register() {
     repeatPass: '',
     country: '',
   })
+
+  const [errors, setErrors] = React.useState({});
+  const [habilitado, setHabilitado] = React.useState(false);
+
+  const inputValidate = input => {
+    const errors = {};
+
+    if (!data.name) {
+        errors.name = "Name is required!";
+        setHabilitado(false)
+    }
+    if (!data.email) {
+        errors.email = "E-mail is required!";
+        setHabilitado(false)
+    }
+    if (!data.password) {
+      errors.password = "Password is required!";
+      setHabilitado(false)
+    }
+    if (data.repeatPass === data.password) {
+      errors.repeatPass = "Passwords do not match!";
+      setHabilitado(false)
+    } 
+    else setHabilitado(true);
+
+    return errors;
+};
+
   function handleChange(e) {
     const value = e.target.value
     setData({
       ...data,
       [e.target.name]: value,
     })
+    setErrors(inputValidate({
+      ...data,
+      [ e.target.name ] : e.target.value
+  }))
   }
   function handleSubmit(e) {
     e.preventDefault()
@@ -43,6 +75,7 @@ function Register() {
               value={data.name}
               onChange={(e) => handleChange(e)}
             />
+            { errors.name && ( <div className={s.register__err} >{errors.name}</div> ) }
             <input
               className={s.email}
               type='email'
@@ -52,6 +85,7 @@ function Register() {
               value={data.email}
               onChange={(e) => handleChange(e)}
             />
+             { errors.email && ( <div className={s.register__err} >{errors.email}</div> ) }
             <input
               className={s.password}
               type='password'
@@ -61,6 +95,7 @@ function Register() {
               value={data.password}
               onChange={(e) => handleChange(e)}
             />
+             { errors.password && ( <div className={s.register__err} >{errors.password}</div> ) }
             <input
               className={s.repeatPass}
               type='password'
@@ -70,6 +105,7 @@ function Register() {
               value={data.repeatPass}
               onChange={(e) => handleChange(e)}
             />
+             { errors.repeatPass && ( <div className={s.register__err} >{errors.repeatPass}</div> ) }
             <input
               className={s.country}
               type='text'
@@ -79,7 +115,12 @@ function Register() {
               value={data.country}
               onChange={(e) => handleChange(e)}
             />
-            <button>SIGN UP</button>
+            <button
+             type="submit" 
+             disabled={!habilitado} 
+             onClick={e => handleSubmit(e)} 
+             className={s.creator_btn}
+            >SIGN UP</button>
           </form>
         </div>
 

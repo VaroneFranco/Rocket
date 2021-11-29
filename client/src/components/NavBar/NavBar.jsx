@@ -7,7 +7,7 @@ const NavBar = () => {
   // let location = useLocation(); // borré la importación, useLocation en react-router-dom
   var myUser = JSON.parse(localStorage.getItem("user"))
   let history = useHistory()
-  return (
+  return ( 
     <nav className={style.navbar__nav}>
       <NavLink to='/trueHome'>
         <img alt='logo' src={logo} width='60%' className={style.navbar__logo} />
@@ -15,9 +15,9 @@ const NavBar = () => {
       <div className={style.navbar__div_buttons}>
         {myUser && (
           <div>
-              <button onClick={()=>history.push("/profile")}>
-                VER MI PERFIL
-              </button>
+              <button className={style.navbar__link} onClick={()=>history.push("/profile")}>
+                MY PROFILE
+              </button> 
               <button
               className={style.navbar__boton_violeta}
               onClick={() => {
