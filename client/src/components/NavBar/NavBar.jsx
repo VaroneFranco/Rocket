@@ -1,34 +1,49 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, {useState} from 'react'
+import { NavLink, useHistory } from 'react-router-dom'
 import style from './NavBar.module.css'
 import logo from '../../logo.png'
 
 const NavBar = () => {
   // let location = useLocation(); // borré la importación, useLocation en react-router-dom
-
+  var myUser = JSON.parse(localStorage.getItem("user"))
+  let history = useHistory()
   return (
     <nav className={style.navbar__nav}>
       <NavLink to='/trueHome'>
         <img alt='logo' src={logo} width='60%' className={style.navbar__logo} />
       </NavLink>
       <div className={style.navbar__div_buttons}>
-        <NavLink to='/'>
-          <button className={style.navbar__link}>SIGN IN</button>
-        </NavLink>
-        <NavLink to='/signup'>
-          <button className={style.navbar__boton_violeta}>SIGN UP</button>
-        </NavLink>
-        <NavLink to='/'>
-          <button
-            className={style.navbar__boton_violeta}
-            onClick={() => {
-              localStorage.removeItem('token')
-              localStorage.removeItem('user')
-            }}
-          >
-            LOG OUT
-          </button>
-        </NavLink>
+        {myUser && (
+          <div>
+              <button onClick={()=>history.push("/profile")}>
+                VER MI PERFIL
+              </button>
+              <button
+              className={style.navbar__boton_violeta}
+              onClick={() => {
+                localStorage.removeItem('token')
+                localStorage.removeItem('user')
+                history.push("/")
+              }}
+              >
+              LOG OUT
+              </button>
+          </div>
+
+        )}
+        {!myUser && (
+          <div>
+                <NavLink to='/'>
+              <button className={style.navbar__link}>SIGN IN</button>
+            </NavLink>
+            <NavLink to='/signup'>
+              <button className={style.navbar__boton_violeta}>SIGN UP</button>
+            </NavLink>
+            <NavLink to='/'>
+              
+            </NavLink>
+          </div>
+        )}
         {/* {
 
                     location.pathname === "/login" 
