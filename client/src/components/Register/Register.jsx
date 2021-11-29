@@ -30,7 +30,7 @@ function Register() {
       errors.password = "Password is required!";
       setHabilitado(false)
     }
-    if (data.repeatPass === data.password) {
+    if (data.repeatPass !== data.password) {
       errors.repeatPass = "Passwords do not match!";
       setHabilitado(false)
     } 

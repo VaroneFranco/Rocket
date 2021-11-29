@@ -65,7 +65,7 @@ function TrueHome() {
   else if (myUser.institution)
     return (
       <div className={s.container}>
-        <button className={s.truehome__boton_violeta} onClick={(e) => handleClick()}>Go to My Table</button>
+        <button className={s.truehome__boton_violeta} onClick={(e) => handleClick()}>Go to my work bench</button>
         <h2>Classmates</h2>
         <FilterBar setOrder={setOrder} />
         <form onSubmit={(e) => handleSumbit(e)}>
