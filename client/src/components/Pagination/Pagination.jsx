@@ -6,7 +6,6 @@ function Pagination({ pag, setPag, users }) {
   for (let i = 1; i <= Math.ceil(users.length / 9); i++) {
     pageNumbers.push(i)
   }
-  console.log(pageNumbers)
   function handleChange(e) {
     e.preventDefault()
     setPag(e.target.value)

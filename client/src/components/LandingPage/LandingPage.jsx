@@ -32,12 +32,10 @@ function LandingPage() {
       data: log,
     }).then(async(r) => {
       if (r.data.token) {
-        console.log('login token: ', r.data.token)
         localStorage.setItem('token', r.data.token)
 
-        let user= await axios('http://localhost:3001/findByEmailForStatusPropouses')
-        await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:user._id})
-        return history.push('/')
+        /* let user= await axios('http://localhost:3001/findByEmailForStatusPropouses')
+        await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:user._id}) */
 
       } else {
         setLog({
@@ -56,8 +54,8 @@ function LandingPage() {
   }
 
   const handleOnClick = async (provider) => {
-    const user = await socialMediaAuth(provider)
-
+   
+    const user = await socialMediaAuth(provider)  
     await axios('http://localhost:3001/logMedia', {
       method: 'post',
       data: {
@@ -66,7 +64,7 @@ function LandingPage() {
         img: user._delegate.photoURL,
         status: "Online"
       },
-    })
+    }).then(x => localStorage.setItem("token",x.data.token))
     await axios('http://localhost:3001/isLog', {
       method: 'post',
       data: { token: localStorage.getItem('token') },
