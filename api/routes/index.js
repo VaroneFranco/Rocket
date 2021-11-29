@@ -13,7 +13,7 @@ const { encrypt } = require("./utils");
 const router = Router();
 
 //Usuarios->get por email, para cambiar status en el login desde nuestra db
-router.get('/findByEmailForStatusPropouses', (req, res)=>{
+router.get('/findByEmailForStatusPropouses', async (req, res)=>{
   var user=await Profile.findOne({ email: req.body.email });
   res.send(user)
 })
