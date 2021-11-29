@@ -1,0 +1,55 @@
+.containerCardError {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.titulo {
+  width: 100%;
+  height: 10%;
+}
+
+.containerCardErrorIMG {
+  width: 100%;
+  height: 40%;
+}
+
+.containerCardErrorIMG > img {
+  height: 100%;
+}
+
+.buttonCard > button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+}
+
+.buttonCard {
+  margin-left: 5.2px;
+  height: 32px;
+  width: 80px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 2px 0 #222;
+  background: #7333c5;
+  color: #fff;
+  font-family: "Nunito";
+  margin-top: 3vh;
+}
+
+.buttonCard:hover {
+  cursor: pointer;
+  background: #7c40ca;
+}
+
+.buttonCard:active,
+.buttonCard:focus {
+  box-shadow: inset 0 0 6px 0 #222;
+  background: #7c40ca;
+}

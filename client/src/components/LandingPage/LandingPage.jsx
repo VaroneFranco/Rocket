@@ -34,9 +34,11 @@ function LandingPage() {
       if (r.data.token) {
         console.log('login token: ', r.data.token)
         localStorage.setItem('token', r.data.token)
+
         let user= await axios('http://localhost:3001/findByEmailForStatusPropouses')
         await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:user._id})
         return history.push('/')
+
       } else {
         setLog({
           username: '',
@@ -50,7 +52,7 @@ function LandingPage() {
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
-      .then(() => history.push('/'))
+      .then(() => history.push('/trueHome'))
   }
 
   const handleOnClick = async (provider) => {
@@ -70,9 +72,8 @@ function LandingPage() {
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
-      .then(() => history.push('/'))
-  };
-
+      .then(() => history.push('/trueHome'))
+  }
 
   return (
     <div className='container'>
