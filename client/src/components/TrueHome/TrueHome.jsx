@@ -4,8 +4,10 @@ import s from "./TrueHome.module.css"
 import MiniSilla from '../MiniSilla/MiniSilla'
 import Pagination from '../Pagination/Pagination'
 import FilterBar from '../Filter/FilterBar'
+import { useHistory } from 'react-router-dom'
 
 function TrueHome() {
+    let history = useHistory()
     const {ordenar}=require("../utils")
     var [pag, setPag] = useState(0)
     var [users, setUsers] = useState([])
@@ -26,8 +28,10 @@ function TrueHome() {
     
     return (
         <div className={s.container}>
+            <button onClick={()=>history.push("/profile")}>My Profile</button>
             <FilterBar setOrder={setOrder}/>
             <h3>Compañeros</h3>
+            <h3>HENRY</h3>
             <div className={s.usersContainer}>
                 {(users.slice(pag, (parseInt(pag)+9))).map(x => (
                     <MiniSilla name={x.name} _id={x._id} img={x.img} institution={x.institution}/>
