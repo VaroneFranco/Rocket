@@ -9,7 +9,7 @@ import {
   googleProvider,
 } from '../../config/authMethods'
 
-import socialMediaAuth from '../../service/Auth'
+import socialMediaAuth from '../../service/Auth' 
 
 function LandingPage() {
   let history = useHistory()

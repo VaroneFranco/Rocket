@@ -65,21 +65,22 @@ function TrueHome() {
   else if (myUser.institution)
     return (
       <div className={s.container}>
-        <button onClick={(e) => handleClick()}>Ir a mi mesa</button>
-        <h3>Compañeros</h3>
+        <button className={s.truehome__boton_violeta} onClick={(e) => handleClick()}>Go to My Table</button>
+        <h2>Classmates</h2>
         <FilterBar setOrder={setOrder} />
         <form onSubmit={(e) => handleSumbit(e)}>
+          <button type="submit" onClick={handleDelete} className={s.truehome__btndelete}>
+          ✘
+          </button>
           <input
-            placeholder="Buscar compañeros"
+            placeholder="Find mates..."
             onChange={(e) => handleChange(e)}
+            className={s.landingPage__input}
             value={search}
             type="text"
           />
-          <button type="submit">
-            BUSCAR
-          </button>
-          <button type="submit" onClick={handleDelete}>
-            ELIMINAR BUSQUEDA
+          <button type="submit" className={s.truehome__btnsearch}>
+          🔎
           </button>
         </form>
         <div className={s.usersContainer}>
