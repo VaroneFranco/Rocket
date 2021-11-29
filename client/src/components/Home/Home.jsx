@@ -29,10 +29,13 @@ import axios from 'axios'
 // ]
 
 const Home = () => {
-
-
-  const [profiles, setProfiles]=useState([])
+  const [profiles, setProfiles] = useState([])
   useEffect(async () => {
+    await axios('http://localhost:3001/isLog', {
+      method: 'post',
+      data: { token: localStorage.getItem('token') },
+    }).then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
+
     console.log(JSON.parse(localStorage.getItem('user')))
     let userr = JSON.parse(localStorage.getItem('user'))
     let profiles = await axios
@@ -51,11 +54,9 @@ const Home = () => {
           <h2>My Team</h2>
         </div>
         <div className={style.home__mesa__child}>
-
           {profiles.length ? (
             profiles.map((user) => (
-              <Silla name={user.name}  img={user.img} _id={user._id} />
-
+              <Silla name={user.name} img={user.img} _id={user._id} />
             ))
           ) : (
             <Loading />
