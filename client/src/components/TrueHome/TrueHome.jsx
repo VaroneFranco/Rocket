@@ -4,6 +4,7 @@ import axios from 'axios'
 import s from './TrueHome.module.css'
 import MiniSilla from '../MiniSilla/MiniSilla'
 import Pagination from '../Pagination/Pagination'
+
 import { get } from 'http'
 
 function TrueHome() {
@@ -48,6 +49,7 @@ function TrueHome() {
       {users && <Pagination pag={pag} setPag={setPag} users={users} />}
     </div>
   )
+
 }
 
 export default TrueHome

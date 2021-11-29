@@ -30,6 +30,7 @@ const NavBar = () => {
           </button>
         </NavLink>
         {/* {
+
                     location.pathname === "/login" 
                     ? 
                     <div className={style.navbar__div_buttons}>
