@@ -4,7 +4,7 @@ import s from "./FilterBar.module.css"
 
 
 
-function FilterBar({Types, setOrder}) {
+function FilterBar({setOrder}) {
     
     let history = useHistory()
     var [orderBy, setOrderBy] = useState("default")

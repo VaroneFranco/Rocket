@@ -6,51 +6,54 @@ import MiniSilla from '../MiniSilla/MiniSilla'
 import Pagination from '../Pagination/Pagination'
 
 import { get } from 'http'
+import FilterBar from '../Filter/FilterBar'
 
 function TrueHome() {
-  let history = useHistory()
+  
+    let history = useHistory()
   var [pag, setPag] = useState(0)
   var [users, setUsers] = useState([])
-  var myUserVar = JSON.parse(localStorage.getItem('user'))
-  useEffect(async () => {
-
-    /* async function getUsers (){
-        var myUser = JSON.parse(localStorage.getItem('user'))
+  var [order, setOrder] = useState("default")
+  var myUser = JSON.parse(localStorage.getItem('user'))
+  const {ordenar} = require("../utils")
+  async function getCompañeros(){
+    let myUser = JSON.parse(localStorage.getItem('user'))
+    if(myUser.institution){
         await axios('http://localhost:3001/getUsersByInstitution', {
         method: 'post',
         data: {
         institution: myUser.institution,
-      },
-    }).then((x) => setUsers(x.data.filter((x) => x._id !== myUser._id)))
+        },
+        }).then((x) => setUsers(x.data.filter((x) => x._id !== myUser._id)))
     }
-    async function asignTable(){
-        await axios.post('http://localhost:3001/asignTable')
-    }
-    getUsers()
-    asignTable() */
-    /* await axios('http://localhost:3001/isLog', {
-      method: 'post',
-      data: { token: localStorage.getItem('token') },
-    }).then((res) => localStorage.setItem('user', JSON.stringify(res.data))) */
-    var myUser = JSON.parse(localStorage.getItem('user'))
-        await axios('http://localhost:3001/getUsersByInstitution', {
-        method: 'post',
-        data: {
-        institution: myUser.institution,
-      },
-    }).then((x) => setUsers(x.data.filter((x) => x._id !== myUser._id)))
     await axios.post('http://localhost:3001/asignTable')
-  }, [])
+  }
+  
+  useEffect(() => {
+    getCompañeros() 
+  }, [order === "default"])
+
+  if( order !== "default") ordenar(users, order)
+
+
 
   async function handleClick(e) {
     history.push('/home')
   }
- 
 
+if(!myUser.institution) return(
+
+    <div>
+        No perteneces a ninguna institucion
+    </div>
+
+
+)
   return (
     <div className={s.container}>
       <button onClick={(e) => handleClick()}>Ir a mi mesa</button>
       <h3>Compañeros</h3>
+      <FilterBar setOrder={setOrder}/>
       <div className={s.usersContainer}>
         {users.slice(pag, parseInt(pag) + 9).map((x) => (
           <MiniSilla

@@ -30,13 +30,9 @@ function LandingPage() {
     await axios('http://localhost:3001/signin', {
       method: 'post',
       data: log,
-    }).then(async(r) => {
+    }).then(r => {
       if (r.data.token) {
         localStorage.setItem('token', r.data.token)
-
-        /* let user= await axios('http://localhost:3001/findByEmailForStatusPropouses')
-        await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:user._id}) */
-
       } else {
         setLog({
           username: '',
@@ -50,11 +46,12 @@ function LandingPage() {
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
+      .then(async() => await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id}))
       .then(() => history.push('/trueHome'))
   }
 
   const handleOnClick = async (provider) => {
-   
+    console.log("ENTRE A HANDLEONCLICK RE NQV")
     const user = await socialMediaAuth(provider)  
     await axios('http://localhost:3001/logMedia', {
       method: 'post',
@@ -70,6 +67,9 @@ function LandingPage() {
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
+      .then(async ()=>(
+        await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id})
+      ))
       .then(() => history.push('/trueHome'))
   }
 
