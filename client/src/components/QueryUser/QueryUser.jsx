@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import s from "./QueryUser.module.css"
 import CardQueryUser from "./CardQueryUser/CardQueryUser";
+import GoBackButton from "../goBackButton/GoBackButton";
 
 function QueryUser() {
 
@@ -20,7 +21,7 @@ function QueryUser() {
   return (
 
     <div className={s.QueryUser}>
-
+      <GoBackButton/>
       <div className={s.mainContainer}>
        <CardQueryUser user={user} /> 
       </div>

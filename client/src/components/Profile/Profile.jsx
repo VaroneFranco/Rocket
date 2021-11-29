@@ -2,6 +2,7 @@ import s from "./Profile.module.css";
 import CardProfile from "./CardProfile/CardProfile";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import GoBackButton from "../goBackButton/GoBackButton";
 
 // const obj = [
 //   {
@@ -52,6 +53,7 @@ const Profile = () => {
 
   return (
     <div className={s.Profile}>
+      <GoBackButton/>
       <div className={s.mainContainer}>
         <CardProfile
           name={obj?.name}

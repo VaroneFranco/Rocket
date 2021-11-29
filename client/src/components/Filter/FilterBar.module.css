@@ -32,7 +32,7 @@ textarea:focus, input:focus, select:focus{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-image: linear-gradient( 90deg,  #FFAB4C  0.4%, #fa9725 120.2% );
+    background-image: linear-gradient( 90deg,  #fa9725  0.4%, #fa9725 120.2% );
 }
 .menu>img{
     width: 10px;

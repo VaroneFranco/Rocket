@@ -24,7 +24,7 @@ function Register() {
       axios('http://localhost:3001/signup', {
         method: 'post',
         data: data,
-      }).then(history.push('/trueHome'))
+      }).then(history.push('/'))
     }
   }
 

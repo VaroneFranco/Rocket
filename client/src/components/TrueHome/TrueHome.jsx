@@ -18,7 +18,7 @@ function TrueHome() {
   const {ordenar} = require("../utils")
   async function getCompañeros(){
     let myUser = JSON.parse(localStorage.getItem('user'))
-    if(myUser.institution){
+    if(myUser && myUser.institution){
         await axios('http://localhost:3001/getUsersByInstitution', {
         method: 'post',
         data: {
@@ -41,15 +41,18 @@ function TrueHome() {
     history.push('/home')
   }
 
-if(!myUser.institution) return(
+if(!myUser) return (
+    <div>
+      no estas logueado pibe
+    </div>
+  ) 
 
+else if(!myUser.institution) return(
     <div>
         No perteneces a ninguna institucion
     </div>
-
-
 )
-  return (
+else if(myUser.institution) return (
     <div className={s.container}>
       <button onClick={(e) => handleClick()}>Ir a mi mesa</button>
       <h3>Compañeros</h3>
@@ -67,7 +70,6 @@ if(!myUser.institution) return(
       {users && <Pagination pag={pag} setPag={setPag} users={users} />}
     </div>
   )
-
 }
 
 export default TrueHome
