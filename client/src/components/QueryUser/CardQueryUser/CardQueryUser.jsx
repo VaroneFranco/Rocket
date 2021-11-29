@@ -3,6 +3,15 @@ import s from "./CardQueryUser.module.css";
 import Loading from "../../Loading/Loading";
 import CardError from '../CardError/CardError';
 function CardQueryUser({user}) {
+
+    //set de botón status
+    function setButtonStatus(status){
+      if (status==="Online" || status==="Available") return "🟢";
+      if (status==="Sleeping..." || status=== "Busy") return "🟡";
+      if (status==="Offline") return "⚫";
+    }
+    var buttonStatus=setButtonStatus(user.status)
+
  if (user.name) {
     return (
       <>
@@ -16,6 +25,7 @@ function CardQueryUser({user}) {
           </div>
           <div className={s.containerInfo}>
             <div className={s.info_nombre}>
+
               <div className={s.info_nombreV1}>
                 <h4>NAME:</h4> <h5>{user.name}</h5> <h4>INSTITUTION:</h4>{" "}
                 <h5>{user.institution}</h5>
@@ -37,6 +47,7 @@ function CardQueryUser({user}) {
                 src="https://sgame.dit.upm.es/pictures/15651.png?1617669737/"
                 alt="cohete"
               />
+
             </div>
           </div>
         </div>
