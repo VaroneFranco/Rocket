@@ -20,10 +20,10 @@ textarea:focus, input:focus, select:focus{
 .menu{
     position: fixed;
     background: transparent;
-    width: 50px;
+    width: 50px; 
     height: 20px;
     top: 11vh;
-    left: 25%;
+    left: 19.5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +52,7 @@ textarea:focus, input:focus, select:focus{
     display: flex;
     flex-direction: column;
     top: -40%;
-    left: 16.5%;
+    left: 11.5%;
     display: flex;
     align-items: center;
     justify-content: center;
