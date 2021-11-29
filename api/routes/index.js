@@ -166,8 +166,8 @@ router.post("/asignTable", async (req, res) => {
 });
 
 //Busqueda Profile By Name
-router.get("/searchProfiles", async (req, res) => {
-  let name = req.body.name;
+router.get("/searchProfiles/:name", async (req, res) => {
+  let name = req.params.name;
   let profiles = await Profile.find({
     name: { $regex: new RegExp(".*" + name + ".*", "i") },
   });

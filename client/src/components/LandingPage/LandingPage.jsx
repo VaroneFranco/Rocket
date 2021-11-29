@@ -56,7 +56,7 @@ function LandingPage() {
     await axios('http://localhost:3001/logMedia', {
       method: 'post',
       data: {
-        name: user._delegate.displayName,
+        name: user._delegate?.displayName,
         email: user._delegate.email,
         img: user._delegate.photoURL,
         status: "Online"
