@@ -17,12 +17,13 @@ function Register() {
 
   const inputValidate = input => {
     const errors = {};
+    const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
     if (!data.name) {
         errors.name = "Name is required!";
         setHabilitado(false)
     }
-    if (!data.email) {
+    if (regex.test(data.email) === false) {
         errors.email = "E-mail is required!";
         setHabilitado(false)
     }
@@ -30,7 +31,7 @@ function Register() {
       errors.password = "Password is required!";
       setHabilitado(false)
     }
-    if (data.repeatPass !== data.password) {
+    if (data.password !== data.repeatPass) {
       errors.repeatPass = "Passwords do not match!";
       setHabilitado(false)
     } 
