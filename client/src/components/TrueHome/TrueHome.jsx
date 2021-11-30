@@ -9,24 +9,23 @@ import { get } from "http";
 import FilterBar from "../Filter/FilterBar";
 
 function TrueHome() {
-  let history = useHistory();
-  var [pag, setPag] = useState(0);
-  var [users, setUsers] = useState([]);
-  var [users2, setUsers2] = useState([]);
-  var [search, setSearch]=useState("")
-  var [order, setOrder] = useState("default");
-  var myUser = JSON.parse(localStorage.getItem("user"));
+  const history = useHistory();
+  const [pag, setPag] = useState(0);
+  const [users, setUsers] = useState([]);
+  const [users2, setUsers2] = useState([]);   
+  const [order, setOrder] = useState("default");
+  const myUser = JSON.parse(localStorage.getItem("user"));
   const { ordenar } = require("../utils");
+
   async function getCompañeros() {
     let myUser = JSON.parse(localStorage.getItem("user"));
     if (myUser && myUser.institution) {
-      await axios("http://localhost:3001/getUsersByInstitution", {
-        method: "post",
-        data: {
-          institution: myUser.institution,
-        },
-      }).then((x) => setUsers(x.data.filter((x) => x._id !== myUser._id)));
+      let data = await axios.post("http://localhost:3001/getUsersByInstitution", myUser.institution)
+      .then((x) => (x.data.filter((x) => x._id !== myUser._id)));
+      setUsers(data)
+      setUsers2(data)
     }
+
     await axios.post("http://localhost:3001/asignTable");
   }
 
@@ -36,22 +35,14 @@ function TrueHome() {
 
   if (order !== "default") ordenar(users, order);
 
-  const handleChange=(e)=>{
-    setSearch(e.target.value)
-  }
-  const handleSumbit = async (e) => {
-    e.preventDefault();
-    if (search) {
-        setUsers2(users);
-        let searchUsers = await axios(`http://localhost:3001/searchProfiles/${search}`).then(r=> r.data)
-        setUsers(searchUsers);
-        setSearch("")
-    }
-  }
-  const handleDelete = (e)=>{
-    e.preventDefault();
-    if(users2){
+  const handleChange= async (e)=>{
+    console.log(e.target.value)
+    if(e.target.value===""){
       setUsers(users2)
+    }
+    else{
+      let searchUsers = await axios(`http://localhost:3001/searchProfiles/${e.target.value}`).then(r=> r.data)
+      setUsers(searchUsers)
     }
   }
 
@@ -68,20 +59,15 @@ function TrueHome() {
         <button className={s.truehome__boton_violeta} onClick={(e) => handleClick()}>Go to my work bench</button>
         <h2>Classmates</h2>
         <FilterBar setOrder={setOrder} />
-        <form onSubmit={(e) => handleSumbit(e)}>
-          <button type="submit" onClick={handleDelete} className={s.truehome__btndelete}>
-          ✘
-          </button>
+        <form>
+   
           <input
-            placeholder="Find mates..."
+            placeholder="🔎 Find mates ..."
             onChange={(e) => handleChange(e)}
             className={s.landingPage__input}
-            value={search}
             type="text"
           />
-          <button type="submit" className={s.truehome__btnsearch}>
-          🔎
-          </button>
+          
         </form>
         <div className={s.usersContainer}>
           {users && users.slice(pag, parseInt(pag) + 9).map((x) => (
