@@ -33,7 +33,7 @@ const NavBar = () => {
         )}
         {!myUser && (
           <div>
-                <NavLink to='/'>
+                <NavLink to='/singin'>
               <button className={style.navbar__link}>SIGN IN</button>
             </NavLink>
             <NavLink to='/signup'>
