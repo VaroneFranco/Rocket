@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useState } from "react";
 import s from "./CardQueryUser.module.css";
 import Loading from "../../Loading/Loading";
-import CardError from '../CardError/CardError';
-function CardQueryUser({user}) {
+import CardError from "../CardError/CardError";
 
-    //set de botón status
-    function setButtonStatus(status){
-      if (status==="Online" || status==="Available") return "🟢";
-      if (status==="Sleeping..." || status=== "Busy") return "🟡";
-      if (status==="Offline") return "⚫";
-    }
-    var buttonStatus=setButtonStatus(user.status)
+function CardQueryUser({ user }) {
+  //set de botón status
+  function setButtonStatus(status) {
+    if (status === "Online" || status === "Available") return "🟢";
+    if (status === "Sleeping..." || status === "Busy") return "🟡";
+    if (status === "Offline") return "⚫";
+  }
+  var buttonStatus = setButtonStatus(user.status);
 
- if (user.name) {
+  const [loading, setLoading] = useState(true);
+
+  if (loading) {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }
+  if (loading) {
+    return (
+      <div className={s.containerLoading}>
+        <Loading />
+      </div>
+    );
+  } else if (user.name) {
+    //execute greet after 2000 milliseconds (2 seconds)
     return (
       <>
         <div className={s.containerQuery}>
@@ -25,7 +39,6 @@ function CardQueryUser({user}) {
           </div>
           <div className={s.containerInfo}>
             <div className={s.info_nombre}>
-
               <div className={s.info_nombreV1}>
                 <h4>NAME:</h4> <h5>{user.name}</h5> <h4>INSTITUTION:</h4>{" "}
                 <h5>{user.institution}</h5>
@@ -47,16 +60,14 @@ function CardQueryUser({user}) {
                 src="https://sgame.dit.upm.es/pictures/15651.png?1617669737/"
                 alt="cohete"
               />
-
             </div>
           </div>
         </div>
       </>
     );
- }
- return (
-  <CardError />
- )
+  }
+
+  return <CardError />;
 }
 
-export default CardQueryUser
+export default CardQueryUser;
