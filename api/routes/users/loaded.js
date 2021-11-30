@@ -1,4 +1,4 @@
-const Profile = require("../models/Profiles");
+const Profile = require("../../models/Profiles")
 const { encrypt } = require("./utils");
 
 var name = ["Micael", "Sebastian", "Franco","Guillermo","Liam","Nicolas","Lionel","Lautaro","Marcos"];
