@@ -1,0 +1,59 @@
+.container{
+    width: 95.37vw;
+    height: 100%;
+}
+.container>h2{
+    align-self: center;
+    color: rgb(75, 75, 75);
+}
+.filtros{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+}
+.orderGroup, .orderBy{
+    position: relative;
+}
+.orderGroup>h6, .orderBy>h6{
+    position: absolute;
+    top: -70%;
+    font-size: 0.75rem;
+}
+.orderGroup>select, .orderBy>select{
+    border-radius: 20px;
+    font-family: 'Nunito';
+    color: rgb(85, 85, 85);
+    padding: 0 8px;
+}
+.formInput {
+    padding-left: 1.2rem;
+    width: 25vw;
+    height: 6.5vh;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.25);
+    border: #fcfcfc solid 2px;
+    border: none;
+    outline: none;
+    font-family: 'Nunito';
+  }
+.filtros>form{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.btnSearch{
+    position: absolute;
+    right: 5%;
+    border:none;
+    background-color: transparent;
+}
+.btnSearch>svg>path{fill: rgb(75, 75, 75);}
+.btnSearch:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
