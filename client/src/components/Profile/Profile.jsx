@@ -4,29 +4,6 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import GoBackButton from "../goBackButton/GoBackButton";
 
-// const obj = [
-//   {
-//     name: "Sabrina The Cat",
-//     password: "U2FsdGVkX1+VOiDyfP83nDEMI9/CewBTEVFz8nA4S0k=",
-//     moderator: false,
-//     email: "sabrina_la_bicha@mongoose.com",
-//     country: "Guantanamera",
-//     institution: "Henry",
-//     score: 5,
-//     absence: 10,
-//     reports: 110,
-//     active: false,
-//     __v: 0,
-//     img: "https://www.itsmiparis.com/wp-content/themes/nextline_v4/images/itsmi_student_life.jpg",
-//     table: 4,
-//     meetLink: "https://meet.jit.si/Rocket-Henry-WebFT-18-4",
-//     about:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-//     _id: "619daa90147c43cb6d0aa480",
-//     enableContact: true,
-//   },
-// ];
-
 const Profile = () => {
   const [obj, setObj] = useState({})
   let id = JSON.parse(localStorage.getItem('user'))._id

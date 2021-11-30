@@ -191,7 +191,7 @@ router.put("/increaseLike/:id", async (req, res) => {
     console.log(err);
   }
 });
-router.put("/increaseReports", async (req, res) => {
+router.put("/increaseReports/:id", async (req, res) => {
   let id = req.params.id;
   let profile = await Profile.findById(id);
   let reports = profile.reports + 1;
