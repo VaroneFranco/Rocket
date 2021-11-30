@@ -7,7 +7,7 @@ export { default as QueryUser } from "./QueryUser/QueryUser.jsx";
 export { default as TrueHome } from "./TrueHome/TrueHome.jsx";
 export { default as Students } from "./AdminComponent/Students.jsx"
 export { default as SideBar } from "./AdminComponent/sidebar/Sidebar.jsx"
-
+export { default as TrueLandingPage } from "./TrueLandingPage/TrueLandingPage.jsx";
 
 /* export { default as Card } from "./Card/Card";
 export { default as Cards } from "./Cards/Cards";

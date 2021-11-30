@@ -4,6 +4,7 @@ import axios from "axios";
 import s from "./TrueHome.module.css";
 import MiniSilla from "../MiniSilla/MiniSilla";
 import Pagination from "../Pagination/Pagination";
+import TrueLandingPage from "../TrueLandingPage/TrueLandingPage";
 
 import { get } from "http";
 import FilterBar from "../Filter/FilterBar";
@@ -59,7 +60,7 @@ function TrueHome() {
     history.push("/home");
   }
 
-  if (!myUser) return <div>no estas logueado pibe</div>;
+  if (!myUser) return <TrueLandingPage />;
   else if (!myUser.institution)
     return <div>No perteneces a ninguna institucion</div>;
   else if (myUser.institution)

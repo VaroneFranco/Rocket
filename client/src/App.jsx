@@ -12,6 +12,7 @@ import {
   TrueHome,
   Students,
   SideBar
+  TrueLandingPage,
 } from './components/index'
 
 function App() {
@@ -19,9 +20,10 @@ function App() {
     <BrowserRouter>
       <div className='App'>
         <Route path='/' component={NavBar} />
-        <Route exact path='/' component={LandingPage} />
+        <Route exact path="/" component={TrueLandingPage} />
         <Route path='/home' component={Home} />
         <Route path='/trueHome' component={TrueHome} />
+        <Route path='/singin' component={LandingPage} />
         <Route path='/signup' component={Register} />
         <Route path='/profile' component={Profile} />
         <Route path='/query/user/:_id' component={QueryUser} />
