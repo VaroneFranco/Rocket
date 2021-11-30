@@ -7,10 +7,10 @@
 .usersContainer{
     display: grid;
     grid-template-columns: repeat(auto-fill, 330px);
-    gap: 40px;
-    margin-top: 20px;
-    padding: 40px;
+    gap: 30px;
+    padding: 10px 40px 40px 40px;
     justify-content: center;
+    position: relative;
 }
 
 .truehome__boton_violeta  {

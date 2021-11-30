@@ -10,6 +10,8 @@ import {
   Profile,
   QueryUser,
   TrueHome,
+  Students,
+  SideBar
   TrueLandingPage,
 } from './components/index'
 
@@ -25,6 +27,10 @@ function App() {
         <Route path='/signup' component={Register} />
         <Route path='/profile' component={Profile} />
         <Route path='/query/user/:_id' component={QueryUser} />
+        <div className="adminContainer">
+          <Route path='/admin' component={SideBar} />
+          <Route exact path='/admin/students' component={Students} />
+        </div>
       </div>
     </BrowserRouter>
   )

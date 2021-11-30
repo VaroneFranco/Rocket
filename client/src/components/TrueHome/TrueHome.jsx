@@ -66,8 +66,7 @@ function TrueHome() {
   else if (myUser.institution)
     return (
       <div className={s.container}>
-        <button className={s.truehome__boton_violeta} onClick={(e) => handleClick()}>Go to my work bench</button>
-        <h2>Classmates</h2>
+       {/*  <h2>Classmates</h2> */}
         <FilterBar setOrder={setOrder} />
         <form onSubmit={(e) => handleSumbit(e)}>
           <button type="submit" onClick={handleDelete} className={s.truehome__btndelete}>
@@ -84,6 +83,7 @@ function TrueHome() {
           🔎
           </button>
         </form>
+        <button className={s.truehome__boton_violeta} onClick={(e) => handleClick()}>Go to my work bench</button>
         <div className={s.usersContainer}>
           {users && users.slice(pag, parseInt(pag) + 9).map((x) => (
             <MiniSilla
@@ -93,6 +93,7 @@ function TrueHome() {
               institution={x.institution}
             />
           ))}
+          
         </div>
         {users && <Pagination pag={pag} setPag={setPag} users={users} />}
       </div>
