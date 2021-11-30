@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import style from './Home.module.css'
-import Silla from '../Silla/Silla.jsx'
-import Loading from '../Loading/Loading.jsx'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import style from "./Home.module.css";
+import Silla from "../Silla/Silla.jsx";
+import Loading from "../Loading/Loading.jsx";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 // const arr = [
 //   {
@@ -29,23 +30,25 @@ import axios from 'axios'
 // ]
 
 const Home = () => {
-  const [profiles, setProfiles] = useState([])
+  const [profiles, setProfiles] = useState([]);
+  const [user, setUser] = useState({});
   useEffect(async () => {
-    await axios('http://localhost:3001/isLog', {
-      method: 'post',
-      data: { token: localStorage.getItem('token') },
-    }).then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
+    await axios("http://localhost:3001/isLog", {
+      method: "post",
+      data: { token: localStorage.getItem("token") },
+    }).then((res) => localStorage.setItem("user", JSON.stringify(res.data)));
 
-    console.log(JSON.parse(localStorage.getItem('user')))
-    let userr = JSON.parse(localStorage.getItem('user'))
+    console.log(JSON.parse(localStorage.getItem("user")));
+    let userr = JSON.parse(localStorage.getItem("user"));
+    setUser(userr);
     let profiles = await axios
-      .post('http://localhost:3001/filterUserByTable', {
+      .post("http://localhost:3001/filterUserByTable", {
         table: userr.table,
       })
-      .then((r) => r.data)
-    setProfiles(profiles)
-    console.log(profiles)
-  }, [])
+      .then((r) => r.data);
+    setProfiles(profiles);
+    console.log(profiles);
+  }, []);
 
   return (
     <div className={style.home__container}>
@@ -65,9 +68,15 @@ const Home = () => {
       </div>
       <div className={style.home__chat}>
         <h4>CHAT</h4>
+
+        <button>
+          <a target="_blank" href={user.meetLink}>
+            Join meeeting
+          </a>
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
