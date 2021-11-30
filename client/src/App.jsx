@@ -11,8 +11,8 @@ import {
   QueryUser,
   TrueHome,
   Students,
-  SideBar
-  TrueLandingPage,
+  SideBar,
+  TrueLandingPage
 } from './components/index'
 
 function App() {
