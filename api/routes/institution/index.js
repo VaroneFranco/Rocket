@@ -4,6 +4,7 @@ const Institution = require("../../models/Institution")
 const {postInstitution} = require("./utils")
 const {encrypt} = require("../users/utils")
 const jwt = require("jsonwebtoken");
+const cache = require('../routeCache')
 
 router.post("/signUp", async (req, res) => {
     if (!req.body.email || !req.body.name || !req.body.password) {

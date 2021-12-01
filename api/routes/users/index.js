@@ -4,17 +4,18 @@ const Profile = require("../../models/Profiles");
 const { asignTable, encrypt, shuffle} = require("./utils");
 const {generateProfile} = require("./loaded")
 const jwt = require("jsonwebtoken");
+const cache = require('../routeCache')
 
 
 
 // GENERADOR DE PROFILES EN BASE DE DATOS
-router.get("/generateProfile", async (req, res) => {
+router.get("/generateProfile",cache(300) ,async (req, res) => {
   var profiles = await generateProfile(1);
   res.send("CARGADO");
 });
 
 // BORRAR TODA LA BASE DE DATOS PROFILES
-router.get("/deleteProfiles", async (req, res) => {
+router.get("/deleteProfiles",cache(300), async (req, res) => {
   await Profile.deleteMany();
   res.status(200).send("Profiles Deleted");
 });
@@ -80,7 +81,7 @@ router.post("/signin", async (req, res) => {
 });
 
 //Trae todos los Usuarios
-router.get("/getProfiles", async (req, res) => {
+router.get("/getProfiles",cache("300"), async (req, res) => {
   var usuario = await Profile.find();
   res.send(usuario);
 });
@@ -127,7 +128,7 @@ router.post("/asignTable", async (req, res) => {
 });
 
 //Busqueda Profile By Name
-router.get("/searchProfiles/:name", async (req, res) => {
+router.get("/searchProfiles/:name",cache(300), async (req, res) => {
   let name = req.params.name;
   let profiles = await Profile.find({
     name: { $regex: new RegExp(".*" + name + ".*", "i") },
@@ -136,7 +137,7 @@ router.get("/searchProfiles/:name", async (req, res) => {
 });
 
 //Busqueda Profile By ID
-router.get("/searchProfileID/:id", async (req, res) => {
+router.get("/searchProfileID/:id",cache(300), async (req, res) => {
   let { id } = req.params;
   let profile = await Profile.findById(id);
   return res.send(profile);
