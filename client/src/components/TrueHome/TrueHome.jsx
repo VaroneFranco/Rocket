@@ -40,7 +40,7 @@ function TrueHome() {
     if(e.target.value===""){
     setUsers(users2)
     }
-    setUsers(users2.filter(u=> u.name.includes(e.target.value)))
+    setUsers(users2.filter(u => u.name.toLowerCase().includes(e.target.value.toLowerCase())))
   }
 
   async function handleClick(e) {
