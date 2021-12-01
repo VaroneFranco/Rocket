@@ -47,11 +47,13 @@ function LandingPage() {
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
       .then(async() => await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id}))
-      .then(() => history.push('/trueHome'))
+      .then(() => {
+        if(JSON.parse(localStorage.getItem("user")).moderator===true) return history.push("/admin/students")
+        else return history.push('/trueHome')
+      })
   }
-
+  
   const handleOnClick = async (provider) => {
-    console.log("ENTRE A HANDLEONCLICK RE NQV")
     const user = await socialMediaAuth(provider)  
     await axios('http://localhost:3001/logMedia', {
       method: 'post',
@@ -72,7 +74,7 @@ function LandingPage() {
       ))
       .then(() => history.push('/trueHome'))
   }
-
+ 
   return (
     <div className='container'>
       <div className='create-container'>
