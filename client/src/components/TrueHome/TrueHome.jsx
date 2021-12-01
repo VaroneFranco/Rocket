@@ -34,7 +34,7 @@ function TrueHome() {
     getCompañeros();
   }, [order === "default"]);
 
-  if (order !== "default") ordenar(users, order);
+  if (order !== "default") ordenar(users, order)
 
   const handleChange= async (e)=>{
     if(e.target.value===""){

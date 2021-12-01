@@ -8,6 +8,7 @@ function FilterBar({setOrder}) {
     
     let history = useHistory()
     var [orderBy, setOrderBy] = useState("default")
+    
     function handleOrder(e){
         setOrder(e.target.value)
         setOrderBy(e.target.value)
