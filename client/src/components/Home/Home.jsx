@@ -3,30 +3,9 @@ import style from './Home.module.css'
 import Silla from '../Silla/Silla.jsx'
 import Loading from '../Loading/Loading.jsx'
 import axios from 'axios'
+import RocketChat from '../RocketChat/Input/RocketChat.jsx'
+import RocketMessages from '../RocketChat/Messages/RocketMessages'
 
-// const arr = [
-//   {
-//     name: 'José',
-//     surname: 'Perez',
-//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-//     _id: "619daa90147c43cb6d0aa480"
-//   },
-//   {
-//     name: 'Alberto',
-//     surname: 'Gonzalez',
-//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-//   },
-//   {
-//     name: 'Jorge',
-//     surname: 'Martinez',
-//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-//   },
-//   {
-//     name: 'Carlos',
-//     surname: 'Costa',
-//     img: 'https://ath2.unileverservices.com/wp-content/uploads/sites/5/2018/05/peinado-hacia-atraxxs-hombre4-300x300.jpg',
-//   },
-// ]
 
 const Home = () => {
   const [profiles, setProfiles] = useState([])
@@ -36,15 +15,13 @@ const Home = () => {
       data: { token: localStorage.getItem('token') },
     }).then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
 
-    console.log(JSON.parse(localStorage.getItem('user')))
-    let userr = JSON.parse(localStorage.getItem('user'))
+    var userr = JSON.parse(localStorage.getItem('user'))
     let profiles = await axios
       .post('http://localhost:3001/filterUserByTable', {
         table: userr.table,
       })
       .then((r) => r.data)
     setProfiles(profiles)
-    console.log(profiles)
   }, [])
 
   return (
@@ -65,6 +42,8 @@ const Home = () => {
       </div>
       <div className={style.home__chat}>
         <h4>CHAT</h4>
+        <RocketMessages></RocketMessages>
+        <RocketChat name="tu usuario"></RocketChat>
       </div>
     </div>
   )
