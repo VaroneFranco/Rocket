@@ -37,14 +37,10 @@ function TrueHome() {
   if (order !== "default") ordenar(users, order);
 
   const handleChange= async (e)=>{
-    console.log(e.target.value)
     if(e.target.value===""){
-      setUsers(users2)
+    setUsers(users2)
     }
-    else{
-      let searchUsers = await axios(`http://localhost:3001/searchProfiles/${e.target.value}`).then(r=> r.data)
-      setUsers(searchUsers)
-    }
+    setUsers(users2.filter(u=> u.name.includes(e.target.value)))
   }
 
   async function handleClick(e) {
