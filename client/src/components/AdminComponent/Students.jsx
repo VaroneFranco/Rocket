@@ -1,40 +1,45 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios"
 import s from "./Students.module.css"
+import Student from './Student/Student'
+
 
 function Students() {
-    
+    const {ordenar} = require("../utils")
     var [users, setUsers]=useState([])
-    var [search, setSearch] = useState("")
-    
+    var [users2, setUsers2] = useState([])
+    var [pag, setPag] = useState({
+        from:0,
+        to:7
+    })
+    var [orderBy, setOrderBy] = useState("a-z")
+  
     async function getStudents(){
-        await axios("http://localhost:3001/getUsersByInstitution",{
+        var res = await axios("http://localhost:3001/getUsersByInstitution",{
             method:"post",
             data: {
                 institution: JSON.parse(localStorage.getItem("user")).institution
             }
         })
-    }
-    
+        .then(x => x.data)
+        setUsers(res)
+        setUsers2(res)
+    }      
     useEffect(() => {
-        getStudents()
+        getStudents() 
     }, [])
-
-    const handleChange=(e)=>{
-        setSearch(e.target.value)
-      }
-      const handleSumbit = async (e) => {
-        e.preventDefault();
-        if (search) {
-            let searchUsers = await axios(`http://localhost:3001/searchProfiles/${search}`).then(r=> r.data)
-            setUsers(searchUsers);
-            setSearch("")
-        }
-      }    
     
+    if(users) ordenar(users,orderBy)
+    
+    const handleChange=(e)=>{
+        if(e.target.value===""){
+            setUsers(users2)
+            }
+            setUsers(users2.filter(u => u.name.toLowerCase().includes(e.target.value.toLowerCase())))
+      }
     return (
         <div className={s.container}>
-            <h2>Students Panel</h2>
+            <h2>Students Panel</h2> 
             <div className={s.filtros}>
                         
                         <div className={s.orderGroup}>
@@ -50,13 +55,12 @@ function Students() {
                             </select>
                         </div>
                         
-                        <form onSubmit={(e) => handleSumbit(e)}>
+                        <form >
                            
                             <input
                                 placeholder="Find students..."
                                 onChange={(e) => handleChange(e)}
                                 className={s.formInput}
-                                value={search}
                                 type="text"
                             />
                             <button type="submit" className={s.btnSearch}>
@@ -67,25 +71,47 @@ function Students() {
                      </form>
                      <div className={s.orderBy}>
                         <h6>Order By</h6>
-                        <select value="Default">
-                                <option value="Higher Rockets">
-                                    +Rockets
-                                </option>
-                                <option value="Higher Reports">
-                                    +Reports
-                                </option>
-                                <option value="A-Z">
+                        <select value={orderBy} onChange={(e)=>setOrderBy(e.target.value)} >
+                                <option value="a-z">
                                     A-Z
                                 </option>
-                                <option value="Z-A">
+                                <option value="z-a">
                                     Z-A
+                                </option>
+                                <option value="higher-rockets">
+                                    +Rockets
+                                </option>
+                                <option value="higher-reports">
+                                    +Reports
                                 </option>
                             </select>
                      </div>
             </div>
             <div className={s.studentsContainer}>
-                
+                {users && users.slice(pag.from, pag.to).map (x => (
+                    <Student img={x.img} name={x.name} _id={x._id} score={x.score} reports={x.reports} />
+                ))}
+                <div className={s.pagContainer}>
+                    {(
+                        <button disabled={pag.from>0 ? false : true} onClick={()=> setPag({from:pag.from-7, to: pag.to-7 })}>
+                            <svg width="9" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.70679 5.73303L8.176 10.2896L7.1156 11.173L0.585999 5.73303L7.1156 0.29303L8.176 1.17648L2.70679 5.73303Z" fill="#4F4E4E"/>
+                            </svg>
+                        </button>
+                    )}
+                    <div className={s.pagAct}>
+                        {pag.to/7} - {Math.ceil(users.length/7)}
+                    </div>
+                    { (
+                        <button  disabled={pag.to<users.length ? false : true} onClick={()=> setPag({from:pag.from+7, to: pag.to+7 })}>
+                          <svg width="9" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.9395 5.49998L0.469749 0.941855L1.53025 0.0581055L8.0605 5.49998L1.53025 10.9419L0.469749 10.0581L5.9395 5.49998Z" fill="#4F4E4E"/>
+                        </svg>
+                        </button>
+                    )}
+                </div>
             </div>
+
         </div>
     )
 }

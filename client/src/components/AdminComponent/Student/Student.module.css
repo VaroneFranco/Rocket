@@ -1,0 +1,45 @@
+.container{
+    width: 60%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #7c40ca;
+    box-shadow: 0px 3px 4px rgb(126, 126, 126);
+}
+
+.imgContainer{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgContainer>img{
+    border-radius: 50%;
+}
+.name{
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(66, 66, 66);
+}
+.stats{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: rgb(66, 66, 66)
+}
+.rockets, .reports{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.details{
+    width: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.details>svg:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
