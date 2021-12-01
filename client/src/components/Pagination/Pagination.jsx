@@ -30,7 +30,7 @@ function Pagination({ pag, setPag, users }) {
               type=''
               value={9 * x - 9}
               onClick={handleChange}
-              className={pag != 9 * x - 9 ? s.boton : s.selected}
+              className={pag !== 9 * x - 9 ? s.boton : s.selected}
             >
               {x}
             </button>

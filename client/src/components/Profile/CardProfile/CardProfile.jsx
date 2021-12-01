@@ -63,7 +63,7 @@ function CardProfile({
   //set de botón status
   function setButtonStatus(status){
     if (status==="Online" || status==="Available") return "🟢";
-    if (status==="Sleeping..." || status=== "Busy") return "🟡";
+    if (status==="Sleeping..." || status==="Busy") return "🟡";
     if (status==="Offline") return "⚫";
   }
   var buttonStatus=setButtonStatus(status)
@@ -147,7 +147,8 @@ function CardProfile({
               <p>{buttonStatus}{status}</p>        
               <h4>About {name} :</h4> <p>{about}.</p>
               <div className={s.containerUbicacion}>
-                📍<h5>{country}.</h5>
+                <span role="img" aria-label="place">📍</span>
+                <h5>{country}.</h5>
                 <h5>Institution: {institution ? institution : "none"}.</h5>
               </div>
             </span>

@@ -34,16 +34,16 @@ function Silla({ img, name,  _id }) {
         
         {likeOrReport.like===false ? 
         <option value="like" name="">
-          Like 👍
+          Like <span role="img" aria-label="fingerup">👍</span>
         </option> :
          <option disabled value="like" name="">
-         Like 👍
+         Like <span role="img" aria-label="fingerup">👍</span>
        </option>
         }
 
         {likeOrReport.report===false ? 
-        <option value="reports">Report 🚫</option> :
-        <option disabled value="reports">Report 🚫</option>
+        <option value="reports">Report <span role="img" aria-label="no">🚫</span></option> :
+        <option disabled value="reports">Report <span role="img" aria-label="no">🚫</span></option>
         } 
       </select>      
     </div>
