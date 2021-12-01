@@ -24,7 +24,7 @@ function Register() {
     const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
     if (!data.name) {
-      errors.name = "Name is required!";
+      errors.name = "Full Name is required!";
       setHabilitado(false);
     }
     if (regex.test(data.email) === false) {
@@ -77,7 +77,7 @@ function Register() {
               onChange={(e) => handleChange(e)}
             />
             {errors.name && (
-              <div className={s.register__err}>{errors.name}</div>
+              <div className={s.register__err}><strong>{errors.name}</strong></div>
             )}
             <input
               className={s.email}
@@ -89,7 +89,7 @@ function Register() {
               onChange={(e) => handleChange(e)}
             />
             {errors.email && (
-              <div className={s.register__err}>{errors.email}</div>
+              <div className={s.register__err}><strong>{errors.email}</strong></div>
             )}
             <input
               className={s.password}
@@ -101,7 +101,7 @@ function Register() {
               onChange={(e) => handleChange(e)}
             />
             {errors.password && (
-              <div className={s.register__err}>{errors.password}</div>
+              <div className={s.register__err}><strong>{errors.password}</strong></div>
             )}
             <input
               className={s.repeatPass}
@@ -113,7 +113,7 @@ function Register() {
               onChange={(e) => handleChange(e)}
             />
             {errors.repeatPass && (
-              <div className={s.register__err}>{errors.repeatPass}</div>
+              <div className={s.register__err}><strong>{errors.repeatPass}</strong></div>
             )}
             <input
               className={s.country}
