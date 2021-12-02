@@ -63,9 +63,11 @@ function User() {
             </label>
           </div>
         </div>
-        <Link to="/profile">
-        <img src={myUser.img} alt="" width="50px" height="50px" />
-        </Link>
+        <div className={s.profile}>
+          <Link to="/profile">
+            <img src={myUser.img} alt="" width="50px" height="50px" />
+          </Link>
+        </div>
       </div>
     );
 }

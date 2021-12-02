@@ -8,7 +8,7 @@ textarea:focus, input:focus, select:focus{
     align-items: center;
     gap: 5%;
 }
-.container ,img{
+.container  .profile img{
     border-radius: 50%;
 }
 .nombre{
