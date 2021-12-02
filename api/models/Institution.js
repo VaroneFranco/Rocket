@@ -23,6 +23,20 @@ const InstitutionSchema = new Schema(
       type: [],
       default: [],
     },
+    country: {
+      type: String
+    },
+    img: {
+      type: String,
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmr_FKgCoFkoxhbzHlwhmLBpIKvkAepBMEjQ&usqp=CAU",
+    },
+    status: {
+      type: String,
+      enum: ["Online", "Offline", "Available", "Busy", "Slepping..."],
+      default: "Offline",
+    },
+
   },
   { collection: "institution" }
 );

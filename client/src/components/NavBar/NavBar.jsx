@@ -12,12 +12,28 @@ const NavBar = () => {
  
   if(location.pathname!=="/") return ( 
     <nav className={style.navbar__nav}>
-      <NavLink to='/trueHome'>
+    
+      {/* <NavLink to='/'>
+        <img alt='logo' src={logo} width='60%' className={style.navbar__logo} />
+      </NavLink> */}
+
+      { myUser && (
+        <NavLink to='/trueHome'>
         <img alt='logo' src={logo} width='60%' className={style.navbar__logo} />
       </NavLink>
+      )}
+      { !myUser && (
+        <NavLink to='/'>
+        <img alt='logo' src={logo} width='60%' className={style.navbar__logo} />
+      </NavLink>
+      )}
+
       <div className={style.navbar__div_buttons}>
         {myUser && (
           <div>
+       
+          <div>
+            
               <button className={style.navbar__link} onClick={()=>history.push("/profile")}>
                 MY PROFILE
               </button> 
@@ -33,9 +49,12 @@ const NavBar = () => {
               </button>
           </div>
 
+          </div>
+
         )}
         {!myUser && (
           <div>
+              
                 <NavLink to='/signin'>
               <button className={style.navbar__link}>SIGN IN</button>
             </NavLink>

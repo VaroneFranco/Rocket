@@ -1,0 +1,123 @@
+input:focus, textarea:focus{
+    outline: none;
+}
+.mainContainer{
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    background-color: white;
+    width: 70%;
+    height: 78vh;
+    border-radius: 0.8rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.formContainer>form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.62rem;
+    margin-left: 15%;
+}
+.formContainer>form>h2{
+    align-self: flex-start;
+    color: rgb(59, 59, 59);
+    margin: 0;
+    font-weight: 800;
+}
+.formContainer>form>input{
+    height: 1.5rem;
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid rgb(128, 128, 128);
+    font-size: 1rem;
+    background-repeat: no-repeat;
+    position: left;
+    padding-left: 32px;
+    font-family: 'Nunito';
+}
+
+form>.fullname{
+    background-image: url(https://cdn-icons.flaticon.com/png/512/2550/premium/2550260.png?token=exp=1637690433~hmac=94218fd4cd8eb147d66f2c1b1da22c4b);
+    background-size: 22px;
+}
+form>.email{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2258/2258541.png);
+    background-size: 22px;
+}
+form>.password{
+    background-image: url(https://cdn-icons.flaticon.com/png/512/665/premium/665070.png?token=exp=1637692695~hmac=1f9a83d8dd9a537c29e931bed99bd876);
+    background-size: 22px;
+}
+form>.repeatPass{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/1339/1339822.png);
+    background-size: 23px;
+    background-position-y: -1px;
+}
+form>.country{
+    background-image: url(https://cdn-icons.flaticon.com/png/512/685/premium/685142.png?token=exp=1637855647~hmac=4411fc019d4dd3d67f4792d793b23c99);
+    background-size: 22px;
+}
+
+.imgContainer{
+    position: relative;
+    top: -35px;
+    width: 35% ;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5%;
+    cursor: none;
+    user-select: none;
+}
+.imgContainer>p{
+    position: absolute;
+    bottom: 1%;
+}
+
+.formContainer>form>button{
+    width: 19%;
+    height: 2.3rem;
+    border: none;
+    background-color: #7333C5;
+    color: white;
+    border-radius: 0.3rem;
+    font-family: 'Nunito';
+}
+
+.creator_btn:hover  {
+    cursor: pointer;
+    background: #7c40ca;
+}
+
+.creator_btn:active, .creator_btn:focus {
+    box-shadow: inset 0 0 6px 0 #222;
+    background: #7c40ca;
+}
+
+.creator_btn:disabled {
+    background-color: #22054731;
+    color: #7c40ca48;
+    cursor: not-allowed;
+}
+
+.register__err {
+    color: #ff0000;
+    font-size: 10px;
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-top: -23px;
+}

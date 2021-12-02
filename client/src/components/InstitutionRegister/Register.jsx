@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import s from "./Register.module.css";
+import s from "./Register.module.css"
 import axios from "axios";
 
 
 
-function Register() {
+function RegisterInstitution() {
+
   let history = useHistory();
   var [data, setData] = useState({
     name: "",
@@ -14,6 +15,7 @@ function Register() {
     repeatPass: "",
     country: "",
   });
+
   const [errors, setErrors] = React.useState({});
   const [habilitado, setHabilitado] = React.useState(false);
 
@@ -26,7 +28,7 @@ function Register() {
     const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
     if (!data.name) {
-      errors.name = "Full Name is required!";
+      errors.name = "Institution Name is required!";
       setHabilitado(false);
     }
     if (regex.test(data.email) === false) {
@@ -53,10 +55,11 @@ function Register() {
       [e.target.name]: value,
     });
   }
+
   function handleSubmit(e) {
     e.preventDefault();
     if (data.password === data.repeatPass) {
-      axios("http://localhost:3001/signup", {
+      axios("http://localhost:3001/institution/signup", {
         method: "post",
         data: data,
       }).then(history.push("/"));
@@ -64,7 +67,7 @@ function Register() {
   }
 
   return (
-    <div className={s.mainContainer}>
+     <div className={s.mainContainer}>
       <div className={s.container}>
         <div className={s.formContainer}>
           <form onSubmit={handleSubmit}>
@@ -72,7 +75,7 @@ function Register() {
             <input
               className={s.fullname}
               type="text"
-              placeholder="Full Name"
+              placeholder="Institution Name"
               required
               name="name"
               value={data.name}
@@ -155,4 +158,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegisterInstitution;

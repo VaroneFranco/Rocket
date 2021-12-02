@@ -1,0 +1,141 @@
+@import '../../vars.css';
+
+.container {
+  width: 100%;
+  height: 89vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  
+}
+
+.create-container {
+  width: 78vh;
+  height: 80vh;
+  background-image: radial-gradient(
+    circle at 120.71% 50%,
+    var(--main-color) 0,
+    var(--main-color) 50%,
+    var(--main-color) 100%
+  );
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 10px 10px 0px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.create-container-child {
+  width: 97%;
+  height: 94%;
+  display: flex;
+  flex-direction: column;
+  background: #fcfcfc;
+  border-radius: 20px;
+}
+
+.signIn {
+  font-size: 16px;
+  color: rgb(59, 59, 59);
+}
+
+.form {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-items: start;
+  margin-top: 5vh;
+  justify-items: center;
+}
+
+.form-child {
+  width: 60%;
+  height: 100%; 
+}
+
+.landingPage__input {
+  padding-left: 1.2rem;
+  width: 100%;
+  height: 6.5vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.25);
+  border: #fcfcfc solid 2px;
+  border: none;
+  outline: none;
+  font-family: 'Nunito';
+}
+
+.form-group {
+  display: flex;
+  align-content: center;
+  width: 38vh;
+  justify-content: flex-start;
+  margin-top: 3vh;
+  margin-bottom: 1vh;
+  margin-left: 1vh;
+  font-size: 2.2vh;
+}
+
+.landingPage__button {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.landingPage__button_login {
+  height: 6vh;
+  width: 15vh;
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 0 2px 0 #222;
+  background: #7333c5;
+  color: #fff;
+  font-family: 'Nunito';
+}
+
+.landingPage__button_login:hover {
+    cursor: pointer;
+    background: #7c40ca;
+}
+
+.landingPage__button_login:active, .landingPage__button_login:focus {
+    box-shadow: inset 0 0 6px 0 #222;
+    background: #7c40ca;
+}
+
+.landingPage__button_text {
+  color: #fcfcfc;
+  font-size: 14px;
+}
+
+.landingPage__image {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 3px;
+
+}
+
+.landingPage__image img {
+  height: 100%;
+}
+
+.landingPage__image > button {
+  width: 8vh;
+  height: 8vh;
+  margin: 2vh;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+
