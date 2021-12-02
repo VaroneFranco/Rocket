@@ -21,7 +21,7 @@ function TrueHome() {
   async function getCompañeros() {
     let myUser = JSON.parse(localStorage.getItem("user"));
     if (myUser && myUser.institution) {
-      let data = await axios
+    let data = await axios
         .post("http://localhost:3001/getUsersByInstitution", myUser.institution)
         .then((x) => x.data.filter((x) => x._id !== myUser._id));
       setUsers(data);
@@ -49,8 +49,9 @@ function TrueHome() {
   async function handleClick(e) {
     history.push("/home");
   }
-
+ 
   if (!myUser) return <TrueLandingPage />;
+  
   else if (!myUser.institution)
     return <div>No perteneces a ninguna institucion</div>;
   else if (myUser.institution)
