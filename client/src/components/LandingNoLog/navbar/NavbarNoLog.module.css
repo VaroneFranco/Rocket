@@ -14,10 +14,16 @@
     font-family: 'Nunito';
     box-shadow: 0px 5px 8px rgb(187, 187, 187);
 }
-img{
+.navbar img{
     margin-left: 3vw;
     margin-top: 1.5vh;
 }
+
+.scrolling img{
+    margin-left: 3vw;
+    margin-top: 1.5vh;
+}
+
 .linksNavbar{
     display: flex;
     gap: 20px;
