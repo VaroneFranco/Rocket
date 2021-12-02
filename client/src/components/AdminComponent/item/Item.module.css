@@ -1,0 +1,179 @@
+/* Sidebar Cerrada e item Activo */
+.normal[aria-current] {
+  position: relative;
+  width: 60px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.normal[aria-current] div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.normal[aria-current] path {
+  fill: #fa9725;
+}
+
+.normal[aria-current] ::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 50px;
+  background-color: #7c40ca;
+  left: -1px;
+  top: 0;
+}
+
+/* Sidebar Cerrada e item Desactivado */
+.normal {
+  width: 60px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.normal div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.normal a:hover path {
+  fill: white;
+}
+
+/* Sidebar Abierta e item Desactivado */
+.linkOpen {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 25px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.linkOpen p {
+  color: #8f8f8f;
+  font-weight: bold;
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+
+.linkOpen div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* Hovers Sidebar Cerrada */
+.normal:hover path {
+  fill: white;
+}
+
+/* Sidebar Abierta e item Activado */
+.linkOpen[aria-current] {
+  position: relative;
+  height: 50px;
+  padding-left: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  background-color: #1f1f1f;
+}
+
+.linkOpen[aria-current] path {
+  fill: #fa9725;
+}
+
+.linkOpen[aria-current] ::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 50px;
+  background-color: #7c40ca;
+  left: 0px;
+  top: 0;
+}
+
+.linkOpen[aria-current] div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.linkOpen[aria-current] p {
+  color: #fa9725;
+  font-weight: bold;
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+
+.linkOpen[aria-current] p::after {
+  display: none;
+}
+
+/* Hovers Sidebar Abierta */
+.linkOpen:hover p {
+  color: white;
+}
+
+.linkOpen:hover path {
+  fill: white;
+}
+/*# sourceMappingURL=Item.module.css.map */
