@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import style from "./Silla.module.css";
 import axios from "axios";
 
@@ -24,8 +25,9 @@ function Silla({ img, name,  _id }) {
 
   return (
     <div className={style.silla__container}>
+       <Link to={`/query/user/${_id}`}>
       <img alt="silla" src={img} className={style.silla__img} />
-
+       </Link>
       <h4 className={style.silla__name}>{name}</h4>
 
       <select className={style.silla__select} onChange={(e) => onChange(e)}>

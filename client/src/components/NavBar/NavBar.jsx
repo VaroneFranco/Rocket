@@ -36,7 +36,7 @@ const NavBar = () => {
         )}
         {!myUser && (
           <div>
-                <NavLink to='/singin'>
+                <NavLink to='/signin'>
               <button className={style.navbar__link}>SIGN IN</button>
             </NavLink>
             <NavLink to='/signup'>
