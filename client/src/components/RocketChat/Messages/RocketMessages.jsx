@@ -22,7 +22,11 @@ function RocketMessages(datosUser) {
             // else{
             //     console.log("nada")
             //     console.log(list)
+            if(snapshot.exists()){
                 setmessagesChat(Object.values(snapshot.val()))
+            }
+            else(console.log("no hay chat aun"))
+                
             // }
             
         })
