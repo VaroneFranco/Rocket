@@ -63,8 +63,7 @@ const ProfileSchema = new Schema(
       default: 0,
     },
     reports: {
-      type: Number,
-      default: 0,
+      type: Array,
     },
     enhableContact: {
       type: Boolean,
