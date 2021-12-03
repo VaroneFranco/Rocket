@@ -9,6 +9,7 @@ import RocketMessages from '../RocketChat/Messages/RocketMessages'
 
 const Home = () => {
   const [profiles, setProfiles] = useState([])
+  const [params, setparams] = useState(null)
   useEffect(async () => {
     await axios('http://localhost:3001/isLog', {
       method: 'post',
@@ -16,6 +17,7 @@ const Home = () => {
     }).then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
 
     var userr = JSON.parse(localStorage.getItem('user'))
+    setparams(userr)
     let profiles = await axios
       .post('http://localhost:3001/filterUserByTable', {
         table: userr.table,
@@ -42,8 +44,15 @@ const Home = () => {
       </div>
       <div className={style.home__chat}>
         <h4>CHAT</h4>
-        <RocketMessages></RocketMessages>
-        <RocketChat></RocketChat>
+        { params && params?.name ? 
+        <div>
+        <RocketMessages table={`table${params.table}`}></RocketMessages>
+        <RocketChat name={params.name} table={`table${params.table}`}></RocketChat>
+        </div>
+        :
+        null
+        }
+        
       </div>
     </div>
   )

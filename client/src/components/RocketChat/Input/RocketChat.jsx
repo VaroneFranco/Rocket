@@ -3,11 +3,11 @@ import { myDatabaseChat } from '../../../config/utilsChatDatabase.js'
 import { ref, set, push, child, update} from "firebase/database";
 
 
-function RocketChat() {
+function RocketChat(datosUser) {
 
     const [emoji, setemoji] = useState(false)
     const [messages, setmessages] = useState({ txt: "" })
-
+   
 
 
     useEffect(() => {
@@ -28,23 +28,23 @@ function RocketChat() {
                 return rand() + rand();
             };
 
-            // set(ref(myDatabaseChat, 'nuevo-chat'), {
+            // set(ref(myDatabaseChat, 'pruebatres'), {
             //     name:"tu usuario",
             //     txt:messages.txt,
             //     id:token()                
             // });
 
             const new_msg = {
-                name: "tu usuario",
+                name: datosUser.name,
                 txt: messages.txt,
                 id: token()
             }
             
             //esta variable solo hace el espacio nuevo en el chat para luego insertar
-            const newPostKey = push(child(ref(myDatabaseChat), 'nuevo-chat')).key;
+            const newPostKey = push(child(ref(myDatabaseChat), `${datosUser.table}}`)).key;
 
             const updates = {};
-            updates['nuevo-chat/'+newPostKey] = new_msg;
+            updates[`${datosUser.table}/`+newPostKey] = new_msg;
             
 
             update(ref(myDatabaseChat), updates);
@@ -99,7 +99,6 @@ function RocketChat() {
                     </div>
                     :
                     null}
-
             </form>
 
         </div>
