@@ -1,19 +1,27 @@
-import React, { useEffect, useState } from "react";
-import style from "./Home.module.css";
-import Silla from "../Silla/Silla.jsx";
-import Loading from "../Loading/Loading.jsx";
-import axios from "axios";
+
+import React, { useEffect, useState } from 'react'
+import style from './Home.module.css'
+import Silla from '../Silla/Silla.jsx'
+import Loading from '../Loading/Loading.jsx'
+import axios from 'axios'
+import RocketChat from '../RocketChat/Input/RocketChat.jsx'
+import RocketMessages from '../RocketChat/Messages/RocketMessages'
+
 
 const Home = () => {
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState([])
+  const [params, setparams] = useState(null)
   useEffect(async () => {
     await axios("https://rocketproject2021.herokuapp.com/isLog", {
       method: "post",
       data: { token: localStorage.getItem("token") },
     }).then((res) => localStorage.setItem("user", JSON.stringify(res.data)));
 
+
     console.log(JSON.parse(localStorage.getItem("user")));
     let userr = JSON.parse(localStorage.getItem("user"));
+
+
     let profiles = await axios
       .post("https://rocketproject2021.herokuapp.com/filterUserByTable", {
         table: userr.table,
@@ -22,6 +30,7 @@ const Home = () => {
     setProfiles(profiles);
     console.log(profiles);
   }, []);
+
 
   return (
     <div className={style.home__container}>
@@ -41,6 +50,15 @@ const Home = () => {
       </div>
       <div className={style.home__chat}>
         <h4>CHAT</h4>
+        { params && params?.name ? 
+        <div>
+        <RocketMessages table={`table${params.table}`}></RocketMessages>
+        <RocketChat name={params.name} table={`table${params.table}`}></RocketChat>
+        </div>
+        :
+        null
+        }
+        
       </div>
     </div>
   );

@@ -44,6 +44,7 @@ function TrueHome() {
         u.name.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
+    setPag(0)
   };
 
   async function handleClick(e) {
@@ -53,11 +54,13 @@ function TrueHome() {
   if (!myUser) return <TrueLandingPage />;
   
   else if (!myUser.institution)
-    return <div>No perteneces a ninguna institucion</div>;
+    return <div>No course or institution were found for your profile...</div>;
   else if (myUser.institution)
     return (
       <div className={s.container}>
-        {/*  <h2>Classmates</h2> */}
+
+        <h2>Your course: {myUser.institution}</h2>
+
         <FilterBar setOrder={setOrder} />
         <form>
           <input

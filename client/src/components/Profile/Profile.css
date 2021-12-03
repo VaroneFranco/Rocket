@@ -1,0 +1,54 @@
+.profile-supercontainer {
+    color: #1a202c;
+    text-align: left;
+}
+
+.profile-container {
+    width: 70%;
+    transform: scale(72.9%);
+    background: #99999905;
+}
+
+.profile-card-body {
+    padding: 400px;
+}
+
+.profile-select {
+    border: none;
+    outline: none;
+}
+
+.profile-input {
+    border: none;
+    outline: none; 
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    height: 75px;
+    padding: 8px;
+    resize: none;
+}
+
+.profile__button_submit {
+    height: 6vh;
+    width: 180px;
+    border: none;
+    border-radius: 22px;
+    box-shadow: 0 0 2px 0 #222;
+    background: #7333c5;
+    color: #fff;
+    font-family: 'Nunito';
+}
+
+.profile__button_submit:hover {
+    cursor: pointer;
+    background: #7c40ca;
+}
+
+.profile__button_submit:active, .profile__button_submit:focus {
+    box-shadow: inset 0 0 6px 0 #222;
+    background: #7c40ca;
+}
+
+.profile-stats-progress {
+    background-color: #7333c5;
+}

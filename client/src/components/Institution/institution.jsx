@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import GitHub from "../../Images/github.png";
 import Facebook from "../../Images/Facebook.png";
 import Google from "../../Images/google-logo-9808.png";
-import './LandingPage.css'
+import './institution.css'
 import axios from 'axios'
 
 import {
@@ -14,7 +14,7 @@ import {
 
 import socialMediaAuth from '../../service/Auth' 
 
-function LandingPage() {
+function InstitutionLogIn() {
   let history = useHistory()
   var [log, setLog] = useState({
     email: '',
@@ -30,7 +30,7 @@ function LandingPage() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    await axios('https://rocketproject2021.herokuapp.com/signin', {
+    await axios('https://rocketproject2021.herokuapp.com/institution/signIn', {
       method: 'post',
       data: log,
     }).then(r => {
@@ -44,17 +44,15 @@ function LandingPage() {
         alert('User or Password incorrect')
       }
     })
-    await axios('https://rocketproject2021.herokuapp.com/isLog', {
+    await axios('https://rocketproject2021.herokuapp.com/institution/isLog', {
       method: 'post',
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
-      .then(async() => await axios.put("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id}))
       .then(() => {
-        if(JSON.parse(localStorage.getItem("user")).moderator===true) return history.push("/admin/students")
-        else return history.push('/trueHome')
+        if(JSON.parse(localStorage.getItem("user"))) return history.push("/")
+        else return history.push('/')
       })
-    await axios.put('https://rocketproject2021.herokuapp.com/user/changes', {status: "Online"})
   }
   
   const handleOnClick = async (provider) => {
@@ -83,7 +81,7 @@ function LandingPage() {
     <div className="container">
       <div className="create-container">
         <div className="signIn">
-          <h2>Sign In</h2>
+          <h2>Sign In Institution</h2>
         </div>
         <div className="create-container-child">
           <div className="form">
@@ -120,7 +118,7 @@ function LandingPage() {
               </div>
               <div className="landingPage__button">
                 <button className="landingPage__button_login" type="submit">
-                  <h4 className="landingPage__button_text">LOG IN</h4>
+                  <h4 className="landingPage__button_text">LOG IN </h4>
                 </button>
               </div>
             </form>
@@ -148,4 +146,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage
+export default InstitutionLogIn
