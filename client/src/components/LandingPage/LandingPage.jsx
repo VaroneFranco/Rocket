@@ -54,6 +54,7 @@ function LandingPage() {
         if(JSON.parse(localStorage.getItem("user")).moderator===true) return history.push("/admin/students")
         else return history.push('/trueHome')
       })
+    await axios.put('https://rocketproject2021.herokuapp.com/user/changes', {status: "Online"})
   }
   
   const handleOnClick = async (provider) => {

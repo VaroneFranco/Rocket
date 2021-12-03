@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 
 import s from "./User.module.css"
@@ -40,6 +41,7 @@ function User() {
                 localStorage.removeItem("token");
                 localStorage.removeItem("user");
                 history.push("/");
+                axios.put('https://rocketproject2021.herokuapp.com/user/changes', {status: "Offline"})
               }}
             >
               Cerrar Sesión
