@@ -22,7 +22,7 @@ textarea:focus, input:focus, select:focus{
     background: transparent;
     width: 50px; 
     height: 20px;
-    top: 0vh;
+    top: -30px;
     left: 19.5%;
     display: flex;
     justify-content: center;
@@ -42,7 +42,7 @@ textarea:focus, input:focus, select:focus{
     transform: rotate(270deg);
 }
 .checkbox:checked ~ .menu{
-    top: 9vh;
+    top: 4vh;
 }
 .topPanel{
     width: 20%;
@@ -64,14 +64,13 @@ textarea:focus, input:focus, select:focus{
     background-color:  #fa9725;
 }
 .checkbox:checked ~ .topPanel{
-    top: 11vh;
+    top: -5vh;
     opacity: 1;
 }
 
 .checkbox{
     display: none;
 }
-
 
 .orderBy{
     display: flex;
