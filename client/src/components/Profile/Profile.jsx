@@ -20,7 +20,7 @@ const Profile =()=> {
     let id = JSON.parse(localStorage.getItem('user'))._id
   
     useEffect(() => {
-    let profile = axios(`http://localhost:3001/searchProfileID/${id}`).then(r=> setObj(r.data))
+    let profile = axios(`https://rocketproject2021.herokuapp.com/searchProfileID/${id}`).then(r=> setObj(r.data))
     
     },[])
     // const [checket, setChecket] = useState(obj?.enhableContact);
@@ -29,11 +29,11 @@ const Profile =()=> {
         if (obj.enhableContact === true) {
         // setChecket(false);
             obj.setObj({...obj, enhableContact: false})
-            await axios.put("http://localhost:3001/user/changes", { new_enhableContact: false, id: obj._id });
+            await axios.put("https://rocketproject2021.herokuapp.com/user/changes", { new_enhableContact: false, id: obj._id });
         } else if (obj.enhableContact === false) {
         // setChecket(true);
             obj.setObj({...obj, enhableContact: true})
-            await axios.put("http://localhost:3001/user/changes",{ new_enhableContact: true, id: obj._id });
+            await axios.put("https://rocketproject2021.herokuapp.com/user/changes",{ new_enhableContact: true, id: obj._id });
         };
     };
 
