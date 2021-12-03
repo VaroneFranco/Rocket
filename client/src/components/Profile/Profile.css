@@ -52,3 +52,17 @@
 .profile-stats-progress {
     background-color: #7333c5;
 }
+
+/* //////////////////////MEDIA QUERIES ////////////////////// */
+
+@media screen and (max-width: 800px) {
+    .profile-container {
+    width: 70%;
+    transform: scale(72.9%);
+    background: #99999905;
+    top: 200px;
+}
+.main-body{  
+top: 200px;
+}
+}
