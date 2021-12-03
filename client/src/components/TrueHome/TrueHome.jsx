@@ -49,7 +49,7 @@ function TrueHome() {
 
   if (!myUser) return <TrueLandingPage />;
   else if (!myUser.institution)
-    return <div>No course or institution finded for your profile...</div>;
+    return <div>No course or institution were found for your profile...</div>;
   else if (myUser.institution)
     return (
       <div className={s.container}>
