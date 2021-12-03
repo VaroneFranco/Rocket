@@ -43,7 +43,7 @@ const Home = () => {
       <div className={style.home__chat}>
         <h4>CHAT</h4>
         <RocketMessages></RocketMessages>
-        <RocketChat name="tu usuario"></RocketChat>
+        <RocketChat></RocketChat>
       </div>
     </div>
   )

@@ -1,36 +1,42 @@
-import React, {useState, useEffect} from 'react'
-import {myFirestore} from '../../../config/utilsFirestore.js'
-import { collection, addDoc, getDocs, doc, onSnapshot } from "firebase/firestore";
-
+import React, { useState, useEffect } from 'react'
+import { myDatabaseChat } from '../../../config/utilsChatDatabase.js'
+import { ref, onValue, get, child } from "firebase/database";
 
 
 
 function RocketMessages() {
-    const [messagesChat, setmessagesChat] = useState([])
+    const [messagesChat, setmessagesChat] = useState("")
+    let chatRef = ref(myDatabaseChat);
+    chatRef = child(chatRef, "nuevo-chat");
+    let list=[]
 
-    useEffect(async () => {
-    const querySnapshot = await getDocs(collection(myFirestore, "CHAT-DE-MESA-ID"));
-    setmessagesChat({...setmessagesChat, querySnapshot})   
-    }, [])
+    // useEffect(() => {
+       
+    // }, [])
+
+    onValue(chatRef, (snapshot) => {
+        if(list.length===0){
+            list.push(Object.values(snapshot.val()))            
+        }
+        else{
+            console.log("nada")
+            console.log(list)
+            setmessagesChat(Object.values(snapshot.val()))
+        }
+        
+    })
 
 
-    const unsub = onSnapshot(doc(myFirestore, "CHAT-DE-MESA-ID", "SF"), (doc) => {
-        console.log("Current data: ", doc.data());
-    });
-
-    console.log(messagesChat)
 
     return (
         <div>
             <ul>
-
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            
+                {messagesChat.length ? messagesChat.map(m=>{
+                    return <div>{m.name}: {m.txt}</div> 
+                    })
+                :
+                null
+                }
             </ul>
         </div>
     )

@@ -3,7 +3,7 @@ import firebase from "firebase/compat"
 const firebaseConfig = {
     apiKey: "AIzaSyDebxZHb3bShM6ZxtNu6NGAsStNlnXD4Y4",
     authDomain: "rocket-app-333217.firebaseapp.com",
-    databaseURL: "http://rocket-app-333217.firebaseio.com",
+    databaseURL: "https://rocket-app-333217-default-rtdb.firebaseio.com/",
     projectId: "rocket-app-333217",
     storageBucket: "rocket-app-333217.appspot.com",
     messagingSenderId: "658395953513",
