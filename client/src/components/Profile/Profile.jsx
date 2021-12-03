@@ -58,7 +58,7 @@ const Profile =()=> {
         id: obj._id
         }
 
-        axios.put("http://localhost:3001/user/changes", newChanges);
+        axios.put("https://rocketproject2021.herokuapp.com/user/changes", newChanges);
 
         setField({
             about: null,
