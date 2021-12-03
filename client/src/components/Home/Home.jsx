@@ -31,7 +31,7 @@ import axios from 'axios'
 const Home = () => {
   const [profiles, setProfiles] = useState([])
   useEffect(async () => {
-    await axios('http://localhost:3001/isLog', {
+    await axios('https://rocketproject2021.herokuapp.com/isLog', {
       method: 'post',
       data: { token: localStorage.getItem('token') },
     }).then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
@@ -39,7 +39,7 @@ const Home = () => {
     console.log(JSON.parse(localStorage.getItem('user')))
     let userr = JSON.parse(localStorage.getItem('user'))
     let profiles = await axios
-      .post('http://localhost:3001/filterUserByTable', {
+      .post('https://rocketproject2021.herokuapp.com/filterUserByTable', {
         table: userr.table,
       })
       .then((r) => r.data)

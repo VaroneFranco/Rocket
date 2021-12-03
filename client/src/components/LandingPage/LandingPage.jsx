@@ -30,7 +30,7 @@ function LandingPage() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    await axios('http://localhost:3001/signin', {
+    await axios('https://rocketproject2021.herokuapp.com/signin', {
       method: 'post',
       data: log,
     }).then(r => {
@@ -44,12 +44,12 @@ function LandingPage() {
         alert('User or Password incorrect')
       }
     })
-    await axios('http://localhost:3001/isLog', {
+    await axios('https://rocketproject2021.herokuapp.com/isLog', {
       method: 'post',
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
-      .then(async() => await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id}))
+      .then(async() => await axios.put("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id}))
       .then(() => {
         if(JSON.parse(localStorage.getItem("user")).moderator===true) return history.push("/admin/students")
         else return history.push('/trueHome')
@@ -58,7 +58,7 @@ function LandingPage() {
   
   const handleOnClick = async (provider) => {
     const user = await socialMediaAuth(provider)  
-    await axios('http://localhost:3001/logMedia', {
+    await axios('https://rocketproject2021.herokuapp.com/logMedia', {
       method: 'post',
       data: {
         name: user._delegate?.displayName,
@@ -67,13 +67,13 @@ function LandingPage() {
         status: "Online"
       },
     }).then(x => localStorage.setItem("token",x.data.token))
-    await axios('http://localhost:3001/isLog', {
+    await axios('https://rocketproject2021.herokuapp.com/isLog', {
       method: 'post',
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
       .then(async ()=>(
-        await axios.put("http://localhost:3001/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id})
+        await axios.put("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id})
       ))
       .then(() => history.push('/trueHome'))
   }
