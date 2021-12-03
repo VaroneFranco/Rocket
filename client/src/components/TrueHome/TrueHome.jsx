@@ -44,6 +44,7 @@ function TrueHome() {
         u.name.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
+    setPag(0)
   };
 
   async function handleClick(e) {
