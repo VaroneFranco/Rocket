@@ -40,7 +40,12 @@ function NavbarNoLog(props) {
                         }}>Team</h4>
                 </div>
                 <div className={s.buttons}>
-                    <button className={s.institution} style={props.isScrolling > 20 ? {"color":"white"}:null}>
+                    <button className={s.institution} style={props.isScrolling > 20 ? {"color":"white"}:null} 
+                     onClick={()=>{
+                         history.push("/institution")
+                    }}
+                    
+                    >
                         INSTITUCION
                     </button>
                     <button  className={s.student}

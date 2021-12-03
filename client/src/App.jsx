@@ -12,7 +12,8 @@ import {
   Students,
   SideBar,
   TrueLandingPage,
-  LandingNoLog
+  LandingNoLog,
+  InstitutionLogIn
 } from './components/index'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/signup' component={Register} />
         <Route path='/profile' component={Profile} />
         <Route path='/query/user/:_id' component={QueryUser} />
+        <Route path='/institution' component={InstitutionLogIn} />
         <Route path='/admin'> 
             <div className="adminContainer">
             <SideBar/>
