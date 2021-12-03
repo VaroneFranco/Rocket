@@ -72,7 +72,7 @@ function InstitutionLogIn() {
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
       .then(async ()=>(
-        await axios.put("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id})
+        await axios.post("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id})
       ))
       .then(() => history.push('/trueHome'))
   }

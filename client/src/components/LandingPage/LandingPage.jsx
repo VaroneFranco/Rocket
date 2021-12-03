@@ -49,12 +49,11 @@ function LandingPage() {
       data: { token: localStorage.getItem('token') },
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
-      .then(async() => await axios.put("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id}))
+      .then(async() => await axios.post("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id}))
       .then(() => {
         if(JSON.parse(localStorage.getItem("user")).moderator===true) return history.push("/admin/students")
         else return history.push('/trueHome')
       })
-    await axios.put('https://rocketproject2021.herokuapp.com/user/changes', {status: "Online"})
   }
   
   const handleOnClick = async (provider) => {
@@ -74,7 +73,7 @@ function LandingPage() {
     })
       .then((res) => localStorage.setItem('user', JSON.stringify(res.data)))
       .then(async ()=>(
-        await axios.put("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id})
+        await axios.post("https://rocketproject2021.herokuapp.com/user/changes", {new_status:"Online", id:JSON.parse(localStorage.getItem("user"))._id})
       ))
       .then(() => history.push('/trueHome'))
   }

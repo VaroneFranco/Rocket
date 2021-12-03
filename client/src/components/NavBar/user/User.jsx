@@ -41,7 +41,7 @@ function User() {
                 localStorage.removeItem("token");
                 localStorage.removeItem("user");
                 history.push("/");
-                axios.put('https://rocketproject2021.herokuapp.com/user/changes', {status: "Offline"})
+                axios.post('https://rocketproject2021.herokuapp.com/user/changes', {new_status: "Offline"})
               }}
             >
               Cerrar Sesión

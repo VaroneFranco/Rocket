@@ -29,11 +29,11 @@ const Profile =()=> {
         if (obj.enhableContact === true) {
         // setChecket(false);
             obj.setObj({...obj, enhableContact: false})
-            await axios.put("https://rocketproject2021.herokuapp.com/user/changes", { new_enhableContact: false, id: obj._id });
+            await axios.post("https://rocketproject2021.herokuapp.com/user/changes", { new_enhableContact: false, id: obj._id });
         } else if (obj.enhableContact === false) {
         // setChecket(true);
             obj.setObj({...obj, enhableContact: true})
-            await axios.put("https://rocketproject2021.herokuapp.com/user/changes",{ new_enhableContact: true, id: obj._id });
+            await axios.post("https://rocketproject2021.herokuapp.com/user/changes",{ new_enhableContact: true, id: obj._id });
         };
     };
 
@@ -49,7 +49,7 @@ const Profile =()=> {
     };
 
     async function handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     const newChanges = {
         new_img: field.img,
         new_about: field.about,
