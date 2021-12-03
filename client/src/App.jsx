@@ -1,6 +1,5 @@
-import React from 'react'
-
-import { BrowserRouter, Route } from 'react-router-dom'
+import React, {useEffect} from 'react'
+import { BrowserRouter, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import {
   LandingPage,
@@ -12,25 +11,32 @@ import {
   TrueHome,
   Students,
   SideBar,
-  TrueLandingPage
+  TrueLandingPage,
+  LandingNoLog,
+  InstitutionLogIn
 } from './components/index'
 
 function App() {
+  
   return (
     <BrowserRouter>
       <div className='App'>
-        <Route path='/' component={NavBar} />
-        <Route exact path="/" component={TrueLandingPage} />
+        {/* <Route exact path="/" component={TrueLandingPage} /> */}
+        <Route path='/' component={NavBar} /> 
+        <Route exact path="/" component={LandingNoLog} />
         <Route path='/home' component={Home} />
         <Route path='/trueHome' component={TrueHome} />
-        <Route path='/singin' component={LandingPage} />
+        <Route path='/signin' component={LandingPage} />
         <Route path='/signup' component={Register} />
         <Route path='/profile' component={Profile} />
         <Route path='/query/user/:_id' component={QueryUser} />
-        <div className="adminContainer">
-          <Route path='/admin' component={SideBar} />
-          <Route exact path='/admin/students' component={Students} />
-        </div>
+        <Route path='/institution' component={InstitutionLogIn} />
+        <Route path='/admin'> 
+            <div className="adminContainer">
+            <SideBar/>
+            <Route exact path='/admin/students' component={Students} />
+            </div>
+          </Route>   
       </div>
     </BrowserRouter>
   )

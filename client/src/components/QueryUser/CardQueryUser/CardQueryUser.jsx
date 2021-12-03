@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import s from "./CardQueryUser.module.css";
 import Loading from "../../Loading/Loading";
 import CardError from "../CardError/CardError";
+import foto from "../../../Images/01.png";
 
 function CardQueryUser({ user }) {
   //set de botón status
@@ -57,7 +58,7 @@ function CardQueryUser({ user }) {
             <div className={s.score}>
               <h3>ROCKETS: </h3> <h4>{user.score}</h4>
               <img
-                src="https://sgame.dit.upm.es/pictures/15651.png?1617669737/"
+                src={foto}
                 alt="cohete"
               />
             </div>

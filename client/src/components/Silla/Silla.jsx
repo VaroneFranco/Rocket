@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import style from "./Silla.module.css";
 import axios from "axios";
 
@@ -10,11 +11,11 @@ function Silla({ img, name,  _id }) {
   const onChange = async (e) => {
     e.preventDefault();
     if (e.target.value === "like") {
-      axios.put(`http://localhost:3001/increaseLike/${_id}`);
+      axios.put(`https://rocketproject2021.herokuapp.com/increaseLike/${_id}`);
       setlikeOrReport({...likeOrReport, like:true})
     }
     if (e.target.value === "reports"){
-        axios.put(`http://localhost:3001/increaseReports/${_id}`)
+        axios.put(`https://rocketproject2021.herokuapp.com/increaseReports/${_id}`)
         setlikeOrReport({...likeOrReport, report:true})
     }
   };  
@@ -24,8 +25,9 @@ function Silla({ img, name,  _id }) {
 
   return (
     <div className={style.silla__container}>
+       <Link to={`/query/user/${_id}`}>
       <img alt="silla" src={img} className={style.silla__img} />
-
+       </Link>
       <h4 className={style.silla__name}>{name}</h4>
 
       <select className={style.silla__select} onChange={(e) => onChange(e)}>

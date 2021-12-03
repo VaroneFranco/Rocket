@@ -31,7 +31,7 @@ function FilterBar({setOrder}) {
                                 <option value="higher-rockets">Higher Rockets</option>
                             </select>  
                         </div>
-                    </div>
+                </div>
             </div>
 
         </div>

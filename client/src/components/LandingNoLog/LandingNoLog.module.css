@@ -1,0 +1,146 @@
+.mainContainer{
+    position: relative;
+}
+.firstContainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    margin-top: 10vh;
+    background-color: white;
+}
+.firstContainer>.text{
+    width: 50%;
+    height: 85vh;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+.firstContainer>.text>h2{
+    color: #FF914D;
+    font-size: 4.5rem;
+    font-weight: 900;
+    font-family: 'Open sans';
+    background-image: linear-gradient(90deg, #FF914D 0%, #4801FF 48%, #7333c5  100%);
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: 100% 90%;
+    align-self: flex-start;
+    margin-left: 5vw;
+}
+.firstContainer>.text>p{
+    font-size: 2.2rem;
+    font-family: 'Open sans';
+    width: 85%;
+    font-weight: 700;
+    text-align: left;
+    align-self: center;
+    color: #0C45A6;
+}
+.firstContainer>.img{
+    width: 50%;
+    height: 85vh;
+    margin-top: 5vh;
+}
+
+
+.secondContainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    position: relative;
+    background-color: white;
+}
+.secondContainer>h2{
+    position: absolute;
+    width: 30%;
+    text-align: left;
+    top: 10%;
+    left: 10%;
+    color: #0C45A6;
+    font-size: 2.5rem;
+    font-family: 'Nunito';
+    font-weight: 900;
+}
+.secondContainer>.text{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.secondContainer>.text>p{
+    padding: 0 0 50px 0;
+}
+.secondContainer>.img{
+    width: 80%;
+    height: 100%;
+    background-color: #FF914D
+}
+
+
+.thirdContainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    background-color: white;
+}
+.thirdContainer>.img{
+    height: 100%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.thirdContainer>.text{
+    width:65%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: right;
+    color: #0C45A6;
+}
+.thirdContainer>.text>p{
+    width: 95%;
+}
+
+
+.fourthContainer{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 90vh;
+}
+.fourthContainer>.text{
+    width: 100%;
+    height: 10vh;
+    background-color: #FF914D;
+    font-family: 'Open sans';
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fourthContainer>.img{
+    width: 100%;
+    height: 80vh;
+    background-image: url("../../media/henry.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fifthContainer{
+    width: 100%;
+    height: 90vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    background-color: #282828;
+    color: white;
+}

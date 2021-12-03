@@ -109,15 +109,15 @@ form>.country{
 }
 
 .creator_btn:disabled {
-    background-color: #22054756;
-    color: #7c40ca6c;
+    background-color: #22054731;
+    color: #7c40ca48;
     cursor: not-allowed;
 }
 
 .register__err {
     color: #ff0000;
-    font-size: 8px;
+    font-size: 10px;
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-top: -23px;
 }

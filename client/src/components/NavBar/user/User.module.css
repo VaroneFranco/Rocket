@@ -1,0 +1,112 @@
+
+textarea:focus, input:focus, select:focus{
+    outline: none;
+}
+.container{
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 5%;
+}
+
+.container .profile img{
+
+    border-radius: 50%;
+}
+.nombre{
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.menu{
+    position: absolute;
+    background: transparent;
+    top: 3vh;
+    width: 50px; 
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.menu1>svg{
+    width: 20px;
+    margin-top: 5px;
+    transform: rotate(90deg);
+}
+.menu>svg{
+    width: 15px;
+}
+.checkbox:checked ~ .menu>svg{
+    transform: rotate(270deg);
+    z-index: 5;
+}
+.checkbox:checked ~ .menu{
+    opacity: 0;
+}
+
+.topPanel{
+    width: 10%;
+    padding: 1% 0 0.8% 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: -40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: top .5s ease-in-out;
+    animation: myAnim1 0.5s;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color:  #fff;
+}
+.topPanel>h4{
+    width: 100%;
+}
+.topPanel>h4:hover{
+    cursor: pointer;
+    background-color: rgb(202, 202, 202);
+}
+
+
+.checkbox:checked ~ .topPanel{
+    top: 11vh;
+    z-index: 3;
+    animation: myAnim 0.5s ease-in-out;
+}
+
+.checkbox{
+    display: none;
+}
+
+@keyframes myAnim {
+    10%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes myAnim1{
+    10%{
+        opacity: 1;
+    }
+    20%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}

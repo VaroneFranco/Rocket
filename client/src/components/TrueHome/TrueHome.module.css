@@ -1,41 +1,114 @@
-.container{
-    width: 100%;
-    height: 89vh;
-    position: relative;
+.container {
+  width: 100%;
+  height: 89vh;
+  position: relative;
+  transform: scale(90%);
 }
 
-.usersContainer{
-    display: grid;
+.usersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 27%);
+  gap: 30px;
+  padding: 10px 40px 40px 40px;
+  justify-content: center;
+  position: relative;
+}
+
+.truehome__boton_violeta {
+  margin: 5.2px;
+  height: 32px;
+  width: 180px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 2px 0 #222;
+  background: #7333c5;
+  color: #fff;
+  font-family: "Nunito";
+}
+
+.truehome__boton_violeta:hover {
+  cursor: pointer;
+  background: #7c40ca;
+}
+
+.truehome__boton_violeta:active,
+.truehome__boton_violeta:focus {
+  box-shadow: inset 0 0 6px 0 #222;
+  background: #7c40ca;
+}
+
+.landingPage__input {
+  margin: 10px;
+  padding-left: 1.2rem;
+  width: 25%;
+  height: 6.5vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.25);
+  border: #fcfcfc solid 2px;
+  border: none;
+  outline: none;
+  font-family: "Nunito";
+}
+
+.truehome__btnsearch,
+.truehome__btndelete {
+  background: transparent;
+  border: none;
+  padding: none;
+  cursor: pointer;
+  transform: scale(130%);
+}
+
+/* //////////////////////MEDIA QUERIES ////////////////////// */
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+  }
+
+  .usersContainer {
+    display: flex;
     grid-template-columns: repeat(auto-fill, 330px);
+    grid-gap: 30px;
     gap: 30px;
     padding: 10px 40px 40px 40px;
     justify-content: center;
     position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .containerPagination{
+    margin-bottom: 5vh;
 }
 
-.truehome__boton_violeta  {
+  .truehome__boton_violeta {
     margin: 5.2px;
     height: 32px;
     width: 140px;
     border: none;
     border-radius: 50px;
     box-shadow: 0 0 2px 0 #222;
-    background: #7333C5;
+    background: #7333c5;
     color: #fff;
-    font-family: 'Nunito';
-}
+    font-family: "Nunito";
+  }
 
-.truehome__boton_violeta:hover  {
+  .truehome__boton_violeta:hover {
     cursor: pointer;
     background: #7c40ca;
-}
+  }
 
-.truehome__boton_violeta:active, .truehome__boton_violeta:focus {
+  .truehome__boton_violeta:active,
+  .truehome__boton_violeta:focus {
     box-shadow: inset 0 0 6px 0 #222;
     background: #7c40ca;
-}
+  }
 
-.landingPage__input {
+  .landingPage__input {
     margin: 20px;
     padding-left: 1.2rem;
     width: 25%;
@@ -46,14 +119,15 @@
     border: #fcfcfc solid 2px;
     border: none;
     outline: none;
-    font-family: 'Nunito';
+    font-family: "Nunito";
   }
 
-
-.truehome__btnsearch, .truehome__btndelete {
+  .truehome__btnsearch,
+  .truehome__btndelete {
     background: transparent;
     border: none;
     padding: none;
     cursor: pointer;
     transform: scale(130%);
+  }
 }

@@ -1,8 +1,9 @@
 .container{
     position: absolute;
-    top: 12%;
+    top: 13.7%;
     left: 2%;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid grey;
+    cursor: pointer;
 }

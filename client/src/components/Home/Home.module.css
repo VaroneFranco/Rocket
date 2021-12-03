@@ -41,6 +41,50 @@
     margin: 2%;
 }
 
+
+@media screen and (max-width: 600px) {
+    .home__container {
+    display: flex;
+    margin-top: 2%;
+    margin-left: 1%;
+}
+
+.home__mesa {
+    width: 85vw;
+    height: 80vh;
+    background-image: radial-gradient(
+      circle at 120.71% 50%,
+      #fff 0,
+      #fff 50%,
+      #fff 100%
+    );
+    box-shadow: 0 0 3px 0 #222;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+.home__mesa__child {
+    width: 97%;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    background: #fcfcfc;
+    border-radius: 20px;
+}
+
+.home__chat {
+    border: 1px solid #999;
+    width: 28vw;
+    margin: 2%;
+}
+
+}
   
 
   
