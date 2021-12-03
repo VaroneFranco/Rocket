@@ -6,7 +6,7 @@
 
 .usersContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 330px);
+  grid-template-columns: repeat(auto-fill, 27%);
   gap: 30px;
   padding: 10px 40px 40px 40px;
   justify-content: center;
