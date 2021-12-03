@@ -19,11 +19,12 @@ function QueryUser() {
   }, [] );
 
   return (
-
     <div className={s.QueryUser}>
-      <GoBackButton/>
+      <GoBackButton />
       <div className={s.mainContainer}>
-       <CardQueryUser user={user} /> 
+        
+          <CardQueryUser user={user} />
+     
       </div>
     </div>
   );

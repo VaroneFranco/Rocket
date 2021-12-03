@@ -86,7 +86,9 @@ function TrueHome() {
                 />
               ))}
         </div>
-        {users && <Pagination pag={pag} setPag={setPag} users={users} />}
+        <div className={s.containerPagination}>
+          {users && <Pagination pag={pag} setPag={setPag} users={users} />}
+        </div>
       </div>
     );
 }

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "perfect-dark-mode": "^1.0.0",
+    "use-dark-mode": "^2.3.1"
+  }
+}
