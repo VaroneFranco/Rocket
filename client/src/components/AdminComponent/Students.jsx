@@ -14,11 +14,11 @@ function Students() {
   var [orderBy, setOrderBy] = useState("a-z");
 
   async function shuffleTables() {
-    await axios.post("http://localhost:3001/asignTable");
+    await axios.post("https://rocketproject2021.herokuapp.com/asignTable");
     console.log("mezclando");
   }
   async function getStudents() {
-    var res = await axios("http://localhost:3001/getUsersByInstitution", {
+    var res = await axios("https://rocketproject2021.herokuapp.com/getUsersByInstitution", {
       method: "post",
       data: {
         institution: JSON.parse(localStorage.getItem("user")).institution,

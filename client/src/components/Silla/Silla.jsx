@@ -11,11 +11,11 @@ function Silla({ img, name,  _id }) {
   const onChange = async (e) => {
     e.preventDefault();
     if (e.target.value === "like") {
-      axios.put(`http://localhost:3001/increaseLike/${_id}`);
+      axios.put(`https://rocketproject2021.herokuapp.com/increaseLike/${_id}`);
       setlikeOrReport({...likeOrReport, like:true})
     }
     if (e.target.value === "reports"){
-        axios.put(`http://localhost:3001/increaseReports/${_id}`)
+        axios.put(`https://rocketproject2021.herokuapp.com/increaseReports/${_id}`)
         setlikeOrReport({...likeOrReport, report:true})
     }
   };  
