@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 app.use('/', routes)
 
-app.listen(appConfig.port, ()=>{
+app.listen(process.env.PORT || appConfig.port, ()=>{
   console.log(`Conected to ${appConfig.port}`)
 })
 
