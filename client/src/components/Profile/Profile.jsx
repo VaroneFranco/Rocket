@@ -21,7 +21,7 @@ const Profile =()=> {
   
     useEffect(() => {
     let profile = axios(`https://rocketproject2021.herokuapp.com/searchProfileID/${id}`).then(r=> setObj(r.data))
-    
+  
     },[])
     // const [checket, setChecket] = useState(obj?.enhableContact);
 
@@ -48,7 +48,7 @@ const Profile =()=> {
       })
     };
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
     e.preventDefault();
     const newChanges = {
         new_img: field.img,
@@ -58,7 +58,7 @@ const Profile =()=> {
         id: obj._id
         }
 
-        axios.put("https://rocketproject2021.herokuapp.com/user/changes", newChanges);
+       await axios.post("https://rocketproject2021.herokuapp.com/user/changes", newChanges);
 
         setField({
             about: null,

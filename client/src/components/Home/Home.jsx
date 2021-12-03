@@ -18,8 +18,8 @@ const Home = () => {
     }).then((res) => localStorage.setItem("user", JSON.stringify(res.data)));
 
 
-    console.log(JSON.parse(localStorage.getItem("user")));
     let userr = JSON.parse(localStorage.getItem("user"));
+    setparams(userr)
 
 
     let profiles = await axios
