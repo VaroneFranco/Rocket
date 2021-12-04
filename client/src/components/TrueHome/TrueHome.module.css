@@ -59,6 +59,44 @@
   cursor: pointer;
   transform: scale(130%);
 }
+.containerPagination{
+  display: flex;
+  justify-content: center;
+}
+
+.pagContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.pagAct{
+  display: flex;
+  font-family:'Open Sans';
+  justify-content: center;
+  align-items: center;
+  width: 6vw;
+  color: rgb(78, 78, 78);
+}
+.currentPage{
+  background-image: linear-gradient( 68.3deg,  rgb(245,177,97) 0.4%, rgb(255, 123, 0) 65.2% );
+  color: rgb(59, 59, 59);
+  font-weight: 500;
+  border-radius: 2px;
+  padding: 5% 12%;
+  margin-right: 5%;
+}
+.pagContainer>button{
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  color: rgb(110, 110, 110);
+  gap: 3px;
+}
+.pagContainer>button:hover{
+  transform: scale(1.02);
+}
 
 /* //////////////////////MEDIA QUERIES ////////////////////// */
 
