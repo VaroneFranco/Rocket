@@ -20,9 +20,9 @@ function ChatContain({table, name , img }) {
       } else console.log("no hay chat aun");
     });
 
-    onChildAdded(chatRef, (snapshot) => {
-      setmessagesChat(Object.values(snapshot.val()));
-    });
+    //onChildAdded(chatRef, (snapshot) => {
+    //  setmessagesChat(Object.values(snapshot.val()));
+    //});
   }, []);
 
 
