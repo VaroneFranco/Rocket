@@ -36,7 +36,7 @@ Proyecto final henry
 
 
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][contributors-shield]][linkedin-url]
 <ul>
         <li><a href="">Fran</a></li>
         <li><a href="">Nacho</a></li>
