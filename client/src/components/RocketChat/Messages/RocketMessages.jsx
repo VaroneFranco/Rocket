@@ -57,7 +57,6 @@ function RocketMessages(datosUser) {
                 :
                 null
                 }
-                {console.log(messagesChat)}
             </ul>
         </div>
     )
