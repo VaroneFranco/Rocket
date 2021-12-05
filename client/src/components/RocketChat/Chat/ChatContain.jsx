@@ -26,13 +26,6 @@ function ChatContain({table, name , img }) {
   }, []);
 
 
-  useEffect(()=>{
-      console.log(messagesChat)
-  },[messagesChat])
-
-  useEffect(()=>{
-    console.log(`el usuario actual se llama ${name}, pertenece a la tabla ${table} y su imagen es ${img}`)
-},[])
 
   return (
     <div className={s.chatBox}>
