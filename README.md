@@ -107,7 +107,7 @@ Proyecto final henry
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="https://ibb.co/09z79Yy" alt="rocket windows show"/>
+<img src="https://i.ibb.co/YdVCdfB/Rockjpeg.png" alt="rocket windows show"/>
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
 
