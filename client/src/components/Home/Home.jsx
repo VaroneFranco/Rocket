@@ -28,7 +28,6 @@ const Home = () => {
       })
       .then((r) => r.data);
     setProfiles(profiles);
-    console.log(profiles);
   }, []);
 
 

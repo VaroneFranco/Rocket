@@ -1,7 +1,7 @@
 // import "./RocketMessages.css"
 import React, { useState, useEffect } from 'react'
 import { myDatabaseChat } from '../../../config/utilsChatDatabase.js'
-import { ref, onValue, get, child, onChildAdded } from "firebase/database";
+import { ref, onValue, child } from "firebase/database";
 
 
 
@@ -31,17 +31,17 @@ function RocketMessages(datosUser) {
             
         })
         
-        onChildAdded(chatRef, (snapshot) => {
-            // if(list.length===0){
-            //     list.push(Object.values(snapshot.val()))            
-            // }
-            // else{
-            //     console.log("nada")
-            //     console.log(list)
-                setmessagesChat(Object.values(snapshot.val()))
-            // }
+        // onChildAdded(chatRef, (snapshot) => {
+        //     // if(list.length===0){
+        //     //     list.push(Object.values(snapshot.val()))            
+        //     // }
+        //     // else{
+        //     //     console.log("nada")
+        //     //     console.log(list)
+        //         setmessagesChat(Object.values(snapshot.val()))
+        //     // }
             
-        })
+        // })
 
     }, [])
 
