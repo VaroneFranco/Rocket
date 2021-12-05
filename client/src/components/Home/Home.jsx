@@ -5,7 +5,7 @@ import Silla from '../Silla/Silla.jsx'
 import Loading from '../Loading/Loading.jsx'
 import axios from 'axios'
 import RocketChat from '../RocketChat/Input/RocketChat.jsx'
-import RocketMessages from '../RocketChat/Messages/RocketMessages'
+import ChatContain from '../RocketChat/Chat/ChatContain'
 
 
 const Home = () => {
@@ -20,8 +20,6 @@ const Home = () => {
 
     let userr = JSON.parse(localStorage.getItem("user"));
     setparams(userr)
-
-
     let profiles = await axios
       .post("https://rocketproject2021.herokuapp.com/filterUserByTable", {
         table: userr.table,
@@ -31,6 +29,9 @@ const Home = () => {
     console.log(profiles);
   }, []);
 
+  useEffect(()=>{
+    console.log("params --->", params)
+  },[params])
 
   return (
     <div className={style.home__container}>
@@ -52,8 +53,8 @@ const Home = () => {
         <h4>CHAT</h4>
         { params && params?.name ? 
         <div>
-        <RocketMessages table={`table${params.table}`}></RocketMessages>
-        <RocketChat name={params.name} table={`table${params.table}`}></RocketChat>
+        <ChatContain table={`table${params.table}`} name={params.name} img={params.img} />
+        {/* <RocketChat name={params.name} table={`table${params.table}`} img={params.img} /> */}
         </div>
         :
         null
