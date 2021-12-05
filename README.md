@@ -21,9 +21,9 @@ Proyecto final henry
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors]
+[![Contributors]][contributors-url]
 <ul>
-        <li><a href="https://github.com/VaroneFranco">Fran</a></li>
+        <li><a href="https://github.com/VaroneFranco">`Fran`</a></li>
         <li><a href="https://github.com/elnacho02">Nacho</a></li>
         <li><a href="https://github.com/LiamMarega">Liam</a></li>
         <li><a href="https://github.com/GuillermoMartos">Guillo</a></li>
