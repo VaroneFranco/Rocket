@@ -3,17 +3,12 @@ import { myDatabaseChat } from '../../../config/utilsChatDatabase.js'
 import { ref, push, child, update} from "firebase/database";
 
 
-function RocketChat(datosUser) {
+function RocketChat({name,img,table}) {
 
     const [emoji, setemoji] = useState(false)
     const [messages, setmessages] = useState({ txt: "" })
    
 
-
-    useEffect(() => {
-
-
-    }, [emoji])
 
 
     const handleSubmit = async (e) => {
@@ -28,23 +23,19 @@ function RocketChat(datosUser) {
                 return rand() + rand();
             };
 
-            // set(ref(myDatabaseChat, 'pruebatres'), {
-            //     name:"tu usuario",
-            //     txt:messages.txt,
-            //     id:token()                
-            // });
 
             const new_msg = {
-                name: datosUser.name,
+                name: name,
                 txt: messages.txt,
+                img: img,
                 id: token()
             }
             
             //esta variable solo hace el espacio nuevo en el chat para luego insertar
-            const newPostKey = push(child(ref(myDatabaseChat), `${datosUser.table}}`)).key;
+            const newPostKey = push(child(ref(myDatabaseChat), `${table}}`)).key;
 
             const updates = {};
-            updates[`${datosUser.table}/`+newPostKey] = new_msg;
+            updates[`${table}/`+newPostKey] = new_msg;
             
 
             update(ref(myDatabaseChat), updates);
@@ -74,12 +65,6 @@ function RocketChat(datosUser) {
 
     return (
         <div>
-
-            <ul>
-                {/* {messages?.allMessages && messages.allMessages.map(m=>{
-                    return <li id={m.id}>{m.name}: {m.txt}</li>
-                })} */}
-            </ul>
             <form onSubmit={e => handleSubmit(e)}>
                 <input type="text" value={messages.txt} name="input" onChange={(e) => handleChange(e)}></input>
                 <button type="submit" >🚀</button>
