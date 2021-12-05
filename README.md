@@ -23,7 +23,7 @@ Proyecto final henry
 -->
 [![Contributors]][contributors-url]
 <ul>
-        <li><a href="https://github.com/VaroneFranco">`Fran`</a></li>
+        <li><a href="https://github.com/VaroneFranco">Fran</a></li>
         <li><a href="https://github.com/elnacho02">Nacho</a></li>
         <li><a href="https://github.com/LiamMarega">Liam</a></li>
         <li><a href="https://github.com/GuillermoMartos">Guillo</a></li>
@@ -32,6 +32,8 @@ Proyecto final henry
         <li><a href="https://github.com/sebastiananea">Sebas</a></li>
         <li><a href="https://github.com/LauzarateARG">Lauta</a></li>
  </ul>
+
+
 
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -46,6 +48,7 @@ Proyecto final henry
         <li><a href="">Lauta</a></li>
  </ul>
 
+ <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- PROJECT LOGO -->
