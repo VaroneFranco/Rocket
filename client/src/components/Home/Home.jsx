@@ -4,7 +4,6 @@ import style from './Home.module.css'
 import Silla from '../Silla/Silla.jsx'
 import Loading from '../Loading/Loading.jsx'
 import axios from 'axios'
-import RocketChat from '../RocketChat/Input/RocketChat.jsx'
 import ChatContain from '../RocketChat/Chat/ChatContain'
 
 
@@ -53,8 +52,11 @@ const Home = () => {
         <h4>CHAT</h4>
         { params && params?.name ? 
         <div>
+
+
         <ChatContain table={`table${params.table}`} name={params.name} img={params.img} />
-        {/* <RocketChat name={params.name} table={`table${params.table}`} img={params.img} /> */}
+
+
         </div>
         :
         null

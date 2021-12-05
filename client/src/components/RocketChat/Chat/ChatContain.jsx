@@ -26,30 +26,27 @@ function ChatContain({table, name , img }) {
   }, []);
 
 
-  useEffect(()=>{
-      console.log(messagesChat)
-  },[messagesChat])
-
-  useEffect(()=>{
-    console.log(`el usuario actual se llama ${name}, pertenece a la tabla ${table} y su imagen es ${img}`)
-},[])
-
   return (
     <div className={s.chatBox}>
       <div className={s.chatBoxWrapper}>
+
         <div className={s.chatBoxTop}>
             
           {messagesChat.length
             ? messagesChat.map((m) => {
                 return (
-                    <Message name={m.name} img={m.img} txt={m.txt}/>
+                    <Message  name={m.name} img={m.img} txt={m.txt}/>
                 );
               })
             : null}
+
+
         </div>
 
         <div className={s.bottom}>
+
         <RocketChat img={img} name={name} table={table}/>
+
         </div>
       </div>
     </div>
