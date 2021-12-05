@@ -102,7 +102,7 @@ Social media and work bench solution presented for a educational assignment in H
 
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://i.ibb.co/MSj6ZGQ/contribs.png
 [contributors-url]: https://github.com/VaroneFranco/Rocket/graphs/contributors
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
