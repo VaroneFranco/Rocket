@@ -105,4 +105,4 @@ Social media and work bench solution presented for a educational assignment in H
 [contributors-shield]: https://github.com/VaroneFranco/Rocket/graphs/contributors
 [contributors-url]: https://github.com/VaroneFranco/Rocket/graphs/contributors
 
-[linkedin-url]: https://linkedin.com/
+[linkedin-url]: https://linkedin.com/in/linkedin_username
