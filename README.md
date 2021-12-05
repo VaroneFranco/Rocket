@@ -109,10 +109,11 @@ Proyecto final henry
 
 <img src="https://i.ibb.co/YdVCdfB/Rockjpeg.png" alt="rocket windows show"/>
 
-Social media and work bench solution presented for a educational assignment in Henry's devs bootcamp. <br>
-`client`: Henry <br>
-`project_title`: Rocket <br>
-`project_description`: Essencially, Rocket centralizes all-in-one tools for working in groups. Courses, or companies departments are the expected or ideal projected users. Register, Log-in/out, Stats, Meetings, Customizable working benchs, Chat, Reports and Likes are one of manies Rocket's functions. <br>
+Social media and work bench solution presented for a educational assignment in Henry's devs bootcamp. <br/>
+
+`Client`:  <a href="https://www.soyhenry.com/">Henry</a><br/>
+`Project Title`: Rocket <br/>
+`Project description`: Essencially, Rocket centralizes all-in-one tools for working in groups. Courses, or companies departments are the expected or ideal projected users. Register, Log-in/out, Stats, Meetings, Customizable working benchs, Chat, Reports and Likes are one of manies Rocket's functions. <br/>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
