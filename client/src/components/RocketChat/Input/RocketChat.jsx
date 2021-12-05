@@ -10,11 +10,6 @@ function RocketChat({name,img,table}) {
    
 
 
-    useEffect(() => {
-        console.log(`imagen del usuario ${img} y nombre del usuario ${name}`)
-
-    }, [])
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
