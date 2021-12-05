@@ -109,7 +109,10 @@ Proyecto final henry
 
 <img src="https://i.ibb.co/YdVCdfB/Rockjpeg.png" alt="rocket windows show"/>
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+Social media and work bench solution presented for a educational assignment in Henry's devs bootcamp.
+`client`: Henry
+`project_title`: Rocket
+`project_description`: Essencially, Rocket centralizes all-in-one tools for working in groups. Courses, or companies departments are the expected or ideal projected users. Register, Log-in/out, Stats, Meetings, Customizable working benchs, Chat, Reports and Likes are one of manies Rocket's functions.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
