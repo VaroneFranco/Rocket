@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { myDatabaseChat } from '../../../config/utilsChatDatabase.js'
-import { ref, set, push, child, update} from "firebase/database";
+import { ref, push, child, update} from "firebase/database";
 
 
 function RocketChat(datosUser) {
@@ -70,6 +70,7 @@ function RocketChat(datosUser) {
         setmessages({ ...messages, txt: prev_txt + e.target.name })
         setemoji(false)
     }
+  
 
     return (
         <div>
