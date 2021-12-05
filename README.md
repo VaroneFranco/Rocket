@@ -23,7 +23,14 @@ Proyecto final henry
 -->
 [![Contributors][contributors-shield]][contributors-url]
 <ul>
+        <li><a href="https://github.com/VaroneFranco">Fran</a></li>
+        <li><a href="https://github.com/elnacho02">Nacho</a></li>
         <li><a href="https://github.com/LiamMarega">Liam</a></li>
+        <li><a href="https://github.com/GuillermoMartos">Guillo</a></li>
+        <li><a href="https://github.com/cNikoc">Nixx</a></li>
+        <li><a href="https://github.com/micaelgomez">Maiks</a></li>
+        <li><a href="https://github.com/sebastiananea">Sebas</a></li>
+        <li><a href="https://github.com/LauzarateARG">Lauta</a></li>
  </ul>
 
 [![Forks][forks-shield]][forks-url]
