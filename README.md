@@ -33,11 +33,18 @@ Proyecto final henry
         <li><a href="https://github.com/LauzarateARG">Lauta</a></li>
  </ul>
 
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
+<ul>
+        <li><a href="">Fran</a></li>
+        <li><a href="">Nacho</a></li>
+        <li><a href="">Liam</a></li>
+        <li><a href="https://www.linkedin.com/in/guillermo-luis-martos-7a01b6156/">Guillo</a></li>
+        <li><a href="">Nixx</a></li>
+        <li><a href="">Maiks</a></li>
+        <li><a href="">Sebas</a></li>
+        <li><a href="">Lauta</a></li>
+ </ul>
 
 
 
