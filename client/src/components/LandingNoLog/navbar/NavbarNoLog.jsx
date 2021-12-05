@@ -11,7 +11,7 @@ function NavbarNoLog(props) {
         if(alto<200 && alto>=0) setSelected("first")
         else if(alto<950 && alto>200) setSelected("second")
         else if(alto<1300 && alto>950) setSelected("third")
-        else if(alto<2250 && alto>2100) setSelected("team")
+        else if(alto<2800 && alto>1800) setSelected("team")
     },[alto])
     function setState(x){
         setTimeout(()=>{
@@ -54,7 +54,7 @@ function NavbarNoLog(props) {
                         onClick={()=>{
                         if(localStorage.getItem("token")) return history.push("/trueHome")
                         else return history.push("/signin")
-                    }}>ALUMNOS</button>
+                    }}>INGRESAR</button>
                 </div>
               
         </div>

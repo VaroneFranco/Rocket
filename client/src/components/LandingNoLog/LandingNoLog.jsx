@@ -38,7 +38,7 @@ function LandingNoLog() {
                     <p>Nuestra experiencia en Henry nos ha dado a entender que el trabajo en equipo facilita el cumplimiento de objetivos, 
                         incrementa la motivación y la creatividad, y favorece las habilidades sociales de cada uno. 
                         El trabajo en equipo es una capacidad altamente valorada en el mercado laboral, 
-                        y es una de las características más demandadas por las empresas.
+                        y es una de las características más demandadas por las empresas.<br/>
                         Por eso, desarollamos <strong style={{"color":"#fff"}}>Rocket</strong>, con el valor de la cooperacion como eje. 
                         El trabajo en equipo responde a una manera organizada y coordinada de trabajar entre varias personas con la finalidad de alcanzar metas comunes.
                         <br/>
@@ -46,7 +46,7 @@ function LandingNoLog() {
                         <br/>
                         <br/>
 
-                        "el talento gana partidos, pero el trabajo en equipo y la inteligencia gana campeonatos”.
+                        "El talento gana partidos, pero el trabajo en equipo y la inteligencia ganan campeonatos”.
                         <br/>
                             -Michael Jordan</p>
                 </div>

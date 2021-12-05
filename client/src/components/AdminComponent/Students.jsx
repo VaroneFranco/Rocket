@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import s from "./Students.module.css";
 import Student from "./Student/Student";
+import { myDatabaseChat } from '../../config/utilsChatDatabase'
+import { ref, remove} from "firebase/database";
 
 function Students() {
   const { ordenar } = require("../utils");
@@ -16,6 +18,8 @@ function Students() {
   async function shuffleTables() {
     await axios.post("https://rocketproject2021.herokuapp.com/asignTable");
     console.log("mezclando");
+    //borra chats de mesas
+    remove(ref(myDatabaseChat))
   }
   async function getStudents() {
     var res = await axios("https://rocketproject2021.herokuapp.com/getUsersByInstitution", {
