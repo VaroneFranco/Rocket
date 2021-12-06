@@ -53,7 +53,7 @@ const Home = () => {
         <div>
 
 
-        <ChatContain table={`table${params.table}`} name={params.name} img={params.img} />
+        <ChatContain table={`table${params.institution}${params.table}`} name={params.name} img={params.img} />
 
 
         </div>
