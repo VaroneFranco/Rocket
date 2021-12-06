@@ -17,7 +17,7 @@ function Students() {
 
   async function shuffleTables() {
     await axios.post("https://rocketproject2021.herokuapp.com/asignTable");
-    console.log("mezclando");
+    alert("mesas exitosamente asignadas")
     //borra chats de mesas
     remove(ref(myDatabaseChat))
   }
