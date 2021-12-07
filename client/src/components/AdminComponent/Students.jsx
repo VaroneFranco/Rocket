@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import s from "./Students.module.css";
 import Student from "./Student/Student";
+import Details from "./Student/Details/Details";
 import { myDatabaseChat } from '../../config/utilsChatDatabase'
 import { ref, remove} from "firebase/database";
 
@@ -14,7 +15,7 @@ function Students() {
     to: 7,
   });
   var [orderBy, setOrderBy] = useState("a-z");
-
+  var [detailsOpen, setDetailsOpen] = useState(false)
   async function shuffleTables() {
     await axios.post("https://rocketproject2021.herokuapp.com/asignTable");
     alert("mesas exitosamente asignadas")
@@ -104,6 +105,7 @@ function Students() {
                 _id={x._id}
                 score={x.score}
                 reports={x.reports}
+                setDetailsOpen={setDetailsOpen}
               />
             ))}
         <div className={s.pagContainer}>
@@ -154,6 +156,7 @@ function Students() {
           }
         </div>
       </div>
+      {detailsOpen != false && <Details  user={detailsOpen} setDetailsOpen={setDetailsOpen}/>}
     </div>
   );
 }
